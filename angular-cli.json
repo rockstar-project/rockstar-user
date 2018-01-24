@@ -1,0 +1,74 @@
+{
+    "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+    "project": {
+        "name": "pk2-pro-angular"
+    },
+    "apps": [
+        {
+            "root": "src",
+            "outDir": "dist",
+            "assets": [
+                "assets",
+                "favicon.ico"
+            ],
+            "index": "index.html",
+            "main": "main.ts",
+            "polyfills": "polyfills.ts",
+            "test": "test.ts",
+            "tsconfig": "tsconfig.app.json",
+            "testTsconfig": "tsconfig.spec.json",
+            "prefix": "app",
+            "styles": [
+                "../node_modules/bootstrap/dist/css/bootstrap.min.css",
+                "assets/sass/paper-kit.scss",
+                "assets/sass/demo.scss",
+                "../node_modules/font-awesome/css/font-awesome.css",
+                "assets/css/nucleo-icons.css",
+                "../node_modules/pe7-icon/dist/dist/pe-icon-7-stroke.min.css",
+                "../node_modules/devicon-2.2/devicon.css",
+                "../node_modules/devicon-2.2/devicon-colors.css",
+                "../node_modules/swagger-ui-dist/swagger-ui.css"
+            ],
+            "scripts": [
+                "../node_modules/auth0-js/build/auth0.min.js",
+                "../node_modules/ace-builds/src-min/ace.js",
+                "../node_modules/ace-builds/src-min/theme-clouds.js",
+                "../node_modules/ace-builds/src-min/mode-json.js",
+                "../node_modules/web-animations-js/web-animations.min.js"
+            ],
+            "environmentSource": "environments/environment.ts",
+            "environments": {
+              "dev": "environments/environment.ts",
+              "staging": "environments/environment.staging.ts",
+              "prod": "environments/environment.prod.ts"
+            }
+        }
+    ],
+    "e2e": {
+        "protractor": {
+            "config": "./protractor.conf.js"
+        }
+    },
+    "lint": [
+        {
+            "project": "src/tsconfig.app.json"
+        },
+        {
+            "project": "src/tsconfig.spec.json"
+        },
+        {
+            "project": "e2e/tsconfig.e2e.json"
+        }
+    ],
+    "test": {
+        "karma": {
+            "config": "./karma.conf.js"
+        }
+    },
+    "defaults": {
+        "styleExt": "scss",
+        "component": {
+           "inlineTemplate": false,
+           "spec": true
+         }    }
+}

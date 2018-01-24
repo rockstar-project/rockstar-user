@@ -1,0 +1,27 @@
+<footer class="footer footer-black">
+    <div class="container">
+        <div class="row">
+            <nav class="footer-nav">
+                <ul>
+                    <li><a [routerLink]="['/']" placement="top" ngbTooltip="coming soon">Terms of Use</a></li>
+                    <li><a [routerLink]="['/']" placement="top" ngbTooltip="coming soon">Privacy Policy</a></li>
+                </ul>
+            </nav>
+            <div class="credits ml-auto">
+                <span class="copyright">
+                    © {{date | date: 'yyyy'}} Rockstar, Inc. All rights reserved.
+                </span>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!--
+<nav class="navbar fixed-bottom navbar-light bg-light p-4" style="display:flex;">
+    <a [routerLink]="['/']" placement="top" ngbTooltip="coming soon">Terms of Use</a>
+    <a [routerLink]="['/']" placement="top" ngbTooltip="coming soon">Privacy Policy</a>
+    <span class="copyright">
+            © {{date | date: 'yyyy'}} Rockstar, Inc. All rights reserved.
+    </span>
+</nav>
+-->

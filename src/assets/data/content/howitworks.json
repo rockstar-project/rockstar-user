@@ -1,0 +1,21 @@
+{
+    "title": "How It Works",
+    "subtitle": "This is the paragraph where you can write more details about your product.",
+    "contents": [
+        {
+            "title": "Explore Templates",
+            "subtitle": "Choose a template with preferred language & framework",
+            "image": "pe-7s-news-paper"
+        },
+        {
+            "title": "Import Model",
+            "subtitle": "Import domain model design specification",
+            "image": "pe-7s-network"
+        },
+        {
+            "title": "Download Artifact",
+            "subtitle": "Download a production-ready microservice",
+            "image": "pe-7s-cloud-download"
+        }
+    ]
+}

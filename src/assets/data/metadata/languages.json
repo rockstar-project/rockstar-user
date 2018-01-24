@@ -1,0 +1,73 @@
+{
+    "_embedded": {
+        "metadataResourceList": [
+            {
+                "group": "language",
+                "slug": "golang",
+                "title": "Go",
+                "thumbnail": "http://res.cloudinary.com/dzmrr9uj9/image/upload/golang.png",
+                "versions": [
+                    "8",
+                    "9"
+                ],
+                "_links": {
+                    "self": {
+                        "href": "http://localhost/v1/metadata/633f216e-d012-4541-b2eb-e2c636facccf"
+                    }
+                }
+            },
+            {
+                "group": "language",
+                "slug": "java",
+                "title": "Java",
+                "thumbnail": "http://res.cloudinary.com/dzmrr9uj9/image/upload/java.png",
+                "versions": [
+                    "7",
+                    "8",
+                    "9"
+                ],
+                "_links": {
+                    "self": {
+                        "href": "http://localhost/v1/metadata/ba11474a-c5a8-46b9-9cfd-15b862aefc93"
+                    }
+                }
+            },
+            {
+                "group": "language",
+                "slug": "nodejs",
+                "title": "NodeJS",
+                "thumbnail": "http://res.cloudinary.com/dzmrr9uj9/image/upload/nodejs.png",
+                "versions": [
+                    "8.9.3"
+                ],
+                "_links": {
+                    "self": {
+                        "href": "http://localhost/v1/metadata/0e4cb66a-d2f2-4d03-91bc-cd14bddb0713"
+                    }
+                }
+            },
+            {
+                "group": "language",
+                "slug": "python",
+                "title": "Python",
+                "thumbnail": "http://res.cloudinary.com/dzmrr9uj9/image/upload/python.png",
+                "_links": {
+                    "self": {
+                        "href": "http://localhost/v1/metadata/6528f41a-3b68-4de7-95fa-cf827fcb4df8"
+                    }
+                }
+            }
+        ]
+    },
+    "_links": {
+        "self": {
+            "href": "http://localhost/v1/metadata/search?page=0&size=10&sort=group,asc"
+        }
+    },
+    "page": {
+        "size": 10,
+        "totalElements": 4,
+        "totalPages": 1,
+        "number": 0
+    }
+}

@@ -1,0 +1,50 @@
+<!--
+<div class="card card-product card-plain">
+    <div class="card-image">
+        <a  (click)="onSelect(item?._links.self.href)">
+            <img [src]="item?.image" [alt]="item?.title" class="img-raised img-responsive">
+        </a>
+        <div class="card-body">
+            <div class="card-description">
+                <h5 class="card-title">{{item?.title}}</h5>
+               
+            </div>
+        </div>
+    </div>
+</div>
+-->
+
+<a  (click)="onSelect(item?._links.self.href)">
+    <div class="card">
+        <img class="card-img" [src]="item?.image" alt="Card image">
+        <div class="card-img-overlay" style="display:flex;flex-direction:column;flex-wrap:nowrap;justify-content:space-between;align-items:center;align-content:center;">
+            <h6 class="card-category">{{getTitle('architecture')}}</h6>
+            <div style="display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:center;">
+                <div class="avatar" *ngIf="getValue('architecture') === 'restapi'">
+                   <img [src]="getImage('language')" width="100" height="100">
+                </div>
+                <div class="avatar" *ngIf="getValue('architecture') === 'webapp'">
+                        <img [src]="getImage('presentation')" width="100" height="100">
+                     </div>
+                <div class="avatar">
+                     <img [src]="getImage('framework')" width="100" height="100">
+                </div>
+            </div>
+            <p class="text-center">{{item?.title}}</p>
+            <!--
+            <div class="text-center">
+                <a href="#paper-kit" class="btn btn-just-icon btn-outline-default">
+                    <img [src]="getImage('specification')" class="img-responsive">
+                </a>
+                <a href="#paper-kit" class="btn btn-just-icon btn-outline-default ">
+                    <img [src]="getImage('language')" class="img-responsive">
+                </a>
+                <a href="#paper-kit" class="btn btn-just-icon btn-outline-default">
+                    <img [src]="getImage('framework')" class="img-responsive">
+                </a>
+            </div>
+            -->
+        </div>
+        
+    </div>
+</a>

@@ -1,0 +1,42 @@
+<div class="section section-gray p-b-3" style="display:flex;flex-direction:column;flex-wrap:nowrap;justify-content:center;align-items:center;">
+    
+        <div class="m-b-3">
+            <h2 class="title">Discover your favorites</h2>
+        </div>
+        <div class="project-pills my-3">
+            <ngb-tabset type="pills" class="nav nav-pills nav-pills-danger justify-content-center">
+                <ngb-tab title="All categories">
+                    <ng-template ngbTabContent>
+                    </ng-template>
+                </ngb-tab>
+                <ngb-tab title="Marketing">
+                    <ng-template ngbTabContent>
+                    </ng-template>
+                </ngb-tab>
+                <ngb-tab title="Development">
+                    <ng-template ngbTabContent>
+                    </ng-template>
+                </ngb-tab>
+                <ngb-tab title="Productivity">
+                    <ng-template ngbTabContent>
+                    </ng-template>
+                </ngb-tab>
+                <ngb-tab title="Web Design">
+                    <ng-template ngbTabContent>
+                    </ng-template>
+                </ngb-tab>
+            </ngb-tabset>
+        </div>
+        
+        <div class="row" *ngIf="featuredProductResult" style="margin:50px 250px;">
+            <div class="col-md-3" *ngFor="let productitem of featuredProductResult?._embedded?.productInfoResourceList">
+                <product-card [item]="productitem"></product-card>
+            </div>  
+        </div>
+
+        <div style="display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:center;">
+            <button class="btn btn-round btn-outline-danger" id="successBtn" data-toggle="morphing" data-rotation-color="gray" routerLink="/search">Advance Search</button>
+        </div>
+            
+    
+    </div>

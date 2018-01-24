@@ -1,0 +1,219 @@
+{
+    "name": "restapi-java8-springboot159-cassandra",
+    "title": "Bootiful Microservices",
+    "subtitle": "Crafting effective RESTful microservice with Spring boot",
+    "description": "",
+    "image": "http://res.cloudinary.com/dzmrr9uj9/image/upload/cover/97.jpg",
+    "featured": true,
+    "author": "salsiddiqui0@gmail.com",
+    "version": "1.0.0",
+    "status": "active",
+    "visibility": "public",
+    "organization": "rockstar",
+    "created_at": "2018-01-19T02:23:28.000Z",
+    "attributes": [
+        {
+            "name": "framework",
+            "value": "springboot",
+            "title": "Spring boot",
+            "image": "http://res.cloudinary.com/dzmrr9uj9/image/upload/springboot.svg",
+            "version": "1.5.9",
+            "_links": {
+                "self": {
+                    "href": "http://localhost/v1/products/6523a96a-1348-4a25-9ff6-0636679dd389/attributes/e980b624-5265-4f10-a4fc-48b3383d732a"
+                }
+            }
+        },
+        {
+            "name": "language",
+            "value": "java",
+            "title": "Java",
+            "image": "http://res.cloudinary.com/dzmrr9uj9/image/upload/java.png",
+            "version": "8",
+            "_links": {
+                "self": {
+                    "href": "http://localhost/v1/products/6523a96a-1348-4a25-9ff6-0636679dd389/attributes/785238bc-3ab3-4aba-acd3-e203bbf6a109"
+                }
+            }
+        },
+        {
+            "name": "architecture",
+            "value": "restapi",
+            "title": "REST API",
+            "_links": {
+                "self": {
+                    "href": "http://localhost/v1/products/6523a96a-1348-4a25-9ff6-0636679dd389/attributes/f331989d-63e8-4796-958c-d4ae1819c435"
+                }
+            }
+        },
+        {
+            "name": "specification",
+            "value": "openapi",
+            "title": "OpenAPI",
+            "image": "http://res.cloudinary.com/dzmrr9uj9/image/upload/openapi.svg",
+            "version": "3",
+            "_links": {
+                "self": {
+                    "href": "http://localhost/v1/products/6523a96a-1348-4a25-9ff6-0636679dd389/attributes/830fab30-93e0-4c7e-8985-90b0833ae955"
+                }
+            }
+        }
+    ],
+    "options": [
+        {
+            "name": "scm",
+            "value": "github",
+            "title": "GitHub",
+            "image": "http://res.cloudinary.com/dzmrr9uj9/image/upload/github.svg",
+            "tags": [
+                "devops"
+            ],
+            "version": "Hosted",
+            "_links": {
+                "self": {
+                    "href": "http://localhost/v1/products/6523a96a-1348-4a25-9ff6-0636679dd389/options/b56a5bca-61cb-438f-9626-0ec82de323fd"
+                }
+            }
+        },
+        {
+            "name": "build",
+            "value": "maven",
+            "title": "Maven",
+            "image": "http://res.cloudinary.com/dzmrr9uj9/image/upload/maven.png",
+            "tags": [
+                "tools"
+            ],
+            "version": "3.3.9",
+            "_links": {
+                "self": {
+                    "href": "http://localhost/v1/products/6523a96a-1348-4a25-9ff6-0636679dd389/options/443d0ff0-527b-4244-9903-9334d32f28ea"
+                }
+            }
+        },
+        {
+            "name": "cd",
+            "value": "dockercloud",
+            "title": "Docker Cloud",
+            "image": "http://res.cloudinary.com/dzmrr9uj9/image/upload/dockercloud.png",
+            "tags": [
+                "devops"
+            ],
+            "version": "Hosted",
+            "_links": {
+                "self": {
+                    "href": "http://localhost/v1/products/6523a96a-1348-4a25-9ff6-0636679dd389/options/6d7d44c4-7242-4ef5-8e88-c79ad3489e7a"
+                }
+            }
+        },
+        {
+            "name": "messaging",
+            "value": "rabbitmq",
+            "title": "RabbitMQ",
+            "image": "http://res.cloudinary.com/dzmrr9uj9/image/upload/rabbitmq.png",
+            "tags": [
+                "platform"
+            ],
+            "version": "3.7.2",
+            "_links": {
+                "self": {
+                    "href": "http://localhost/v1/products/6523a96a-1348-4a25-9ff6-0636679dd389/options/99ccb398-5e27-4b5a-a7a7-2dda6c69e6a8"
+                }
+            }
+        },
+        {
+            "name": "test",
+            "value": "postman",
+            "title": "Postman",
+            "image": "http://res.cloudinary.com/dzmrr9uj9/image/upload/postman.png",
+            "tags": [
+                "tools"
+            ],
+            "version": "5.5.0",
+            "_links": {
+                "self": {
+                    "href": "http://localhost/v1/products/6523a96a-1348-4a25-9ff6-0636679dd389/options/c9a926df-4db0-44aa-b311-1b5e19127296"
+                }
+            }
+        },
+        {
+            "name": "registry",
+            "value": "dockerhub",
+            "title": "DockerHub",
+            "image": "http://res.cloudinary.com/dzmrr9uj9/image/upload/dockerhub.png",
+            "tags": [
+                "devops"
+            ],
+            "version": "Hosted",
+            "_links": {
+                "self": {
+                    "href": "http://localhost/v1/products/6523a96a-1348-4a25-9ff6-0636679dd389/options/eea09e07-a53d-4695-8b1a-318eae8c6aa2"
+                }
+            }
+        },
+        {
+            "name": "ci",
+            "value": "travis",
+            "title": "Travis CI",
+            "image": "http://res.cloudinary.com/dzmrr9uj9/image/upload/travisci.svg",
+            "tags": [
+                "devops"
+            ],
+            "version": "Hosted",
+            "_links": {
+                "self": {
+                    "href": "http://localhost/v1/products/6523a96a-1348-4a25-9ff6-0636679dd389/options/79938b9e-4790-4902-9380-69354dd302b9"
+                }
+            }
+        },
+        {
+            "name": "discovery",
+            "value": "eureka",
+            "title": "Eureka",
+            "image": "http://res.cloudinary.com/dzmrr9uj9/image/upload/netflix-oss.svg",
+            "tags": [
+                "platform"
+            ],
+            "version": "0.0",
+            "_links": {
+                "self": {
+                    "href": "http://localhost/v1/products/6523a96a-1348-4a25-9ff6-0636679dd389/options/89f3563b-45f5-437f-ba83-b579c198b520"
+                }
+            }
+        },
+        {
+            "name": "http server",
+            "value": "tomcat",
+            "title": "Tomcat",
+            "image": "http://res.cloudinary.com/dzmrr9uj9/image/upload/tomcat.png",
+            "tags": [
+                "platform"
+            ],
+            "version": "8.5.23",
+            "_links": {
+                "self": {
+                    "href": "http://localhost/v1/products/6523a96a-1348-4a25-9ff6-0636679dd389/options/7c57d520-8825-4a26-bce5-7ab92bebbb4c"
+                }
+            }
+        },
+        {
+            "name": "datastore",
+            "value": "cassandra",
+            "title": "Cassandra",
+            "image": "http://res.cloudinary.com/dzmrr9uj9/image/upload/cassandra.png",
+            "tags": [
+                "platform"
+            ],
+            "version": "3.11.1",
+            "_links": {
+                "self": {
+                    "href": "http://localhost/v1/products/6523a96a-1348-4a25-9ff6-0636679dd389/options/51a3fb8b-3955-4067-869a-c76a00bb0538"
+                }
+            }
+        }
+    ],
+    "_links": {
+        "self": {
+            "href": "http://localhost/v1/products/6523a96a-1348-4a25-9ff6-0636679dd389"
+        }
+    }
+}

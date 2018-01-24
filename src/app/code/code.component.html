@@ -1,0 +1,32 @@
+
+<div class="code-navigation">
+    <ngb-accordion #acc="ngbAccordion" activeIds="config-panel-one">
+        <ngb-panel [id]="foler?.name" *ngFor="let folder of folders">
+            <ng-template ngbPanelTitle>
+                <h5 class="mb-0 panel-title">
+                    <a class="collapsed">
+                        {{folder?.name}}
+                        <i class="nc-icon nc-minimal-down"></i>
+                    </a>
+                </h5>
+            </ng-template>
+            <ng-template ngbPanelContent>
+                    <div class="nav-tabs-navigation">
+                        <div class="nav-tabs-wrapper">
+                            <ngb-tabset [justify]="'center'" [orientation]="'vertical'" class="vertical-tabs">
+                                <ngb-tab [title]="file?.name" *ngFor="let file of folder?.files" (click)="viewSourceCode(file?.path)">
+                                    <ng-template ngbTabContent>
+                                        <div class="tab-pane active" id="info">
+                                            <div class="code-content">
+                                                <div ace-editor [text]="content" [mode]="'json'" [theme]="'clouds'" [style.width]="'100%'" [style.height]="'900px'" *ngIf="content"></div>
+                                            </div>
+                                        </div>
+                                    </ng-template>
+                                </ngb-tab>
+                            </ngb-tabset>
+                        </div>
+                    </div>
+            </ng-template>
+        </ngb-panel>
+    </ngb-accordion>
+</div>

@@ -1,0 +1,196 @@
+
+    <div class="section" style="margin:0;padding:0;height:100vh;display:flex;flex-direction:column;flex-wrap:wrap;justify-content:center;align-items:center;">
+        <h1 class="mb-3">{{hero?.title}}</h1>
+        <h3>{{hero?.subtitle}}</h3>
+        <div style="display:flex;flex-direction:row;flex-wrap:nowrap;">
+            <div style="margin:50px;width:33%;display:flex;flex-direction:column;flex-wrap:wrap;" *ngFor="let item of hero?.contents">
+                <img [src]="item?.image" width="96" height="96">
+                        
+                <div class="description text-center">
+                    <h4 class="info-title">{{item?.title}}</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section section-gray" style="margin:0;padding:0;height:100vh;display:flex;flex-direction:column;flex-wrap:wrap;justify-content:center;align-items:center;">
+        <h1 class="mb-3">{{howitworks?.title}}</h1>
+        <h3>{{howitworks?.subtitle}}</h3>
+        <div style="display:flex;flex-direction:row;flex-wrap:nowrap;">
+            <div class="card" style="margin:50px;width:33%;display:flex;flex-direction:column;flex-wrap:wrap;" *ngFor="let item of howitworks?.contents">
+               
+                    <div class="card-body">
+                        <div class="card-icon">
+                            <i [ngClass]="item?.image"></i>
+                        </div>
+                        <div class="text-center">
+                            <h5 class="card-title">{{item?.title}}</h5>
+                            <p class="card-description">{{item?.subtitle}}</p>
+                        </div>
+                    </div>
+               
+            </div>
+        </div>
+    </div>
+
+    <div class="section section-white" style="height:100vh;">
+        <div class="features-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="container">
+                                <h2 class="title">Accelerate cloud adoption</h2>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="info info-horizontal">
+                                    <div class="icon icon-success">
+                                        <i class="nc-icon nc-layout-11"></i>
+                                    </div>
+                                    <div class="description">
+                                        <h4 class="info-title">Build Quickly</h4>
+                                        <p>Learn how the code comes together and packaged.</p>
+                                       
+                                    </div>
+                                </div>
+                                <div class="info info-horizontal">
+                                    <div class="icon icon-warning">
+                                        <i class="nc-icon nc-palette"></i>
+                                    </div>
+                                    <div class="description">
+                                        <h4 class="info-title">Clean Code</h4>
+                                        <p>Turn your business into light-weight clean code using best practices</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="info info-horizontal">
+                                    <div class="icon icon-danger">
+                                        <i class="nc-icon nc-touch-id"></i>
+                                    </div>
+                                    <div class="description">
+                                        <h4 class="info-title">Flexible</h4>
+                                        <p>Choose from a wide range of programming languages and industry-proven frameworks</p>
+                                       
+                                    </div>
+                                </div>
+                                <div class="info info-horizontal">
+                                    <div class="icon icon-primary">
+                                        <i class="nc-icon nc-delivery-fast"></i>
+                                    </div>
+                                    <div class="description">
+                                        <h4 class="info-title">Fast Prototyping</h4>
+                                        <p>Get inspired with large number of technology templates</p>
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="info info-horizontal">
+                                    <div class="icon icon-danger">
+                                        <i class="nc-icon nc-tie-bow"></i>
+                                    </div>
+                                    <div class="description">
+                                        <h4 class="info-title">Flexible</h4>
+                                        <p>Choose from a wide range of programming languages and industry-proven frameworks</p>
+                                       
+                                    </div>
+                                </div>
+                        
+                            </div>
+                            <div class="col-md-6">
+                                <div class="info info-horizontal">
+                                    <div class="icon icon-danger">
+                                        <i class="nc-icon nc-tie-bow"></i>
+                                    </div>
+                                    <div class="description">
+                                        <h4 class="info-title">Flexible</h4>
+                                        <p>Choose from a wide range of programming languages and industry-proven frameworks</p>
+                                       
+                                    </div>
+                                </div>
+                                
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="col-md-5 ml-auto">
+                        <div class="iphone-container">
+                            <img src="assets/img/sections/iphone.png" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="fadeInAnim">
+		<div class="section section-content section-gray">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-7">
+						<div class="image-container">
+							<img class="img" src="./assets/img/presentation-page/iPad-content-2.png"/>
+							<img class="area-img add-animation" src="./assets/img/presentation-page/ipad-left-img.JPG" >
+							<img class="info-img add-animation" src="./assets/img/presentation-page/ipad-right-img.JPG" />
+						</div>
+					</div>
+
+					<div class="col-md-4 ">
+						<div class="section-description">
+							<h3 class="title">Content Areas</h3>
+							<h6 class="category">For Areas that Need More Space</h6>
+							<h5 class="description">We took into consideration multiple use cases and came up with some specific elements for you. If you need elements such as tables, comments, description areas, tabs and many others, we've got you covered. They're beautiful and easy to use for the end user navigating your website. </h5>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+    </div>
+    
+    <div class="section section-icons section-white">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-3">
+					<div class="icons-nucleo">
+						<i class="first-left-icon nc-icon nc-planet add-animation" ></i>
+						<i class="second-left-icon nc-icon nc-touch-id add-animation"></i>
+						<i class="third-left-icon nc-icon nc-lock-circle-open add-animation"></i>
+						<i class="fourth-left-icon nc-icon nc-tap-01 add-animation"></i>
+						<i class="fifth-left-icon nc-icon nc-zoom-split add-animation"></i>
+						<i class="sixth-left-icon nc-icon nc-atom add-animation"></i>
+						<i class="seventh-left-icon nc-icon nc-favourite-28 add-animation"></i>
+						<i class="eighth-left-icon nc-icon nc-settings add-animation"></i>
+						<i class="ninth-left-icon nc-icon nc-bulb-63 add-animation"></i>
+						<i class="tenth-left-icon nc-icon nc-circle-10 add-animation"></i>
+					</div>
+				</div>
+				<div class="col-md-6 text-center">
+	                <h2 class="title revealOnScroll">Custom Icons</h2>
+	                <h5 class="description">
+	                    Paper Kit 2 PRO comes with 100 custom demo icons made by our friends from <a href="https://nucleoapp.com/?ref=1712" target="_blank">NucleoApp</a>. The official package contains over 20.729 icons which are looking great in combination with Paper Kit 2 PRO. Make sure you check all of them and use those that you like the most.
+	                </h5>
+					<br/>
+	                <a [routerLink]="['/nucleoicons']" class="btn btn-primary btn-round btn-lg " target="_blank">View Demo Icons</a>
+	                <a href="https://nucleoapp.com/?ref=1712" class="btn btn-outline-primary btn-round btn-lg " target="_blank">View All Icons</a>
+				</div>
+				<div class="col-md-3">
+					<div class="icons-nucleo">
+						<i class="first-right-icon nc-icon nc-bank add-animation"></i>
+						<i class="second-right-icon nc-icon nc-tag-content add-animation"></i>
+						<i class="third-right-icon nc-icon nc-bell-55 add-animation"></i>
+						<i class="fourth-right-icon nc-icon nc-tv-2 add-animation"></i>
+						<i class="fifth-right-icon nc-icon nc-map-big add-animation"></i>
+						<i class="sixth-right-icon nc-icon nc-badge add-animation"></i>
+						<i class="seventh-right-icon nc-icon nc-simple-add add-animation"></i>
+						<i class="eighth-right-icon nc-icon nc-trophy add-animation"></i>
+						<i class="ninth-right-icon nc-icon nc-hat-3 add-animation"></i>
+						<i class="tenth-right-icon nc-icon nc-key-25 add-animation"></i>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>

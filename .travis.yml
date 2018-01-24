@@ -1,0 +1,27 @@
+language: node_js
+node_js:
+  - "6.9"
+
+branches:
+  only:
+    - master
+
+before_script:
+  - npm install -g @angular/cli
+
+script:
+  - ng build --environment staging
+
+after_success:
+  - docker build -t $DOCKER_NAMESPACE/codefly-app .
+  - docker login --username $DOCKER_USER --password $DOCKER_PASSWORD
+  - docker push $DOCKER_NAMESPACE/codefly-app
+
+deploy:
+  provider: s3
+  access_key_id: $AWS_ACCESS_KEY_ID
+  secret_access_key: $AWS_SECRET_ACCESS_KEY
+  bucket: "codefly-staging"
+  skip_cleanup: true
+  region: us-west-1
+  local_dir: dist

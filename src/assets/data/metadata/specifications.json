@@ -1,0 +1,59 @@
+{
+    "_embedded": {
+        "metadataResourceList": [
+            {
+                "group": "specification",
+                "slug": "openapi",
+                "title": "Open API",
+                "thumbnail": "http://res.cloudinary.com/dzmrr9uj9/image/upload/openapi3.png",
+                "versions": [
+                    "3"
+                ],
+                "_links": {
+                    "self": {
+                        "href": "http://localhost/v1/metadata/5a62cd1ef264de0001715574"
+                    }
+                }
+            },
+            {
+                "group": "specification",
+                "slug": "raml",
+                "title": "RAML",
+                "thumbnail": "http://res.cloudinary.com/dzmrr9uj9/image/upload/raml.png",
+                "versions": [
+                    "1.0"
+                ],
+                "_links": {
+                    "self": {
+                        "href": "http://localhost/v1/metadata/5a62d8cdf264de00017518f3"
+                    }
+                }
+            },
+            {
+                "group": "specification",
+                "slug": "swagger",
+                "title": "Swagger",
+                "thumbnail": "http://res.cloudinary.com/dzmrr9uj9/image/upload/swagger.png",
+                "versions": [
+                    "2"
+                ],
+                "_links": {
+                    "self": {
+                        "href": "http://localhost/v1/metadata/5a62ce33f264de0001715575"
+                    }
+                }
+            }
+        ]
+    },
+    "_links": {
+        "self": {
+            "href": "http://localhost/v1/metadata/search?page=0&size=10&sort=group,asc"
+        }
+    },
+    "page": {
+        "size": 10,
+        "totalElements": 3,
+        "totalPages":  1,
+        "number": 0
+    }
+}

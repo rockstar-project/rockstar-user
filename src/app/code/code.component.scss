@@ -1,0 +1,21 @@
+:host {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+    background: white;
+}
+
+.code-navigation {
+    width: 20%;
+    height: 100%;
+    display: block;
+}
+
+.code-content {
+    width: 80%;
+    height: 100%;
+    display: block;
+}

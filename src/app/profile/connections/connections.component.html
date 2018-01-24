@@ -1,0 +1,47 @@
+<div class="row following" id="follows">
+        <div class="col-md-6 ml-auto mr-auto">
+            <ul class="list-unstyled follows">
+                <li>
+                    <div class="row">
+                        <div class="col-md-2 col-3">
+                            <img src="http://res.cloudinary.com/dzmrr9uj9/image/upload/v1514344107/github.svg" alt="GitHub" class="img-thumbnail img-responsive" width="75" height="75">
+                        </div>
+                        <div class="col-md-7 col-4">
+                            <h6>GitHub<br/><small>info placeholder</small></h6>
+                        </div>
+                        <div class="col-md-3 col-2">
+                            <div class="unfollow" >
+                                    <bSwitch
+                                    [switch-on-color]="'info'"
+                                    [switch-off-color]="'info'"
+                                    [(ngModel)]="connections"
+                                    name="github">
+                                </bSwitch>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <hr />
+                <li>
+                    <div class="row">
+                        <div class="col-md-2 col-3">
+                            <img src="http://res.cloudinary.com/dzmrr9uj9/image/upload/v1514344062/bitbucket.svg" alt="BitBucket" class="img-thumbnail img-responsive" width="75" height="75">
+                        </div>
+                        <div class="col-md-7 col-4">
+                            <h6>BitBucket<br /><small>info placeholder</small></h6>
+                        </div>
+                        <div class="col-md-3 col-2">
+                            <div class="unfollow" >
+                                    <bSwitch
+                                    [switch-on-color]="'info'"
+                                    [switch-off-color]="'info'"
+                                    [(ngModel)]="connections"
+                                    name="bitbucket">
+                                </bSwitch>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>

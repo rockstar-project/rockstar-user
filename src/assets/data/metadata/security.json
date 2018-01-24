@@ -1,0 +1,56 @@
+{
+    "_embedded": {
+        "metadataResourceList": [
+            {
+                "group": "security",
+                "slug": "w3id",
+                "title": "IBM W3ID",
+                "thumbnail": "http://res.cloudinary.com/dzmrr9uj9/image/upload/w3id.png",
+                "_links": {
+                    "self": {
+                        "href": "http://localhost/v1/metadata/63817a7e-6240-45d1-b505-3e0f99018aaa"
+                    }
+                }
+            },
+            {
+                "group": "security",
+                "slug": "okta",
+                "title": "Okta",
+                "thumbnail": "http://res.cloudinary.com/dzmrr9uj9/image/upload/okta.svg",
+                "versions": [
+                    "Hosted"
+                ],
+                "_links": {
+                    "self": {
+                        "href": "http://localhost/v1/metadata/ec7a726e-97d8-49c9-8159-971372015615"
+                    }
+                }
+            },
+            {
+                "group": "security",
+                "slug": "auth0",
+                "title": "Auth0",
+                "thumbnail": "http://res.cloudinary.com/dzmrr9uj9/image/upload/auth0.png",
+                "versions": [
+                    "Hosted"
+                ],
+                "_links": {
+                    "self": {
+                        "href": "http://localhost/v1/metadata/30a666ee-5b39-41ab-8a8e-2ff561286649"
+                    }
+                }
+            }
+        ]
+    },
+    "_links": {
+        "self": {
+            "href": "http://localhost/v1/metadata/search?page=0&size=10&sort=group,asc"
+        }
+    },
+    "page": {
+        "size": 10,
+        "totalElements": 3,
+        "totalPages": 1,
+        "number": 0
+    }
+}
