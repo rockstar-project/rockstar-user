@@ -24,6 +24,7 @@
     "@angular/router": "4.4.6",
     "@ng-bootstrap/ng-bootstrap": "1.0.0-beta.5",
     "@types/jszip": "^3.1.2",
+    "angular-tree-component": "^7.0.1",
     "angular2-multiselect-dropdown": "2.1.2",
     "auth0-js": "^9.0.0",
     "bootstrap": "4.0.0-beta",
@@ -37,7 +38,6 @@
     "ng2-ace-editor": "^0.3.1",
     "ng2-nouislider": "1.6.1",
     "ng2-parallax": "^1.0.0",
-    "ng2-scroll-to-el": "^1.2.1",
     "ngx-chips": "1.5.9",
     "ngx-gallery": "3.1.4",
     "nouislider": "9.2.0",
@@ -46,6 +46,7 @@
     "rxjs": "5.5.2",
     "swagger-ui-dist": "^3.9.1",
     "web-animations-js": "^2.3.1",
+    "roboto-fontface": "0.8.0",
     "zone.js": "0.8.4"
   },
   "devDependencies": {

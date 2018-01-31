@@ -2,11 +2,11 @@ import {AfterViewInit, Component, ElementRef} from '@angular/core';
 import {SwaggerUIBundle, SwaggerUIStandalonePreset} from 'swagger-ui-dist';
 
 @Component({
-  selector: 'app-swagger',
-  templateUrl: './swagger.component.html',
-  styleUrls: ['./swagger.component.scss']
+  selector: 'app-design',
+  templateUrl: './design.component.html',
+  styleUrls: ['./design.component.scss']
 })
-export class SwaggerComponent implements AfterViewInit {
+export class DesignComponent implements AfterViewInit {
 
   constructor(private el: ElementRef) {
   }

@@ -93,7 +93,7 @@
 .cover-body {
     display: flex;
     height: 85%;
-    margin: 100px 0;
+    margin: 50px 0;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content:center;
@@ -123,4 +123,8 @@
     flex-direction:row;
     flex-wrap:wrap;
     flex-wrap: wrap;
+}
+
+.nav-tabs-navigation {
+    text-align: left;
 }

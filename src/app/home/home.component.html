@@ -1,9 +1,9 @@
 
     <div class="section" style="margin:0;padding:0;height:100vh;display:flex;flex-direction:column;flex-wrap:wrap;justify-content:center;align-items:center;">
-        <h1 class="mb-3">{{hero?.title}}</h1>
-        <h3>{{hero?.subtitle}}</h3>
-        <div style="display:flex;flex-direction:row;flex-wrap:nowrap;">
-            <div style="margin:50px;width:33%;display:flex;flex-direction:column;flex-wrap:wrap;" *ngFor="let item of hero?.contents">
+        <h1>{{hero?.title}}</h1>
+        <h3 class="m-3">{{hero?.subtitle}}</h3>
+        <div style="display:flex;flex-direction:row;flex-wrap:wrap;">
+            <div class="m-4 p-4" style="display:flex;flex-direction:column;flex-wrap:wrap;" *ngFor="let item of hero?.contents">
                 <img [src]="item?.image" width="96" height="96">
                         
                 <div class="description text-center">
@@ -17,7 +17,7 @@
         <h1 class="mb-3">{{howitworks?.title}}</h1>
         <h3>{{howitworks?.subtitle}}</h3>
         <div style="display:flex;flex-direction:row;flex-wrap:nowrap;">
-            <div class="card" style="margin:50px;width:33%;display:flex;flex-direction:column;flex-wrap:wrap;" *ngFor="let item of howitworks?.contents">
+            <div class="card" style="margin:50px;display:flex;flex-direction:column;flex-wrap:wrap;" *ngFor="let item of howitworks?.contents">
                
                     <div class="card-body">
                         <div class="card-icon">
@@ -194,3 +194,6 @@
 			</div>
 		</div>
 	</div>
+
+
+<app-footer></app-footer>

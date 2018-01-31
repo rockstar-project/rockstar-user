@@ -7,7 +7,7 @@ export const AUTH_CONFIG = {
   clientID: '8fGEyRsBmUNp7BfEjaV3nfpw5pAl4dU2',
   domain: 'rockstar.auth0.com',
   redirect: 'http://localhost:4200/explore',
-  scope: 'openid profile email search:products read:products search:metadata read:metadata download:artifacts create:artifacts',
+  scope: 'openid profile email search:products read:products search:metadata read:metadata download:artifacts create:artifacts search:collections read:collections create:collections update:collections delete:collections',
   audience: 'https://api.rock-star.io/'
 };
 

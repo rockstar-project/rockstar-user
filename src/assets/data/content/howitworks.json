@@ -1,10 +1,10 @@
 {
     "title": "How It Works",
-    "subtitle": "This is the paragraph where you can write more details about your product.",
+    "subtitle": "It just takes a few seconds to develop a Microservice",
     "contents": [
         {
-            "title": "Explore Templates",
-            "subtitle": "Choose a template with preferred language & framework",
+            "title": "Choose Template",
+            "subtitle": "Find your favorite from a growing list of technology templates",
             "image": "pe-7s-news-paper"
         },
         {
@@ -14,7 +14,7 @@
         },
         {
             "title": "Download Artifact",
-            "subtitle": "Download a production-ready microservice",
+            "subtitle": "Download a production-ready microservice code",
             "image": "pe-7s-cloud-download"
         }
     ]

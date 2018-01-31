@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Location } from '@angular/common';
+import { NgbTabChangeEvent } from '@ng-bootstrap/ng-bootstrap';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService, ProductDetails } from '../shared';
 import { MetadataService, Metadata, Option } from '../shared';
@@ -66,32 +67,40 @@ export class ProductPageComponent implements OnInit {
         this.location.back();
     }
 
+    onTabClicked($event: NgbTabChangeEvent) {
+        
+        if ($event.nextId === 'code') {
+            this.generateCode();
+        }  
+    }
+
     generateCode() {
         console.log("generating code...");
-        const language = this.productDetails.getAttribute('language');
-        const framework = this.productDetails.getAttribute('framework');
+        const language = this.getValue('language');
+        const framework = this.getValue('framework');
 
         if (language && framework) {
-            this.generatorService.generateCode(this.schema, this.toFrameworkName(language.value, framework.value))
-            .subscribe(resultset => {
-                return this.generatorService.downloadCode(resultset)
-                .subscribe((data: Blob) => {
-                    const zipfile = new JSZip();
-                    zipfile.loadAsync(data).then(
-                    zip => {
-                        this.files = new Map<string, string>();
-                        for (const filepath of Object.keys(zip.files)) {
-                        zip.file(filepath).async('text')
-                            .then(
-                                fileData => {
-                                this.files.set(filepath, fileData);
-                                }
-                            );
-                        }
-                    });
-                }
-                );
-            });
+            this.generatorService.generateCode(this.schema, this.toFrameworkName(language, framework))
+                .subscribe(resultset => {
+                    return this.generatorService.downloadCode(resultset)
+                    .subscribe((data: Blob) => {
+                        const zipfile = new JSZip();
+                        zipfile.loadAsync(data).then(
+                        zip => {
+                            this.files = new Map<string, string>();
+                            for (const filepath of Object.keys(zip.files)) {
+                            zip.file(filepath).async('text')
+                                .then(
+                                    fileData => {
+                                        console.log(filepath);
+                                        this.files.set(filepath, fileData);
+                                    }
+                                );
+                            }
+                        });
+                    }
+                    );
+                });
         }
       }
     
@@ -135,6 +144,25 @@ export class ProductPageComponent implements OnInit {
         }
         return name;
       }
+
+    getAttribute(name: string) {
+        if (this.productDetails) {
+            for (let current of this.productDetails.attributes) {
+                if (current.name === name) {
+                    return current;
+                }
+            }
+        }
+    }
+
+    getValue(name: string) {
+        let value = null;
+        const attribute = this.getAttribute(name);
+        if (attribute) {
+            value = attribute.value;
+        }
+        return value;
+    }
 
     getTitle(name: string) {
         if (this.productDetails) {

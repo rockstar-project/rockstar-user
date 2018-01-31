@@ -19,6 +19,7 @@
             <h4>Features &amp; Capabilities</h4>
         </div>
         
+        
         <ngb-accordion class="content-left-body" #acc="ngbAccordion" [closeOthers]="'true'">
             <ngb-panel [id]="category?.slug" *ngFor="let category of categories">
                 <ng-template ngbPanelTitle>
@@ -43,8 +44,9 @@
     <div class="content-right section section-white">
         <div class="nav-tabs-navigation">
             <div class="nav-tabs-wrapper">
-                <ngb-tabset [justify]="'center'">
-                    <ngb-tab title="Overview">
+            
+                <ngb-tabset [justify]="'justified'" (tabChange)="onTabClicked($event)">
+                    <ngb-tab id="overview" title="Overview">
                         <ng-template ngbTabContent>
                             <div class="cover tab-pane active" id="overview" role="tabpanel">
                                 
@@ -69,17 +71,18 @@
                             </div>
                         </ng-template>
                     </ngb-tab>
-                    <ngb-tab title="Specification">
+                    <ngb-tab id="design" title="Specification">
                         <ng-template ngbTabContent>
-                            <app-swagger></app-swagger>
+                            <app-design></app-design>
                         </ng-template>
                     </ngb-tab>
-                    <ngb-tab title="Code" (click)="generateCode()">
+                    <ngb-tab id="code" title="Code">
                         <ng-template ngbTabContent>
                             <app-code [sourcecode]="files"></app-code>
                         </ng-template>
                     </ngb-tab>
                 </ngb-tabset>
+        
             </div>
         </div>
     </div>

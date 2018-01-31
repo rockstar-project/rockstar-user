@@ -1,5 +1,6 @@
 import { ViewChild, HostBinding, Component, Input, OnInit } from '@angular/core';
 import { trigger, group, sequence, transition, state, style, animate, query, stagger, animateChild } from '@angular/animations';
+import { Observable } from 'rxjs/Observable';
 
 class File {
     name: string;
@@ -8,6 +9,7 @@ class File {
 
 class Folder {
     name: string;
+    folders: Folder[] = [];
     files: File[] = [];
 }
 
@@ -20,6 +22,102 @@ export class CodeComponent implements OnInit {
 
   @Input()
   sourcecode: Map<string, string>;
+
+  nodes = [
+    {
+      "name": "src",
+      "children": [
+        {
+          "name": "main",
+          "children": [
+            {
+              "name": "java",
+              "children": [
+                {
+                  "name": "com",
+                  "children": [
+                    {
+                      "name": "rockstar",
+                      "children": [
+                        {
+                          "name": "api",
+                          "children": [
+                            {
+                              "name": "web",
+                              "children": [
+                                {
+                                  "name": "UserController.java"
+                                },
+                                {
+                                  "name": "UserResource.java"
+                                },
+                                {
+                                  "name": "UserResourceAssembler.java"
+                                },
+                                {
+                                  "name": "ErrorHandler.java"
+                                }
+                              ]
+                            },
+                            {
+                              "name": "service",
+                              "children": [
+                                {
+                                  "name": "UserService.java"
+                                },
+                                {
+                                  "name": "UserServiceImpl.java"
+                                },
+                                {
+                                  "name": "UserNotFoundException.java"
+                                },
+                                {
+                                  "name": "UserNotUniqueException.java"
+                                }
+                              ]
+                            },
+                            {
+                              "name": "domain",
+                              "children": [
+                                {
+                                  "name": "User.java"
+                                },
+                                {
+                                  "name": "Role.java"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "resources",
+              "children": [
+                {
+                  "name": "application.yml"
+                },
+                {
+                  "name": "bootstrap.yml"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pom.xml"
+    },
+    {
+      "name": "README.md"
+    }
+  ];
+  options = {};
 
   content: string;
   folders: Folder[] = [];
@@ -51,6 +149,7 @@ export class CodeComponent implements OnInit {
             file.name = filename;
             file.path = current;
             const folder = this.folders.find(f => f.name === foldername);
+            console.log("pushing file " + file.name + " path: " + file.path);
             folder.files.push(file);
         }
     }

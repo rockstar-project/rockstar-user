@@ -1,7 +1,8 @@
 
+<!--
 <div class="code-navigation">
-    <ngb-accordion #acc="ngbAccordion" activeIds="config-panel-one">
-        <ngb-panel [id]="foler?.name" *ngFor="let folder of folders">
+    <ngb-accordion #acc="ngbAccordion">
+        <ngb-panel [id]="folder?.name" *ngFor="let folder of folders">
             <ng-template ngbPanelTitle>
                 <h5 class="mb-0 panel-title">
                     <a class="collapsed">
@@ -30,3 +31,6 @@
         </ngb-panel>
     </ngb-accordion>
 </div>
+-->
+
+<tree-root [nodes]="nodes" [options]="options"></tree-root>
