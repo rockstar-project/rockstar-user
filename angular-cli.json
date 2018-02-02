@@ -20,7 +20,6 @@
             "prefix": "app",
             "styles": [
                 "../node_modules/bootstrap/dist/css/bootstrap.min.css",
-                "../node_modules/roboto-fontface/css/roboto/roboto-fontface.css",
                 "../node_modules/angular-tree-component/dist/angular-tree-component.css",
                 "assets/sass/paper-kit.scss",
                 "assets/sass/demo.scss",
@@ -35,7 +34,14 @@
                 "../node_modules/auth0-js/build/auth0.min.js",
                 "../node_modules/ace-builds/src-min/ace.js",
                 "../node_modules/ace-builds/src-min/theme-clouds.js",
+                "../node_modules/ace-builds/src-min/theme-eclipse.js",
                 "../node_modules/ace-builds/src-min/mode-json.js",
+                "../node_modules/ace-builds/src-min/mode-java.js",
+                "../node_modules/ace-builds/src-min/mode-javascript.js",
+                "../node_modules/ace-builds/src-min/mode-markdown.js",
+                "../node_modules/ace-builds/src-min/mode-xml.js",
+                "../node_modules/ace-builds/src-min/mode-properties.js",
+                "../node_modules/ace-builds/src-min/mode-yaml.js",
                 "../node_modules/web-animations-js/web-animations.min.js"
             ],
             "environmentSource": "environments/environment.ts",

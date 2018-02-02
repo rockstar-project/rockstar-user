@@ -1,1 +1,1 @@
-export * from './generator.service';
+export * from './artifact.service';

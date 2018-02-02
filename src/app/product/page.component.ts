@@ -4,9 +4,10 @@ import { NgbTabChangeEvent } from '@ng-bootstrap/ng-bootstrap';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService, ProductDetails } from '../shared';
 import { MetadataService, Metadata, Option } from '../shared';
-import { GeneratorService } from '../shared/';
+import { ArtifactService, Artifact } from '../shared/';
 import { saveAs as importedSaveAs } from 'file-saver';
 import * as JSZip from 'jszip';
+import { Folder, File } from '../shared';
 
 @Component({
   selector: 'app-product-page',
@@ -17,8 +18,8 @@ export class ProductPageComponent implements OnInit {
 
     productDetails: ProductDetails;
     categories: Metadata[];
-    schema = 'http://petstore.swagger.io/v2/swagger.json';
-    schemaname = 'petstore';
+    schema = 'https://api.swaggerhub.com/apis/kickster/storage/1.0.0/swagger.json';
+    schemaname = 'storage';
     codeurl: string;
     schemaContent: string;
     loading = false;
@@ -29,7 +30,7 @@ export class ProductPageComponent implements OnInit {
         private route: ActivatedRoute, 
         private productService: ProductService,
         private metadataService: MetadataService,
-        private generatorService: GeneratorService,
+        private artifactService: ArtifactService,
         private location: Location) {
     }
 
@@ -70,47 +71,52 @@ export class ProductPageComponent implements OnInit {
     onTabClicked($event: NgbTabChangeEvent) {
         
         if ($event.nextId === 'code') {
-            this.generateCode();
+            this.generateArtifact();
         }  
     }
 
-    generateCode() {
-        console.log("generating code...");
-        const language = this.getValue('language');
-        const framework = this.getValue('framework');
+    generateArtifact() {
+        const artifact = new Artifact();
+        artifact.namespace = 'storage';
+        artifact.organization = 'gravitant';
+        artifact.type = this.getValue('architecture');
+        artifact.framework = this.getValue('framework');
+        artifact.language = this.getValue('language');
+        artifact.specification = this.schema;
+        artifact.options = new Map<string, string>();
+        artifact.options.set('datastore', 'mysql');
+        artifact.options.set('discovery', 'eureka');
+        artifact.options.set('ci', 'travis');
+        artifact.options.set('registry', 'docker');
 
-        if (language && framework) {
-            this.generatorService.generateCode(this.schema, this.toFrameworkName(language, framework))
+        this.artifactService.createArtifact(artifact)
                 .subscribe(resultset => {
-                    return this.generatorService.downloadCode(resultset)
-                    .subscribe((data: Blob) => {
-                        const zipfile = new JSZip();
-                        zipfile.loadAsync(data).then(
-                        zip => {
-                            this.files = new Map<string, string>();
-                            for (const filepath of Object.keys(zip.files)) {
-                            zip.file(filepath).async('text')
-                                .then(
-                                    fileData => {
-                                        console.log(filepath);
-                                        this.files.set(filepath, fileData);
-                                    }
-                                );
-                            }
+                    this.artifactService.downloadArtifact(resultset)
+                        .subscribe((data: Blob) => {
+                            const zipfile = new JSZip();
+                            zipfile.loadAsync(data).then(
+                            zip => {
+                                this.files = new Map<string, string>();
+                                for (const filepath of Object.keys(zip.files)) {
+                                zip.file(filepath).async('text')
+                                    .then(
+                                        fileData => {
+                                            this.files.set(filepath, fileData);
+                                        }
+                                    );
+                                }
+                            });
                         });
-                    }
-                    );
-                });
-        }
-      }
+                })
+    }
     
     downloadAndSave() {
-        this.generatorService.downloadCode(this.codeurl)
+        this.artifactService.downloadArtifact(this.codeurl)
           .subscribe(data => importedSaveAs(data, this.getZipfilename()));
     }
     
     validateSchema() {
-        this.generatorService.validateSchema(this.schema)
+        this.artifactService.validateSchema(this.schema)
             .subscribe(resultset => {
               console.log('response: ' + resultset);
             });
@@ -118,33 +124,16 @@ export class ProductPageComponent implements OnInit {
     
     getZipfilename() {
         var zipfilename;
-        const language = this.productDetails.getAttribute('language');
-        const framework = this.productDetails.getAttribute('framework');
+        const architecture = this.getValue('architecture');
+        const language = this.getValue('language');
+        const framework = this.getValue('framework');
 
-        if (language && framework) {
-            zipfilename = language.value + '-' + framework.value + '-' + this.schemaname + '.zip';
+        if (architecture && language && framework) {
+            zipfilename = architecture + '-' + language + '-' + framework + '-' + this.schemaname + '.zip';
         }
         return zipfilename;
     }
     
-      toFrameworkName(language: string, framework: string) {
-        let name: string;
-        if (language && framework) {
-          if (language === 'java' && framework === 'springboot') {
-            name = 'spring';
-          } else if (language === 'golang') {
-            name = 'go-server';
-          } else if (language === 'nodejs') {
-            name = 'nodejs-server';
-          } else if (language === 'python' && framework === 'flask') {
-            name = 'python-flask';
-          } else if (language === 'csharp') {
-            name = 'aspnetcore';
-          }
-        }
-        return name;
-      }
-
     getAttribute(name: string) {
         if (this.productDetails) {
             for (let current of this.productDetails.attributes) {

@@ -7,7 +7,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
-import { TreeModule } from 'angular-tree-component';
 import { AppRoutingModule } from './app.routing';
 import { JWBootstrapSwitchModule } from 'jw-bootstrap-switch-ng2';
 import { Parallax, ParallaxConfig } from 'ng2-parallax/commonjs';
@@ -39,7 +38,7 @@ import {
     MetadataService,
     AuthService,
     ContentService,
-    GeneratorService
+    ArtifactService
 } from './shared';
 
 @NgModule({
@@ -68,7 +67,6 @@ import {
         HttpClientModule,
         FormsModule,
         RouterModule,
-        TreeModule,
         AppRoutingModule,
         JWBootstrapSwitchModule,
         TagInputModule,
@@ -81,7 +79,7 @@ import {
         AuthGuard,
         ProductService,
         AuthService,
-        GeneratorService,
+        ArtifactService,
         ContentService,
         ProductsResolver,
         MetadataService

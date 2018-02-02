@@ -3,41 +3,37 @@ import { Http, Headers, Response, RequestOptions, ResponseContentType } from '@a
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
-import 'rxjs/Rx' ;
+import { environment } from '../../../../environments/environment';
+import { Artifact } from '../models/artifact.model';
 
 @Injectable()
-export class GeneratorService {
-
-  private generatorProviderUrl = 'http://generator.swagger.io/api';
+export class ArtifactService {
 
   constructor(private http: Http) {}
 
-  generateCode(url: string, framework: string) {
+  createArtifact(artifact: Artifact) {
     const headers = new Headers();
     headers.append('Accept', 'application/json');
     headers.append('Content-Type', 'application/json');
-    const options = new RequestOptions({ headers: headers });
-    const input = <any> {
-      swaggerUrl: url,
-      options: {
-        packageName: ''
-      }
-    };
+    headers.append('Authorization', `Bearer ${localStorage.getItem('access_token')}`);
 
-    return this.http.post(this.generatorProviderUrl + '/gen/servers/' + framework, input, options)
-      .map(this.extractData)
-      .catch(this.handleError);
+    const options = new RequestOptions({ headers: headers });
+
+    return this.http.post(`${environment.api_url}/artifacts`, artifact, options)
+            .map(res => res.headers.get('Location'))
+            .catch(this.handleError);
   }
 
-  downloadCode(url: string): Observable<Blob> {
+  downloadArtifact(url: string): Observable<Blob> {
     console.log('url: ' + url);
     const headers = new Headers();
-    headers.append('accept', 'application/octet-stream');
+    headers.append('accept', 'application/zip');
+    headers.append('Authorization', `Bearer ${localStorage.getItem('access_token')}`);
 
     const options = new RequestOptions({ headers: headers, responseType: ResponseContentType.ArrayBuffer });
 
     return this.http.get(url, options)
-              .map(res => new Blob([res['_body']], { type: 'application/octet-stream' }))
+              .map(res => new Blob([res['_body']], { type: 'application/zip' }))
               .catch(this.handleError);
   }
 

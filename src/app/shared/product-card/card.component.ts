@@ -11,7 +11,6 @@ export class ProductCardComponent  {
 
     @Input()
     item: ProductInfo;
-
     @Output()
     select = new EventEmitter<String>();
 

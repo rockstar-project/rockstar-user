@@ -14,7 +14,7 @@ export class DesignComponent implements AfterViewInit {
   ngAfterViewInit() {
     const ui = SwaggerUIBundle({
       url: "https://api.swaggerhub.com/apis/kickster/storage/1.0.0/swagger.json",
-      dom_id: '.swagger-container',
+      domNode: this.el.nativeElement.querySelector('.swagger-container'),
       deepLinking: true
     })
   }

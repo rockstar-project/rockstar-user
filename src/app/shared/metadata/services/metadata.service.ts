@@ -12,7 +12,7 @@ export class MetadataService {
 
   getAll(): Observable<Array<Metadata>> {
     return this.httpClient
-      .get<MetadataResultSet>(`${environment.api_url}/metadata`, { 
+      .get<MetadataResultSet>(`${environment.api_url}/metadata/search`, { 
         headers: new HttpHeaders()
           .set('Accept', 'application/json')
           .set('Content-Type', 'application/json')

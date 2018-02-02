@@ -1,25 +1,31 @@
-@import '~angular-tree-component/dist/angular-tree-component.css';
-
-/*
 :host {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     overflow: hidden;
     width: 100%;
-    height: 100vh;
+    height: 75vh;
     background: white;
 }
 
-.code-navigation {
-    width: 20%;
+.sidebar {
+    position: relative;
+    width: 25%;
     height: 100%;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    overflow: auto;
+    margin: 0 5px;
+    border: 1px solid #eeeeee;
 }
 
-.code-content {
-    width: 80%;
-    height: 100%;
+.content {
+    width: 75%;
+    min-height: 600px;
     display: block;
+    overflow: auto;
+    border: 1px solid #eeeeee;
+    margin: 0 5px;
+    padding: 5px 10px;
 }
-*/
