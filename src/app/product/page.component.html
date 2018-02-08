@@ -33,7 +33,7 @@
         <div class="nav-tabs-navigation">
             <div class="nav-tabs-wrapper">
             
-                <ngb-tabset [justify]="'justified'" (tabChange)="onTabClicked($event)">
+                <ngb-tabset [justify]="'justified'">
                     <ngb-tab id="overview" title="Overview">
                         <ng-template ngbTabContent>
                             <div class="cover tab-pane active" id="overview" role="tabpanel">
@@ -67,7 +67,7 @@
                     </ngb-tab>
                     <ngb-tab id="code" title="Code">
                         <ng-template ngbTabContent>
-                            <app-code [sourcecode]="files"></app-code>
+                            <app-code [productDetails]="productDetails"></app-code>
                         </ng-template>
                     </ngb-tab>
                 </ngb-tabset>

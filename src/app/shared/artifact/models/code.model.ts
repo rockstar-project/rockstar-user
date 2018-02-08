@@ -1,6 +1,6 @@
 export class Folder {
     name: string;
-    files: File[] = [];
+    files: File[] = new Array<File>();
 }
 
 export class File {

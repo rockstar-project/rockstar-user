@@ -25,7 +25,6 @@ export class ArtifactService {
   }
 
   downloadArtifact(url: string): Observable<Blob> {
-    console.log('url: ' + url);
     const headers = new Headers();
     headers.append('accept', 'application/zip');
     headers.append('Authorization', `Bearer ${localStorage.getItem('access_token')}`);

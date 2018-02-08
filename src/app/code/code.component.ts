@@ -1,6 +1,10 @@
 import { ViewChild, HostBinding, Component, Input, OnInit } from '@angular/core';
 import { trigger, group, sequence, transition, state, style, animate, query, stagger, animateChild } from '@angular/animations';
 import { Observable } from 'rxjs/Observable';
+import { ProductDetails } from '../shared';
+import { ArtifactService, Artifact, Specification, SelectedValue } from '../shared/';
+import { saveAs as importedSaveAs } from 'file-saver';
+import * as JSZip from 'jszip';
 import { Folder, File } from '../shared';
 
 @Component({
@@ -11,80 +15,283 @@ import { Folder, File } from '../shared';
 export class CodeComponent implements OnInit {
 
   @Input()
-  sourcecode: Map<string, string>;
+  productDetails: ProductDetails;
+
+  schema = 'https://api.swaggerhub.com/apis/kickster/storage/1.0.0/swagger.json';
+  schemaname = 'storage';
+  codeurl: string;
 
   selectedfile: File;
-  files: File[] = [];
-  folders: Folder[] = [];
+  files: File[] = new Array<File>();
+  folders: Folder[] = new Array<Folder>();
+  
   options:any = { 
       showGutter: false,
       showPrintMargin: false,
       highlightActiveLine: false
   };
 
-  constructor() {
+  constructor(private artifactService: ArtifactService) {
   }
 
   ngOnInit() {
-      let tokens: Array<string>;
-
-      if (this.sourcecode) {
-        for (const current of  Array.from(this.sourcecode.keys())) {
-            if (current.indexOf('/') > 0) { 
-                tokens = current.split('/');
-                if (tokens && tokens.length > 0) {
-                    const foldername = tokens[tokens.length - 2];
-                    if (this.folders.findIndex(f => f.name === foldername) === -1) {
-                        const folder = new Folder();
-                        folder.name = foldername;
-                        this.folders.push(folder);
-                    }
-                } 
-            } else {
-                console.log(current);
-                let fileext: string;
-                tokens = current.split('.');
-                if (tokens && tokens.length > 0) {
-                    fileext = tokens[1];
-                }
-                const file = new File();
-                file.name = current;
-                file.path = current;
-                file.ext = toAceFileExt(fileext);
-                file.content = this.sourcecode.get(current);
-                this.files.push(file);
-            }
-        }
-
-        for (const current of  Array.from(this.sourcecode.keys())) {
-            if (current.indexOf('/') > 0) { 
-                const file = new File();
-                let fileext = null;
-                let tokens = current.split('/');
-                const filename = tokens[tokens.length - 1];
-                const foldername = tokens[tokens.length - 2];
-                
-                tokens = current.split('.');
-
-                if (tokens && tokens.length > 0) {
-                    fileext = tokens[1];
-                }
-                
-                file.name = filename;
-                file.path = current;
-                file.ext = toAceFileExt(fileext);
-                file.content = this.sourcecode.get(current);
-                const folder = this.folders.find(f => f.name === foldername);
-                
-                folder.files.push(file);
-            }
-            
-        }
-
-        this.onSelectFile(null, 'README.md');
-    
-    }
+      this.generateArtifact();
   }
+
+  generateArtifact() {
+    const options = new Map<string, SelectedValue>();
+    const artifact = new Artifact();
+    const spec = new Specification();
+    spec.type = this.getAttributeValue('specification');
+    spec.version = this.getAttributeVersion('specification');
+    spec.location = this.schema;
+
+    const language = new SelectedValue();
+    language.value = this.getAttributeValue('language');
+    language.version = this.getAttributeVersion('language');
+
+    const framework = new SelectedValue();
+    framework.value = this.getAttributeValue('framework');
+    framework.version = this.getAttributeVersion('framework');
+
+    artifact.namespace = this.schemaname;
+    artifact.organization = 'gravitant';
+    artifact.type = this.getAttributeValue('architecture');
+    artifact.framework = framework;
+    artifact.language = language;
+    artifact.specification = spec;
+
+    const datastore = new SelectedValue();
+    datastore.value = this.getOptionValue('datastore');
+    datastore.version = this.getOptionVersion('datastore');
+
+    const http = new SelectedValue();
+    http.value = this.getOptionValue('http');
+    http.version = this.getOptionVersion('http');
+
+    const discovery = new SelectedValue();
+    discovery.value = this.getOptionValue('discovery');
+    discovery.version = this.getOptionVersion('discovery');
+
+    const messaging = new SelectedValue();
+    messaging.value = this.getOptionValue('messaging');
+    messaging.version = this.getOptionVersion('messaging');
+
+    const tracing = new SelectedValue();
+    tracing.value = this.getOptionValue('tracing');
+    tracing.version = this.getOptionVersion('tracing');
+
+    const monitoring = new SelectedValue();
+    monitoring.value = this.getOptionValue('monitoring');
+    monitoring.version = this.getOptionVersion('monitoring');
+
+    const security = new SelectedValue();
+    security.value = this.getOptionValue('security');
+    security.version = this.getOptionVersion('security');
+
+    const ci = new SelectedValue();
+    ci.value = this.getOptionValue('ci');
+    ci.version = this.getOptionVersion('ci');
+
+    const cd = new SelectedValue();
+    cd.value = this.getOptionValue('cd');
+    cd.version = this.getOptionVersion('cd');
+
+    const scm = new SelectedValue();
+    scm.value = this.getOptionValue('scm');
+    scm.version = this.getOptionVersion('scm');
+
+    const registry = new SelectedValue();
+    registry.value = this.getOptionValue('registry');
+    registry.version = this.getOptionVersion('registry');
+
+    const build = new SelectedValue();
+    build.value = this.getOptionValue('build');
+    build.version = this.getOptionVersion('build');
+
+    const test = new SelectedValue();
+    test.value = this.getOptionValue('test');
+    test.version = this.getOptionVersion('test');
+
+    artifact.datastore = datastore;
+    artifact.http = http;
+    artifact.messaging = messaging;
+    artifact.discovery = discovery;
+    artifact.monitoring = monitoring;
+    artifact.security = security;
+    artifact.tracing = tracing;
+    artifact.build = build;
+    artifact.test = test;
+    artifact.ci = ci;
+    artifact.cd = cd;
+    artifact.scm = scm;
+    artifact.registry = registry;
+    
+    this.artifactService.createArtifact(artifact)
+        .subscribe(resultset => {
+            this.artifactService.downloadArtifact(resultset)
+                .subscribe((data: Blob) => {
+                    const zipfile = new JSZip();
+                    const sourcecode = new Map<string, string>();
+                    zipfile.loadAsync(data).then(
+                        zip => {
+                        
+                        for (const filepath of Object.keys(zip.files)) {
+                            zip.file(filepath).async('text')
+                                .then(
+                                    fileData => {
+                                        this.createFile(filepath, fileData);
+                                        if (filepath === 'README.md') {
+                                            this.onSelectFile(null, 'README.md');
+                                        }
+                                    }
+                                );
+                        }
+                    });
+                });
+        })
+}
+
+private createFile(filepath: string, filedata) {
+    let folder = null;
+    let file = null;
+    let tokens: Array<string>;
+    if (filepath && filepath.indexOf('/') > 0) { 
+        tokens = filepath.split('/');
+        if (tokens && tokens.length > 0) {
+            const foldername = tokens[tokens.length - 2];
+            if (this.folders.findIndex(f => f.name === foldername) === -1) {
+                folder = new Folder();
+                folder.name = foldername;
+                this.folders.push(folder);
+            } else {
+                const folder = this.folders.find(f => f.name === foldername);
+                if (folder) {
+                    const file = new File();
+                    const filename = tokens[tokens.length - 1];
+                    
+                    let fileparts = filename.split('.');
+
+                    if (fileparts && fileparts.length > 0) {
+                        file.name = filename;
+                        file.path = filepath;
+                        file.ext = toAceFileExt(fileparts[1]);
+                        file.content = filedata;
+                        folder.files.push(file);
+                    }
+                }
+              }
+        }
+    } else {
+        let fileparts = filepath.split('.');
+        if (fileparts && fileparts.length > 0) {
+            file = new File();
+            file.name = filepath;
+            file.path = filepath;
+            file.ext = toAceFileExt(fileparts[1]);
+            file.content = filedata;
+            this.files.push(file);
+        }
+    }
+}
+
+downloadAndSave() {
+    this.artifactService.downloadArtifact(this.codeurl)
+      .subscribe(data => importedSaveAs(data, this.getZipfilename()));
+}
+
+validateSchema() {
+    this.artifactService.validateSchema(this.schema)
+        .subscribe(resultset => {
+          console.log('response: ' + resultset);
+        });
+}
+
+getZipfilename() {
+    var zipfilename;
+    const architecture = this.getAttributeValue('architecture');
+    const language = this.getAttributeValue('language');
+    const framework = this.getAttributeValue('framework');
+
+    if (architecture && language && framework) {
+        zipfilename = architecture + '-' + language + '-' + framework + '-' + this.schemaname + '.zip';
+    }
+    return zipfilename;
+}
+
+private getOption(name: string) {
+    if (this.productDetails) {
+        for (let current of this.productDetails.options) {
+            if (current.name === name) {
+                return current;
+            }
+        }
+    }
+}
+
+private getOptionValue(name: string) {
+    let value = null;
+    const option = this.getOption(name);
+    if (option) {
+        value = option.value;
+    }
+    return value;
+}
+
+private getOptionVersion(name: string) {
+    let version = null;
+    const option = this.getOption(name);
+    if (option) {
+        version = option.version;
+    }
+    return version;
+}
+
+private getAttribute(name: string) {
+    if (this.productDetails) {
+        for (let current of this.productDetails.attributes) {
+            if (current.name === name) {
+                return current;
+            }
+        }
+    }
+}
+
+private getAttributeValue(name: string) {
+    let value = null;
+    const attribute = this.getAttribute(name);
+    if (attribute) {
+        value = attribute.value;
+    }
+    return value;
+}
+
+private getAttributeTitle(name: string) {
+    let title = null;
+    const attribute = this.getAttribute(name);
+    if (attribute) {
+        title = attribute.title;
+    }
+    return title;
+}
+
+private getAttributeVersion(name: string) {
+    let version = null;
+    const attribute = this.getAttribute(name);
+    if (attribute) {
+        version = attribute.version;
+    }
+    return version;
+}
+
+private  getAttributeImage(name: string) {
+    let image = null;
+    const attribute = this.getAttribute(name);
+    if (attribute) {
+        image = attribute.image;
+    }
+    return image;
+}
 
   onSelectFile(foldername: string, filename: string) {
     let folder: Folder;

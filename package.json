@@ -1,5 +1,5 @@
 {
-  "name": "codefly-app",
+  "name": "rockstar-user",
   "version": "1.0.1",
   "scripts": {
     "ng": "ng",
@@ -43,7 +43,7 @@
     "pe7-icon": "^1.0.4",
     "popper.js": "1.12.6",
     "rxjs": "5.5.2",
-    "swagger-ui-dist": "^3.9.1",
+    "swagger-ui-dist": "^3.9.3",
     "web-animations-js": "^2.3.1",
     "zone.js": "0.8.4"
   },
