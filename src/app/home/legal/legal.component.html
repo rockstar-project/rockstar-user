@@ -1,0 +1,21 @@
+<div style="display:flex;flex-direction:column;flex-wrap:nowrap;height:30%;justify-content:center;align-items:center;
+    padding: 25px 0 0;">
+    <h4 class="title">Legal</h4>
+</div>
+
+<div class="nav-tabs-navigation" style="height:70%;">
+    <div class="nav-tabs-wrapper">
+        <ngb-tabset [justify]="'center'">
+            <ngb-tab title="Terms of Use">
+                <ng-template ngbTabContent>
+                    <app-legal-termsofuse></app-legal-termsofuse>
+                </ng-template>
+            </ngb-tab>
+            <ngb-tab title="Privacy Policy">
+                <ng-template ngbTabContent >
+                    <app-legal-privacypolicy></app-legal-privacypolicy>
+                </ng-template>
+            </ngb-tab>
+        </ngb-tabset>
+    </div>
+</div>

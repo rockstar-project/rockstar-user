@@ -4,3 +4,4 @@ export * from './auth';
 export * from './animation';
 export * from './artifact';
 export * from './content';
+export * from './account';

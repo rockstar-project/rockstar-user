@@ -1,27 +1,15 @@
-import { Component, OnInit, Inject, Renderer, ElementRef, ViewChild, HostListener } from '@angular/core';
-import { Router, NavigationEnd, NavigationStart } from '@angular/router';
-import { AuthService, fadeInAnimation } from './shared';
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from './shared';
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
-    styleUrls: ['./app.component.scss'],
-    animations: [ fadeInAnimation ]
+    styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
-   
-    private toggleButton: any;
-    private sidebarVisible: boolean;
+export class AppComponent {
 
-    constructor( private router: Router, public authService: AuthService) {
+    constructor(public authService: AuthService) {
         authService.handleAuthentication();
      }
-
-    ngOnInit() {
-    }
-
-    public getRouterOutletState(outlet) {
-        return outlet.isActivated ? outlet.activatedRoute : '';
-    }
 
 }

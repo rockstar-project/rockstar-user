@@ -1,0 +1,27 @@
+<div style="display:flex;flex-direction:column;flex-wrap:nowrap;height:30%;justify-content:center;align-items:center;
+    padding: 25px 0 0;">
+    <h4 class="title">My Collections</h4>
+</div>
+
+<div class="nav-tabs-navigation" style="height:70%;">
+    <div class="nav-tabs-wrapper">
+        <ngb-tabset [justify]="'center'">
+            <ngb-tab title="Favorite">
+                <ng-template ngbTabContent>
+                    <div class="section" style="margin:0;padding:0;height:100%;display:flex;flex-direction:column;flex-wrap:nowrap;justify-content:center;align-items:center;">
+                        <h1>Favorite Collection</h1>
+                        <h3 class="m-3">Coming Soon</h3>
+                    </div>
+                </ng-template>
+            </ngb-tab>
+            <ngb-tab title="Downloaded">
+                <ng-template ngbTabContent >
+                    <div class="section" style="margin:0;padding:0;height:100%;display:flex;flex-direction:column;flex-wrap:nowrap;justify-content:center;align-items:center;">
+                        <h1>Downloaded Collection</h1>
+                        <h3 class="m-3">Coming Soon</h3>
+                    </div>
+                </ng-template>
+            </ngb-tab>
+        </ngb-tabset>
+    </div>
+</div>

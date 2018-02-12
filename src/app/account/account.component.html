@@ -1,0 +1,26 @@
+<div style="display:flex;flex-direction:column;flex-wrap:nowrap;height:30%;justify-content:center;align-items:center;
+    padding: 25px 0 0;">
+    <h4 class="title">Account Overview</h4>
+</div>
+
+<div class="nav-tabs-navigation" style="height:70%;">
+    <div class="nav-tabs-wrapper">
+        <ngb-tabset [justify]="'center'">
+            <ngb-tab title="Subscription">
+                <ng-template ngbTabContent>
+                    <account-subscriptioninfo [item]="account?.subscription"></account-subscriptioninfo>
+                </ng-template>
+            </ngb-tab>
+            <ngb-tab title="Payment">
+                <ng-template ngbTabContent >
+                    <account-paymentinfo [item]="account?.payment_info"></account-paymentinfo>
+                </ng-template>
+            </ngb-tab>
+            <ngb-tab title="Billing">
+                <ng-template ngbTabContent >
+                    <account-billinginfo [item]="account?.billing"></account-billinginfo>
+                </ng-template>
+            </ngb-tab>
+        </ngb-tabset>
+    </div>
+</div>

@@ -1,50 +1,46 @@
 import { Component, OnInit } from '@angular/core';
-import { MetadataResultSet, MetadataService } from 'app/shared';
+import { MetadataResultSet, MetadataService, fadeInAnimation } from 'app/shared';
 import { ProductService, ProductSearchResult, ProductSearchCriteria } from 'app/shared';
-import { NgbTabChangeEvent } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-explore',
   templateUrl: './explore.component.html',
   styleUrls: ['./explore.component.scss'],
+  animations: [ fadeInAnimation ],
+  host: { '[@fadeInAnimation]': '' }
 })
 export class ExploreComponent implements OnInit {
 
-  architectureMetadata: MetadataResultSet;
-  featuredProductResult: ProductSearchResult;
+  restapiFeaturedProductResult: ProductSearchResult;
+  spaFeaturedProductResult: ProductSearchResult;
 
   constructor(private productService: ProductService, private metadataService: MetadataService) { }
 
   ngOnInit() {
-    this.getMetadata();
-    this.searchProducts('restapi');
+    this.productService.searchProducts(this.restapiFeaturedProductSearchCriteria())
+          .subscribe(resultset => this.restapiFeaturedProductResult = resultset)
+
+    this.productService.searchProducts(this.spaFeaturedProductSearchCriteria())
+          .subscribe(resultset => this.spaFeaturedProductResult = resultset)
+    
   }
 
-  onTabClicked($event: NgbTabChangeEvent) {
-    this.searchProducts($event.nextId);
-}
-
-  public searchProducts(architecture: string) {
-    const searchCriteria = this.newProductSearchCriteria();
-    searchCriteria.architecture = architecture;
-    this.getProducts(this.newProductSearchCriteria());
-  }
-
-
-  public getProducts(criteria: ProductSearchCriteria) {
-      this.productService.searchProducts(criteria)
-                      .subscribe(resultset => this.featuredProductResult = resultset)
-  }
-
-  public getMetadata() {
-    this.metadataService.searchMetadata('architecture')
-            .subscribe(resultset => this.architectureMetadata = resultset);
-  }
-
-  private newProductSearchCriteria() {
+  private restapiFeaturedProductSearchCriteria() {
     let searchCriteria = new ProductSearchCriteria();
     searchCriteria.featured = true;
+    searchCriteria.architecture = 'restapi';
+    searchCriteria.state = 'publish'
+    searchCriteria.featured = true;
+    searchCriteria.organization = 'rockstar';
+    return searchCriteria;
+  }
+
+  private spaFeaturedProductSearchCriteria() {
+    let searchCriteria = new ProductSearchCriteria();
+    searchCriteria.featured = true;
+    searchCriteria.architecture = 'spa';
     searchCriteria.state = 'publish';
+    searchCriteria.featured = true;
     searchCriteria.organization = 'rockstar';
     return searchCriteria;
   }

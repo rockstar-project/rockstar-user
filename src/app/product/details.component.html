@@ -1,0 +1,61 @@
+<div class="header">
+    <ul class="nav header-left">
+        <li class="nav-item">
+            <a class="nav-link active" (click)="backClicked()"> 
+                <i class="fa fa-chevron-left"></i>Back
+            </a>
+        </li>
+    </ul>
+    <ul class="nav header-right">
+        <div class="input-group header-right-form">
+            <div class="input-group-prepend p-2">
+                <span class="input-group-text">OpenAPI 3</span>
+            </div>
+            <input type="text" style="border-radius:0;" class="form-control" placeholder="Enter API Specification Url" aria-label="API Specification Url" aria-describedby="basic-addon2">
+            <input type="text" style="border-radius:0;" class="form-control" placeholder="Enter API Name" aria-label="API Name" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+                <button class="btn btn-link btn-just-icon" type="button" routerLink="design">
+                    <i class="nc-icon nc-zoom-split"></i>
+                </button>
+            </div>
+        </div>
+        <div class="header-right-icons">
+            <button type="button" class="btn btn-link btn-just-icon" routerLink="overview">
+                <i class="fa fa-info"></i>
+            </button>
+            <button type="button" class="btn btn-link btn-just-icon" routerLink="design">
+                <i class="fa fa-edit"></i>
+            </button>
+            <button type="button" class="btn btn-link btn-just-icon" routerLink="code">
+                <i class="fa fa-code"></i>
+            </button>
+        </div>
+    </ul>
+</div>
+<div class="content">
+    <div class="content-left">
+        <ngb-accordion class="content-left-body" #optionsAccordion="ngbAccordion" closeOthers="true">
+            <ngb-panel [id]="category?.slug" *ngFor="let category of categories">
+                <ng-template ngbPanelTitle>
+                    <h5 class="mb-0 panel-title">
+                        <a class="collapsed">
+                            {{category?.title}}
+                            <i class="nc-icon nc-minimal-down"></i>
+                        </a>
+                    </h5>
+                </ng-template>
+                <ng-template ngbPanelContent>
+                    <div class="option-panel">
+                        <div class="option-card" *ngFor="let option of getProductOptionsByCategory(category?.slug)">
+                            <option-card [item]="option"></option-card>
+                        </div>
+                    </div>
+                </ng-template>
+            </ngb-panel>
+        </ngb-accordion>
+    </div>
+    <div class="content-right">
+        <router-outlet></router-outlet>
+    </div>
+</div>
+

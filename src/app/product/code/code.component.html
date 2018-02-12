@@ -1,0 +1,34 @@
+
+<div class="sidebar">
+    <ngb-accordion #acc="ngbAccordion">
+        <ngb-panel [id]="folder?.name" *ngFor="let folder of folders">
+            <ng-template ngbPanelTitle>
+                <h5 class="mb-0 panel-title">
+                    <a class="collapsed">
+                        {{folder?.name}}
+                        <i class="nc-icon nc-minimal-down"></i>
+                    </a>
+                </h5>
+            </ng-template>
+            <ng-template ngbPanelContent>
+                <div class="list-group list-group-flush">
+                    <a class="list-group-item list-group-item-action" (click)="onSelectFile(folder?.name, file?.name)" *ngFor="let file of folder?.files">{{ file?.name }}</a>
+                </div>
+            </ng-template>
+        </ngb-panel>
+    </ngb-accordion>
+
+    <div class="list-group list-group-flush" *ngIf="files">
+        <a class="list-group-item list-group-item-action" (click)="onSelectFile('', file?.name)" *ngFor="let file of files">{{ file?.name }}</a>
+    </div>
+</div>
+<div class="content">
+    <div ace-editor [text]="selectedfile?.content"
+        [options]="options"
+        [mode]="selectedfile?.ext"
+        [readOnly]="true"
+        [theme]="'clouds'"
+        style="height: 700px; width:100%; overflow: auto;"
+        *ngIf="selectedfile">
+    </div>
+</div>

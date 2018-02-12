@@ -1,5 +1,17 @@
-:host {
+main {
     display: flex;
     flex-direction: column;
     height: 100%;
+}
+
+header, footer {
+    height: 5%;
+}
+  
+section {
+    height: 90%;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    display: flex;
+    flex-direction: column;
 }

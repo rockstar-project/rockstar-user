@@ -1,6 +1,6 @@
 
 <div style="display:flex;flex-direction:column;flex-wrap:nowrap;height:30%;justify-content:center;align-items:center;
-    padding: 25px 0 0;background-image: url('./assets/images/background34.png')">
+    padding: 25px 0 0;">
     <img [src]="profile?.picture" [alt]="profile?.name" class="img-circle img-responsive" width="150" height="150">
     <h4 class="title">{{profile?.name}}</h4>
 </div>
@@ -8,14 +8,14 @@
 <div class="nav-tabs-navigation" style="height:70%;">
     <div class="nav-tabs-wrapper">
         <ngb-tabset [justify]="'center'">
-            <ngb-tab title="Collections">
+            <ngb-tab title="About Me">
                 <ng-template ngbTabContent>
-                    <router-outlet></router-outlet>
+                    <app-profile-aboutme></app-profile-aboutme>
                 </ng-template>
             </ngb-tab>
             <ngb-tab title="Connections">
                 <ng-template ngbTabContent >
-                    <router-outlet></router-outlet>
+                    <app-profile-connections></app-profile-connections>
                 </ng-template>
             </ngb-tab>
         </ngb-tabset>

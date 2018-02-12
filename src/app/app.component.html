@@ -1,7 +1,13 @@
+<main>
+    <header>
+        <app-navbar></app-navbar>
+    </header>
 
+    <section>
+        <router-outlet></router-outlet>
+    </section>
 
-<app-navbar></app-navbar>
-
-<main [@fadeInAnimation]="getRouterOutletState(o)">
-    <router-outlet #o="outlet"></router-outlet>
+    <footer>
+        <app-footer></app-footer>
+    </footer>
 </main>

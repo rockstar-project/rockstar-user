@@ -1,0 +1,21 @@
+<div class="cover mt-5" id="overview">
+                                
+    <div class="cover-header">
+        <span class="label label-success">{{ getAttributeTitle('architecture') }}</span>
+        
+        <h2 class="mb-2">{{productDetails?.title}}</h2>
+        <h4><strong>{{productDetails?.subtitle}}</strong></h4>
+    </div>
+
+    <div class="cover-body">
+        <img [src]="getAttributeImage('language')" width="200" height="200">
+        <img [src]="getAttributeImage('framework')" width="200" height="200">
+    </div>
+    
+    <div class="cover-footer">
+        <button class="btn btn-danger btn-round">
+            <i class="fa fa-download"></i> 
+            Download Code 
+        </button>
+    </div>
+</div>

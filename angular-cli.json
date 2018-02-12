@@ -1,7 +1,7 @@
 {
     "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
     "project": {
-        "name": "pk2-pro-angular"
+        "name": "rockstar-user"
     },
     "apps": [
         {
@@ -20,6 +20,7 @@
             "prefix": "app",
             "styles": [
                 "../node_modules/bootstrap/dist/css/bootstrap.min.css",
+                "../node_modules/swagger-ui-dist/swagger-ui.css",
                 "assets/sass/paper-kit.scss",
                 "assets/sass/demo.scss",
                 "../node_modules/font-awesome/css/font-awesome.css",
@@ -27,13 +28,16 @@
                 "../node_modules/pe7-icon/dist/dist/pe-icon-7-stroke.min.css",
                 "../node_modules/devicon-2.2/devicon.css",
                 "../node_modules/devicon-2.2/devicon-colors.css",
-                "../node_modules/swagger-ui-dist/swagger-ui.css"
+                "styles.scss"
             ],
             "scripts": [
                 "../node_modules/auth0-js/build/auth0.min.js",
                 "../node_modules/ace-builds/src-min/ace.js",
                 "../node_modules/ace-builds/src-min/theme-clouds.js",
                 "../node_modules/ace-builds/src-min/theme-eclipse.js",
+                "../node_modules/ace-builds/src-min/mode-html.js",
+                "../node_modules/ace-builds/src-min/mode-typescript.js",
+                "../node_modules/ace-builds/src-min/mode-scss.js",
                 "../node_modules/ace-builds/src-min/mode-json.js",
                 "../node_modules/ace-builds/src-min/mode-java.js",
                 "../node_modules/ace-builds/src-min/mode-javascript.js",
@@ -41,6 +45,8 @@
                 "../node_modules/ace-builds/src-min/mode-xml.js",
                 "../node_modules/ace-builds/src-min/mode-properties.js",
                 "../node_modules/ace-builds/src-min/mode-yaml.js",
+                "../node_modules/ace-builds/src-min/mode-dockerfile.js",
+                "../node_modules/ace-builds/src-min/mode-gitignore.js",
                 "../node_modules/ace-builds/src-min/worker-xml.js",
                 "../node_modules/web-animations-js/web-animations.min.js"
             ],
