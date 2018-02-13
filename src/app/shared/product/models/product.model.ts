@@ -13,6 +13,7 @@ export class Option {
   value: string;
   title: string;
   image: string;
+  featured: boolean;
   version: string;
   tags: string[] = [];
 }
@@ -25,7 +26,7 @@ export class Attribute {
   version: string;
 }
 
-export class ProductDetails {
+export class Product {
   name: string;
   title: string;
   subtitle: string;
@@ -65,15 +66,6 @@ export class ProductDetails {
   }
 }
 
-export class ProductInfo {
-  name: string;
-  title: string;
-  subtitle: string;
-  image: string;
-  attributes: Array<Attribute>;
-  _links: ProductLinks;
-}
-
 export class ProductPageLinks {
   first: ProductLink;
   prev: ProductLink;
@@ -89,12 +81,12 @@ export class ProductPage {
   number: number;
 }
 
-export class ProductInfoList {
-  productInfoResourcerList: ProductInfo[];
+export class ProductList {
+  productResourceList: Product[];
 }
 
 export class ProductSearchResult {
-  _embedded: ProductInfoList;
+  _embedded: ProductList;
   _links: ProductPageLinks;
   page: ProductPage;
 }
@@ -103,6 +95,7 @@ export class ProductSearchCriteria {
   keyword: string;
   organization: string;
   state: string;
+  visibility: string;
   price: string;
   featured: boolean;
   architecture: string;

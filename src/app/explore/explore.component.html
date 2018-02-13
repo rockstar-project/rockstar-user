@@ -1,12 +1,26 @@
-<div class="section section-gray p-b-3" style="display:flex;flex-direction:column;flex-wrap:nowrap;justify-content:center;align-items:center;">
-    
-        <div class="m-b-3">
-            <h2 class="title">Discover your favorites</h2>
-        </div>
-        <div class="row" *ngIf="restapiFeaturedProductResult" style="margin:50px 200px;">
-            <div class="col-md-2" *ngFor="let productitem of restapiFeaturedProductResult?._embedded?.productInfoResourceList">
-                <product-card [item]="productitem"></product-card>
-            </div>  
-        </div>
-    
+
+<div style="background: #ffffff;display:flex;flex-direction:column;flex-wrap:nowrap;height:30%;width:100%;justify-content:center;align-items:center;">
+    <h2>Discover your favorites</h2>
+</div>
+
+<div class="nav-tabs-navigation" style="height:70%;overflow-y:auto;">
+    <div class="nav-tabs-wrapper">
+        <ngb-tabset [justify]="'center'">
+            <ngb-tab title="REST API">
+                <ng-template ngbTabContent>
+                    <card-grid [items]="restapiFeaturedProducts"></card-grid>
+                </ng-template>
+            </ngb-tab>
+            <ngb-tab title="Single Page APP">
+                <ng-template ngbTabContent>
+                    <card-grid [items]="spaFeaturedProducts"></card-grid>
+                </ng-template>
+            </ngb-tab>
+            <ngb-tab title="Cloud Function">
+                <ng-template ngbTabContent >
+                    <card-grid [items]="functionFeaturedProducts"></card-grid>
+                </ng-template>
+            </ngb-tab>
+        </ngb-tabset>
     </div>
+</div>

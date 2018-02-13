@@ -1,7 +1,7 @@
 import { ViewChild, HostBinding, Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
-import { ProductService, ProductDetails } from '../../shared';
+import { ProductService, Product } from '../../shared';
 import { ArtifactService, Artifact, Specification, SelectedValue } from '../../shared/';
 import { saveAs as importedSaveAs } from 'file-saver';
 import * as JSZip from 'jszip';
@@ -15,7 +15,7 @@ import { Folder, File } from '../../shared';
 export class CodeComponent implements OnInit {
 
   @Input()
-  productDetails: ProductDetails;
+  productDetails: Product;
 
   schema = 'https://api.swaggerhub.com/apis/kickster/storage/1.0.0/swagger.json';
   schemaname = 'storage';

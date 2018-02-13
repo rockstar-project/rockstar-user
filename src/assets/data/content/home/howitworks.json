@@ -1,0 +1,25 @@
+{
+    "title": "Develop Microservice in Microseconds",
+    "subtitle": "It just takes few seconds to develop a Microservice",
+    "contents": [
+        {
+            "title": "Select a template",
+            "subtitle": "Find your favorite from a growing list of technology templates",
+            "image": "pe-7s-news-paper"
+        },
+        {
+            "title": "Add your design",
+            "subtitle": "Import your domain model design specification",
+            "image": "pe-7s-network"
+        },
+        {
+            "title": "Click to download",
+            "subtitle": "Download a production-ready microservice code artifact",
+            "image": "pe-7s-cloud-download"
+        }
+    ],
+    "content_links": [{
+        "title": "Explore Microservice Templates",
+        "target": "/explore"
+    }]
+}

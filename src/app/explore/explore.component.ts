@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MetadataResultSet, MetadataService, fadeInAnimation } from 'app/shared';
-import { ProductService, ProductSearchResult, ProductSearchCriteria } from 'app/shared';
+import { ProductService, Product, ProductSearchResult, ProductSearchCriteria } from 'app/shared';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-explore',
@@ -11,38 +12,45 @@ import { ProductService, ProductSearchResult, ProductSearchCriteria } from 'app/
 })
 export class ExploreComponent implements OnInit {
 
-  restapiFeaturedProductResult: ProductSearchResult;
-  spaFeaturedProductResult: ProductSearchResult;
+  restapiFeaturedProducts: Array<Product>;
+  spaFeaturedProducts: Array<Product>;
+  functionFeaturedProducts: Array<Product>;
 
-  constructor(private productService: ProductService, private metadataService: MetadataService) { }
+  constructor(
+    private productService: ProductService, 
+    private metadataService: MetadataService) { }
 
   ngOnInit() {
-    this.productService.searchProducts(this.restapiFeaturedProductSearchCriteria())
-          .subscribe(resultset => this.restapiFeaturedProductResult = resultset)
-
-    this.productService.searchProducts(this.spaFeaturedProductSearchCriteria())
-          .subscribe(resultset => this.spaFeaturedProductResult = resultset)
-    
+    this.restapiFeaturedProducts = new Array<Product>();
+    this.spaFeaturedProducts = new Array<Product>();
+    this.functionFeaturedProducts = new Array<Product>();
+    this.productService.searchProducts(this.featuredProductSearchCriteria())
+          .subscribe(resultset => {
+            if (resultset && resultset._embedded) {
+                for (let currentProduct of resultset._embedded.productResourceList) {
+                  for (let currentAttribute of currentProduct.attributes) {
+                    if (currentAttribute.name === 'architecture') {
+                      if (currentAttribute.value === 'restapi') {
+                        this.restapiFeaturedProducts.push(currentProduct);
+                      } else if (currentAttribute.value === 'spa') {
+                        this.spaFeaturedProducts.push(currentProduct);
+                      } else if (currentAttribute.value === 'eventdriven') {
+                        this.functionFeaturedProducts.push(currentProduct);
+                      }
+                    }
+                }
+              }
+          }
+      })
   }
 
-  private restapiFeaturedProductSearchCriteria() {
+  private featuredProductSearchCriteria() {
     let searchCriteria = new ProductSearchCriteria();
     searchCriteria.featured = true;
-    searchCriteria.architecture = 'restapi';
+    searchCriteria.visibility = 'public';
     searchCriteria.state = 'publish'
     searchCriteria.featured = true;
     searchCriteria.organization = 'rockstar';
     return searchCriteria;
   }
-
-  private spaFeaturedProductSearchCriteria() {
-    let searchCriteria = new ProductSearchCriteria();
-    searchCriteria.featured = true;
-    searchCriteria.architecture = 'spa';
-    searchCriteria.state = 'publish';
-    searchCriteria.featured = true;
-    searchCriteria.organization = 'rockstar';
-    return searchCriteria;
-  }
-
 }

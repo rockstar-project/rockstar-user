@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders, HttpParams, HttpErrorResponse } from '@angular
 import { Observable } from 'rxjs/Observable';
 import { catchError } from 'rxjs/operators';
 import { environment } from '../../../../environments/environment';
-import { ProductSearchResult, ProductSearchCriteria, ProductDetails, ProductInfo } from '../../../shared';
+import { ProductSearchResult, ProductSearchCriteria, Product } from '../../../shared';
 
 @Injectable()
 export class ProductService {
@@ -13,7 +13,7 @@ export class ProductService {
   searchProducts(criteria: ProductSearchCriteria): Observable<ProductSearchResult> {
     
       return this.httpClient
-        .get<ProductSearchResult>(`${environment.api_url}/products/search?organization=${criteria.organization}&featured=${criteria.featured}&state=${criteria.state}&size=${criteria.size}&page=${criteria.page}`, { 
+        .get<ProductSearchResult>(`${environment.api_url}/products/search?organization=${criteria.organization}&featured=${criteria.featured}&state=${criteria.state}&visibility=${criteria.visibility}&size=${criteria.size}&page=${criteria.page}`, { 
           headers: new HttpHeaders()
             .set('Accept', 'application/json')
             .set('Content-Type', 'application/json')
@@ -24,9 +24,9 @@ export class ProductService {
         );
   }
 
-  getProduct(url: string): Observable<ProductDetails> {
+  getProduct(url: string): Observable<Product> {
     return this.httpClient
-      .get<ProductDetails>(`${url}`, {
+      .get<Product>(`${url}`, {
         headers: new HttpHeaders()
             .set('Accept', 'application/json')
             .set('Content-Type', 'application/json')

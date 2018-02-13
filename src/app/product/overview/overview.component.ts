@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
-import { ProductService, ProductDetails } from '../../shared';
+import { ProductService, Product } from '../../shared';
 
 @Component({
   selector: 'app-product-overview',
@@ -10,23 +10,41 @@ import { ProductService, ProductDetails } from '../../shared';
 })
 export class OverviewComponent implements OnInit {
 
-    productDetails: ProductDetails;
+    product: Product;
 
     constructor(private route: ActivatedRoute, private productService: ProductService) {
     }
 
     ngOnInit() {
-        this.getProductDetails(this.route.snapshot.parent.params['url']);
+        this.getProduct(this.route.snapshot.parent.params['url']);
     } 
 
-    getProductDetails(url: string) {
+    getProduct(url: string) {
         this.productService.getProduct(url)
-            .subscribe( result => this.productDetails = result);
+            .subscribe( result => this.product = result);
+    }
+
+    getFeaturedOption() {
+        if (this.product) {
+            for (let current of this.product.options) {
+                if (current.featured) {
+                    return current;
+                }
+            }
+        }
     }
     
+    getFeaturedOptionImage() {
+        let featuredOption = this.getFeaturedOption();
+        if (featuredOption) {
+            return featuredOption.image;
+        }
+        return null;
+    }
+
     private getAttribute(name: string) {
-        if (this.productDetails) {
-            for (let current of this.productDetails.attributes) {
+        if (this.product) {
+            for (let current of this.product.attributes) {
                 if (current.name === name) {
                     return current;
                 }

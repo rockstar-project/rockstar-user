@@ -10,6 +10,25 @@ import { fadeInAnimation } from '../shared';
 })
 export class CollectionsComponent  {
 
-    collections: Array<any> = [];
+    favoriteCollection: Array<any> = [
+      "https://placeholdit.co//i/250x250?&bg=f5f5f5&fc=c4c4c4&text=favorite_1",
+      "https://placeholdit.co//i/250x250?&bg=f5f5f5&fc=c4c4c4&text=favorite_2",
+      "https://placeholdit.co//i/250x250?&bg=f5f5f5&fc=c4c4c4&text=favorite_3",
+      "https://placeholdit.co//i/250x250?&bg=f5f5f5&fc=c4c4c4&text=favorite_4",
+      "https://placeholdit.co//i/250x250?&bg=f5f5f5&fc=c4c4c4&text=favorite_5",
+      "https://placeholdit.co//i/250x250?&bg=f5f5f5&fc=c4c4c4&text=favorite_8",
+      "https://placeholdit.co//i/250x250?&bg=f5f5f5&fc=c4c4c4&text=favorite_9",
+      "https://placeholdit.co//i/250x250?&bg=f5f5f5&fc=c4c4c4&text=favorite_10",
+      "https://placeholdit.co//i/250x250?&bg=f5f5f5&fc=c4c4c4&text=favorite_11",
+      "https://placeholdit.co//i/250x250?&bg=f5f5f5&fc=c4c4c4&text=favorite_12"
+    ];
+
+    downloadCollection: Array<any> = [
+      "https://placeholdit.co//i/250x250?&bg=f5f5f5&fc=c4c4c4&text=download_1",
+      "https://placeholdit.co//i/250x250?&bg=f5f5f5&fc=c4c4c4&text=download_2",
+      "https://placeholdit.co//i/250x250?&bg=f5f5f5&fc=c4c4c4&text=download_3",
+      "https://placeholdit.co//i/250x250?&bg=f5f5f5&fc=c4c4c4&text=download_4",
+      "https://placeholdit.co//i/250x250?&bg=f5f5f5&fc=c4c4c4&text=download_5"
+    ];
 
 }

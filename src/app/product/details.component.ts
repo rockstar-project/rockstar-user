@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
-import { ProductService, ProductDetails, fadeInAnimation } from '../shared';
+import { ProductService, Product, fadeInAnimation } from '../shared';
 import { MetadataService, Metadata, Option } from '../shared';
 
 @Component({
@@ -13,7 +13,7 @@ import { MetadataService, Metadata, Option } from '../shared';
 })
 export class ProductDetailsComponent implements OnInit {
 
-    productDetails: ProductDetails;
+    product: Product;
     categories: Metadata[];
 
     constructor(
@@ -24,13 +24,13 @@ export class ProductDetailsComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.getProductDetails(this.route.snapshot.params['url']);
+        this.getProduct(this.route.snapshot.params['url']);
         this.getCategories();
      } 
 
-    getProductDetails(url: string) {
+    getProduct(url: string) {
         this.productService.getProduct(url)
-            .subscribe( result => this.productDetails = result);
+            .subscribe( result => this.product = result);
     }
 
     getCategories() {
@@ -41,7 +41,7 @@ export class ProductDetailsComponent implements OnInit {
     getProductOptionsByCategory(category: string) {
         const matchingOptions = new Array<Option>();
 
-        for (let currentOption of this.productDetails.options) {
+        for (let currentOption of this.product.options) {
             const optiontags = currentOption.tags;
             if (optiontags && optiontags.length > 0) {
                 if (optiontags.indexOf(category) > - 1) {

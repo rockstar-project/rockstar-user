@@ -14,10 +14,10 @@ export class ContentService {
 
     if (type) {
       if (type === 'hero') {
-         return this.httpClient.get<Content>('assets/data/content/hero.json')
+         return this.httpClient.get<Content>('assets/data/content/home/hero.json')
           .pipe(catchError(this.handleError));
       } else if (type === 'howitworks') {
-        return this.httpClient.get<Content>('assets/data/content/howitworks.json')
+        return this.httpClient.get<Content>('assets/data/content/home/howitworks.json')
          .pipe(catchError(this.handleError));
      } 
     }

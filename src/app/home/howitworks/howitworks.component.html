@@ -1,7 +1,7 @@
 
     <h1 class="mb-3">{{howitworks?.title}}</h1>
     <h3>{{howitworks?.subtitle}}</h3>
-    <div style="display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:center;">
+    <div style="display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:center;margin: 10px 100px;">
         <div class="card" style="width:33%;margin:50px;display:flex;flex-direction:column;flex-wrap:nowrap;" *ngFor="let item of howitworks?.contents">
             
                 <div class="card-body">
@@ -16,3 +16,6 @@
             
         </div>
     </div>
+    <button class="btn btn-round btn-lg btn-danger btn-move-right" routerLink="/explore">
+        Explore Microservice Templates <i class="nc-icon nc-minimal-right"></i>
+    </button>

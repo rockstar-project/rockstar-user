@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders, HttpParams, HttpErrorResponse } from '@angular
 import { Observable } from 'rxjs/Observable';
 import { catchError } from 'rxjs/operators';
 import { environment } from '../../../../environments/environment';
-import { Account } from '../../../shared';
+import { Account } from '../models';
 
 @Injectable()
 export class AccountService {

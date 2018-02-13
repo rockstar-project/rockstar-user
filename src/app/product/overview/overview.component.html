@@ -3,13 +3,14 @@
     <div class="cover-header">
         <span class="label label-success">{{ getAttributeTitle('architecture') }}</span>
         
-        <h2 class="mb-2">{{productDetails?.title}}</h2>
-        <h4><strong>{{productDetails?.subtitle}}</strong></h4>
+        <h2 class="mb-2">{{product?.title}}</h2>
+        <h4><strong>{{product?.subtitle}}</strong></h4>
     </div>
 
     <div class="cover-body">
         <img [src]="getAttributeImage('language')" width="200" height="200">
         <img [src]="getAttributeImage('framework')" width="200" height="200">
+        <img [src]="getFeaturedOptionImage()" width="200" height="200">
     </div>
     
     <div class="cover-footer">

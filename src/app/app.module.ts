@@ -8,43 +8,17 @@ import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app.routing';
-import { JWBootstrapSwitchModule } from 'jw-bootstrap-switch-ng2';
 import { TagInputModule } from 'ngx-chips';
 import { NouisliderModule } from 'ng2-nouislider';
 import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown/angular2-multiselect-dropdown';
 import { NgxGalleryModule } from 'ngx-gallery';
 import { AppComponent } from './app.component';
 import { CallbackComponent } from './callback/callback.component';
-import { ProductsResolver } from './shared/product/resolvers';
-import { HomeComponent } from './home/home.component';
-import { HeroComponent } from './home/hero/hero.component';
-import { HowItWorksComponent } from './home/howitworks/howitworks.component';
-import { FeaturesComponent } from './home/features/features.component';
-import { PricingComponent } from './home/pricing/pricing.component';
-import { BlogsComponent } from './home/blogs/blogs.component';
-import { ProfileComponent } from './profile/profile.component';
-import { AboutMeComponent } from './profile/aboutme/aboutme.component';
-import { ConnectionsComponent } from './profile/connections/connections.component';
-import { AccountComponent } from './account/account.component';
-import { PaymentInfoComponent } from './account/payment/info/info.component';
-import { PaymentFormComponent } from './account/payment/form/form.component';
-import { BillingInfoComponent } from './account/billing/info/info.component';
-import { SubscriptionInfoComponent } from './account/subscription/info/info.component';
-import { CollectionsComponent } from './collections/collections.component';
-import { SearchComponent } from './search/search.component';
-import { ExploreComponent } from './explore/explore.component';
+import { ProductsResolver } from './shared';
+
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
-import { ProductCardComponent } from './shared/product-card/card.component';
-import { OptionCardComponent } from './shared/option-card/option-card.component';
-import { AceEditorModule } from 'ng2-ace-editor';
-import { ProductDetailsComponent } from './product/details.component';
-import { CodeComponent } from './product/code/code.component';
-import { DesignComponent } from './product/design/design.component';
-import { OverviewComponent } from './product/overview/overview.component';
-import { LegalComponent } from './home/legal/legal.component';
-import { TermsOfUseComponent } from './home/legal/termsofuse/termsofuse.component';
-import { PrivacyPolicyComponent } from './home/legal/privacypolicy/privacypolicy.component';
+import { PageNotFoundComponent } from './shared/error/notfound/notfound.component';
 
 import {
     AuthGuard,
@@ -56,38 +30,21 @@ import {
     AccountService
 } from './shared';
 
+import { HomeModule } from './home/home.module';
+import { AccountHomeModule } from './account/account.module';
+import { CollectionsModule } from './collections/collections.module';
+import { ExploreModule } from './explore/explore.module';
+import { SearchModule } from './search/search.module';
+import { ProfileModule } from './profile/profile.module';
+import { ProductHomeModule } from './product/product.module';
+
 @NgModule({
     declarations: [
-        ExploreComponent,
         AppComponent,
         CallbackComponent,
-        ProfileComponent,
-        PaymentInfoComponent,
-        AccountComponent,
-        BillingInfoComponent,
-        SubscriptionInfoComponent,
-        PaymentFormComponent,
-        AboutMeComponent,
-        ConnectionsComponent,
-        CollectionsComponent,
-        SearchComponent,
-        HomeComponent,
-        HeroComponent,
-        HowItWorksComponent,
-        FeaturesComponent,
-        PricingComponent,
-        BlogsComponent,
-        LegalComponent,
-        PrivacyPolicyComponent,
-        TermsOfUseComponent,
         NavbarComponent,
         FooterComponent,
-        ProductCardComponent,
-        ProductDetailsComponent,
-        OptionCardComponent,
-        DesignComponent,
-        OverviewComponent,
-        CodeComponent
+        PageNotFoundComponent
     ],
     imports: [
         BrowserAnimationsModule,
@@ -97,12 +54,17 @@ import {
         FormsModule,
         RouterModule,
         AppRoutingModule,
-        JWBootstrapSwitchModule,
         TagInputModule,
         AngularMultiSelectModule,
         NgxGalleryModule,
         NouisliderModule,
-        AceEditorModule
+        HomeModule,
+        ExploreModule,
+        AccountHomeModule,
+        CollectionsModule,
+        SearchModule,
+        ProfileModule,
+        ProductHomeModule
     ],
     providers: [
         AuthGuard,

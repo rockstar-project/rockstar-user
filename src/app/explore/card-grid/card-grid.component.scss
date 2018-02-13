@@ -1,0 +1,22 @@
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    flex-direction: row;
+    max-height: 100%;
+    margin:0 100px;
+  }
+
+  .cards .card-item {
+    margin: 10px;
+    max-width: 15vw;
+  }
+
+
+.card img {
+    border-radius: 0px;
+}
+
+.card.card-plain img {
+    border-radius: 0px;
+}

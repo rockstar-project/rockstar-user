@@ -1,6 +1,6 @@
 export const environment = {
     production: false,
-    api_url: 'https://staging.api.rock-star.io/v1'
+    api_url: 'https://apistaging.rock-star.io/v1'
   };
 
   export const AUTH_CONFIG = {

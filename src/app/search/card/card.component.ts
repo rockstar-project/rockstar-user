@@ -1,20 +1,38 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { ProductInfo } from 'app/shared';
+import { Product } from './../../shared/';
 
 @Component({
-    selector: 'product-card',
+    selector: 'card',
     templateUrl: './card.component.html',
     styleUrls: ['./card.component.scss']
 })
-export class ProductCardComponent  {
+export class CardComponent  {
 
     @Input()
-    item: ProductInfo;
+    item: Product;
     @Output()
     select = new EventEmitter<String>();
 
     constructor(private router: Router, private route: ActivatedRoute) {
+    }
+
+    getFeaturedOption() {
+        if (this.item) {
+            for (let current of this.item.options) {
+                if (current.featured) {
+                    return current;
+                }
+            }
+        }
+    }
+    
+    getFeaturedOptionImage() {
+        let featuredOption = this.getFeaturedOption();
+        if (featuredOption) {
+            return featuredOption.image;
+        }
+        return null;
     }
 
     getTitle(name: string) {

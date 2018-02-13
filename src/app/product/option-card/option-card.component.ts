@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { Metadata } from 'app/shared';
 
 @Component({
     selector: 'option-card',
@@ -9,7 +8,7 @@ import { Metadata } from 'app/shared';
 export class OptionCardComponent  {
 
     @Input()
-    item: Metadata;
+    item: any;
 
 
 }
