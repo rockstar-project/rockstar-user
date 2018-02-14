@@ -6,11 +6,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ExploreRoutes as routes } from './explore.routes';
 import { ExploreComponent } from './explore.component';
 import { CardGridComponent } from './card-grid/card-grid.component';
+import { DisplayOrderSortPipe } from './../shared';
 
 @NgModule({
     declarations: [
         ExploreComponent,
-        CardGridComponent
+        CardGridComponent,
+        DisplayOrderSortPipe
     ],
     imports: [
         CommonModule,
@@ -18,6 +20,9 @@ import { CardGridComponent } from './card-grid/card-grid.component';
         RouterModule,
         NgbModule,
         RouterModule.forChild(routes)
+    ],
+    providers: [
+        DisplayOrderSortPipe
     ]
 })
 export class ExploreModule { }

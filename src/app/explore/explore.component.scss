@@ -2,9 +2,29 @@
     display: flex;
     height: 100%;
     width: 100%;
-    background-color: #f5f5f5;
+    background-color: #f8f9fa;
     flex-direction:column;
     flex-wrap:nowrap;
     justify-content:center;
     align-items:center;
+}
+
+.rs-header {
+    background: #ffffff;
+    display:flex;
+    flex-direction:column;
+    flex-wrap:nowrap;
+    height:30%;
+    width:100%;
+    justify-content:center;
+    align-items:center;
+}
+
+.rs-content {
+    display:flex;
+    flex-direction:column;
+    flex-wrap:nowrap;
+    justify-content:flex-start;
+    height:70%;
+    overflow:hidden;
 }

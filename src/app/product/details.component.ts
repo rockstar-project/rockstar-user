@@ -25,17 +25,25 @@ export class ProductDetailsComponent implements OnInit {
 
     ngOnInit() {
         this.getProduct(this.route.snapshot.params['url']);
-        this.getCategories();
-     } 
+    } 
 
     getProduct(url: string) {
         this.productService.getProduct(url)
-            .subscribe( result => this.product = result);
+            .subscribe( result => {
+                if (result) {
+                    let group = this.getAttributeValue(result, 'architecture');
+                    this.product = result;
+                
+                    this.getCategories(group);
+                }
+            });
     }
 
-    getCategories() {
-        this.metadataService.searchMetadata('restapi')
-            .subscribe( result => this.categories = result._embedded.metadataResourceList);
+    getCategories(group: string) {
+        if (group) {
+            this.metadataService.searchMetadata(group)
+                .subscribe( result => this.categories = result._embedded.metadataResourceList);
+        }
     }
 
     getProductOptionsByCategory(category: string) {
@@ -51,6 +59,19 @@ export class ProductDetailsComponent implements OnInit {
         }
 
         return matchingOptions;
+    }
+
+
+    private getAttributeValue(product: Product, name: string) {
+        if (product) {
+            for (let current of product.attributes) {
+                if (current.name === name) {
+                    return current.value;
+                }
+            }
+        }
+
+        return null;
     }
 
     backClicked() {

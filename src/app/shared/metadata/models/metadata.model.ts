@@ -12,6 +12,7 @@ export class Metadata {
   title: string;
   category: string;
   thumbnail: string;
+  display_order: number;
   description: string;
   versions: Array<string> = [];
   _links: MetadataLinks;

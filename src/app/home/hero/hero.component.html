@@ -1,11 +1,17 @@
 <h1>{{hero?.title}}</h1>
-<h3 class="m-3">{{hero?.subtitle}}</h3>
-<div style="display:flex;flex-direction:row;flex-wrap:wrap;">
-    <div class="m-4 p-4" style="display:flex;flex-direction:column;flex-wrap:wrap;" *ngFor="let item of hero?.contents">
-        <img [src]="item?.image" width="96" height="96">
+<h3>{{hero?.subtitle}}</h3>
+<div class="container-cards my-3">
+    <div class="card m-3 p-3" *ngFor="let item of hero?.contents">
+        <div class="card-body">
+            <img [src]="item?.image" width="96" height="96">
                 
-        <div class="description text-center">
-            <h4 class="info-title">{{item?.title}}</h4>
+            <div class="description text-center">
+                <h4 class="info-title">{{item?.title}}</h4>
+            </div>
         </div>
     </div>
 </div>
+
+<button class="btn btn-round btn-lg btn-outline-info btn-move-right" routerLink="/explore">
+    Start developing faster <i class="nc-icon nc-minimal-right"></i>
+</button>

@@ -13,7 +13,7 @@ export class ProductService {
   searchProducts(criteria: ProductSearchCriteria): Observable<ProductSearchResult> {
     
       return this.httpClient
-        .get<ProductSearchResult>(`${environment.api_url}/products/search?organization=${criteria.organization}&featured=${criteria.featured}&state=${criteria.state}&visibility=${criteria.visibility}&size=${criteria.size}&page=${criteria.page}`, { 
+        .get<ProductSearchResult>(`${environment.api_url}/products/search?organization=${criteria.organization}&featured=${criteria.featured}&state=${criteria.state}&visibility=${criteria.visibility}&architecture=${criteria.architecture}&size=${criteria.size}&page=${criteria.page}`, { 
           headers: new HttpHeaders()
             .set('Accept', 'application/json')
             .set('Content-Type', 'application/json')

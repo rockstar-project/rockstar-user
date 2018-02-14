@@ -1,12 +1,15 @@
 
-    <h1 class="mb-3">{{howitworks?.title}}</h1>
-    <h3>{{howitworks?.subtitle}}</h3>
-    <div style="display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:center;margin: 10px 100px;">
-        <div class="card" style="width:33%;margin:50px;display:flex;flex-direction:column;flex-wrap:nowrap;" *ngFor="let item of howitworks?.contents">
+    <h2 class="mb-3">{{howitworks?.title}}</h2>
+    <div class="container-cards">
+        <div class="card card-plain mx-2" style="display:flex;flex-direction:column;flex-wrap:nowrap;" *ngFor="let item of howitworks?.contents">
             
                 <div class="card-body">
+                    <div class="text-center">
+                        <h1 class="m-3 text-info">{{item?.display_order}}</h1>
+                    </div>
                     <div class="card-icon">
-                        <i [ngClass]="item?.image"></i>
+                        <!-- <i [ngClass]="item?.image"></i> -->
+                        <img [src]="item?.image">
                     </div>
                     <div class="text-center">
                         <h5 class="card-title">{{item?.title}}</h5>
@@ -16,6 +19,6 @@
             
         </div>
     </div>
-    <button class="btn btn-round btn-lg btn-danger btn-move-right" routerLink="/explore">
+    <button class="btn btn-round btn-lg btn-outline-info btn-move-right" routerLink="/explore">
         Explore Microservice Templates <i class="nc-icon nc-minimal-right"></i>
     </button>

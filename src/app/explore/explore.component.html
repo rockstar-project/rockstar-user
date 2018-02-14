@@ -1,26 +1,16 @@
-
-<div style="background: #ffffff;display:flex;flex-direction:column;flex-wrap:nowrap;height:30%;width:100%;justify-content:center;align-items:center;">
+<div class="rs-header">
     <h2>Discover your favorites</h2>
 </div>
 
-<div class="nav-tabs-navigation" style="height:70%;overflow-y:auto;">
-    <div class="nav-tabs-wrapper">
-        <ngb-tabset [justify]="'center'">
-            <ngb-tab title="REST API">
-                <ng-template ngbTabContent>
-                    <card-grid [items]="restapiFeaturedProducts"></card-grid>
-                </ng-template>
-            </ngb-tab>
-            <ngb-tab title="Single Page APP">
-                <ng-template ngbTabContent>
-                    <card-grid [items]="spaFeaturedProducts"></card-grid>
-                </ng-template>
-            </ngb-tab>
-            <ngb-tab title="Cloud Function">
-                <ng-template ngbTabContent >
-                    <card-grid [items]="functionFeaturedProducts"></card-grid>
-                </ng-template>
-            </ngb-tab>
-        </ngb-tabset>
-    </div>
+<div class="rs-content">
+    <ul class="nav nav-tabs nav-justified nav-fill">
+        <li class="nav-item" *ngFor="let category of categories">
+            <a routerLink="{{category?.slug}}" class="nav-link text-uppercase">
+                {{category?.title}}
+            </a>
+        </li>
+    </ul>
+   
+    <router-outlet></router-outlet>
+       
 </div>

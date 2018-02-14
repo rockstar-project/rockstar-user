@@ -3,8 +3,8 @@
     flex-wrap: wrap;
     align-items: flex-start;
     flex-direction: row;
-    max-height: 100%;
-    margin:0 100px;
+    height: 95%;
+    overflow: auto;
   }
 
   .cards .card-item {
@@ -14,9 +14,5 @@
 
 
 .card img {
-    border-radius: 0px;
-}
-
-.card.card-plain img {
     border-radius: 0px;
 }

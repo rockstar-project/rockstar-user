@@ -1,21 +1,23 @@
 {
-    "title": "Develop Microservice in Microseconds",
-    "subtitle": "It just takes few seconds to develop a Microservice",
+    "title": "Develop Microservices in Microseconds",
     "contents": [
         {
             "title": "Select a template",
             "subtitle": "Find your favorite from a growing list of technology templates",
-            "image": "pe-7s-news-paper"
+            "image": "http://res.cloudinary.com/dzmrr9uj9/image/upload/icons8-template-100.png",
+            "display_order": 1
         },
         {
             "title": "Add your design",
             "subtitle": "Import your domain model design specification",
-            "image": "pe-7s-network"
+            "image": "http://res.cloudinary.com/dzmrr9uj9/image/upload/icons8-hierarchy-100.png",
+            "display_order": 2
         },
         {
             "title": "Click to download",
             "subtitle": "Download a production-ready microservice code artifact",
-            "image": "pe-7s-cloud-download"
+            "image": "http://res.cloudinary.com/dzmrr9uj9/image/upload/icons8-code-96_1.png",
+            "display_order": 3
         }
     ],
     "content_links": [{

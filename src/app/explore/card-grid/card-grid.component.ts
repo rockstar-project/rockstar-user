@@ -1,23 +1,32 @@
-import { Component, Input, EventEmitter, Output } from '@angular/core';
+import { Component, Input, EventEmitter, Output, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Product } from './../../shared';
+import { Product, ProductSearchResult, fadeInAnimation } from './../../shared';
 
 @Component({
   selector: 'card-grid',
   templateUrl: './card-grid.component.html',
-  styleUrls: ['./card-grid.component.scss']
+  styleUrls: ['./card-grid.component.scss'],
+  animations: [ fadeInAnimation ],
+  host: { '[@fadeInAnimation]': '' }
 })
-export class CardGridComponent {
+export class CardGridComponent implements OnInit, OnDestroy {
 
-    @Input()
-    items: Array<Product>;
+    items: ProductSearchResult;
+    sub: any;
     
     @Output()
     select = new EventEmitter<String>();
 
     constructor(
         private router: Router, 
-     private route: ActivatedRoute) { }
+        private route: ActivatedRoute) { }
+
+    ngOnInit() {
+        this.sub = this.route.params.subscribe(params => {
+            this.items = this.route.snapshot.data['products'];
+      });
+        
+    }
 
     getFeaturedOption(item: Product) {
         if (item) {
@@ -67,7 +76,12 @@ export class CardGridComponent {
         }
     }
 
-    onSelect(value: string) {
-        this.router.navigate(['product', value]);
+    ngOnDestroy() {
+        this.sub.unsubscribe();
+    }
+
+    onSelectProduct(url: string) {
+        console.log('product url: ' + url);
+        this.router.navigate(['/product', url]);
     }
 }

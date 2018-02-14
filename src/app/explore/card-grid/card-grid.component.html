@@ -1,26 +1,28 @@
-<div class="cards" *ngIf="items">
-                       
-    <div class="card card-with-shadow card-item" *ngFor="let item of items;">
+<div class="cards" *ngIf="items">           
+    <div class="card card-with-shadow card-item" *ngFor="let item of items?._embedded?.productResourceList | slice:0:4" >
         <img class="card-img" [src]="item?.image" alt="Card image">
         <div class="card-img-overlay" style="display:flex;flex-direction:column;flex-wrap:nowrap;justify-content:space-between;align-items:center;align-content:center;">
             <p class="text-center">{{item?.title}}</p>
-            <h6 class="card-category text-success">{{getTitle(item,'architecture')}}</h6>
-            
             <div style="display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:center;">
-                <div class="avatar m-2">
-                    <img [src]="getImage(item, 'language')" width="80" height="80">
-                </div>
-                <div class="avatar m-2">
+
+                <div class="avatar m-1">
                     <img [src]="getImage(item, 'framework')" width="80" height="80">
                 </div>
                 <!--
-                <div class="avatar" *ngIf="getFeaturedOptionImage()">
-                    <img [src]="getFeaturedOptionImage()" width="100" height="100">
-                </div>
+                <div class="avatar m-1">
+                        <img [src]="getImage(item, 'language')" width="80" height="80">
+                    </div>
                 -->
+                <div class="avatar m-1" *ngIf="getFeaturedOptionImage(item)">
+                    <img [src]="getFeaturedOptionImage(item)" width="80" height="80">
+                </div>
             </div>
-            <button type="button" class="btn btn-outline-info btn-sm" (click)="onSelect(item?._links.self.href)">View Details</button>
+            <button type="button" class="btn btn-outline-info btn-sm" (click)="onSelectProduct(item?._links.self.href)">View Details</button>
         </div>
-        
     </div>
 </div>
+<!--
+<div style="padding:5px 10px;height:5%;display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:flex-end;align-items:center;border: 2px solid #c2c2c2;">
+    <ngb-pagination [collectionSize]="items?.page?.total_elements" [boundaryLinks]="false"></ngb-pagination>
+</div>
+-->
