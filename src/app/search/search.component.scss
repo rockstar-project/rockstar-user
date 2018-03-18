@@ -1,8 +1,24 @@
 :host {
     display: flex;
     flex-direction: row;
-    height: 95vh;
+    height: 100%;
     overflow: hidden;
-    margin-top: 40px;
     justify-content: flex-start;
+}
+
+.search-grid {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.search-item {
+    display:flex;
+    flex-direction:column;
+    flex-wrap:nowrap;
+    justify-content:space-between;
+    flex: 0 0 250px;
+    border: 1px solid lightgray;
+    margin: 5px;
+    height: 20vh;
+    background-color: white;
 }

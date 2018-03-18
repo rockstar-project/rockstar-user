@@ -1,0 +1,109 @@
+[
+    {
+        "title": "Developer Productivity",
+        "subtitle": "Developing microservices in microseconds",
+        "contents": [
+            {
+                "title": "API-First Design",
+                "subtitle": "Document-driven",
+                "image": "http://res.cloudinary.com/dzmrr9uj9/image/upload/feature.png"
+            },
+            {
+                "title": "Continuously generate",
+                "subtitle": "Discover Pre-built templates. Use domain model to expose REST API endpoint, with out having to write any code. ",
+                "description": "Drastically reduces time from concept to implementation",
+                "image": "http://res.cloudinary.com/dzmrr9uj9/image/upload/codegenerate.png"
+            },
+            {
+                "title": "Fast Prototypes",
+                "subtitle": "Inspire your next project",
+                "image": "http://res.cloudinary.com/dzmrr9uj9/image/upload/feature.png"
+            },
+            {
+                "title": "Test Automation",
+                "subtitle": "",
+                "image": "http://res.cloudinary.com/dzmrr9uj9/image/upload/feature.png"
+            },
+            {
+                "title": "Middleware Capabilities",
+                "subtitle": "Better code without breaking the bank",
+                "image": "http://res.cloudinary.com/dzmrr9uj9/image/upload/feature.png"
+            },
+            {
+                "title": "Professional code reviews. Clean code",
+                "subtitle": "Fully human-readable generated code. Based on successful guidelines and design best practices",
+                "description": "Trust that code is clean and light-weight. See how code comes together and packaged. Learn industry standards & better practices",
+                "image": "http://res.cloudinary.com/dzmrr9uj9/image/upload/feature.png"
+            },
+            {
+                "title": "Operational Governance",
+                "subtitle": "",
+                "description": "Your teams won't need to reimplement the tools for each stack, making it easier to focus on building robust standardized tools.",
+                "image": "http://res.cloudinary.com/dzmrr9uj9/image/upload/feature.png"
+            }
+        ]
+    },
+    {
+        "title": "Business Agility",
+        "subtitle": "Turn your business into code",
+        "contents": [
+            {
+                "title": "Accelerates Innovation",
+                "subtitle": "Providing developers with a platform for innovation. Unleashing a new generation of business coder",
+                "description": "Implementing a foundation for continuous innovation.",
+                "image": "http://res.cloudinary.com/dzmrr9uj9/image/upload/feature.png"
+            },
+            {
+                "title": "Digital reality",
+                "subtitle": "Focus shifts from technology to opportunity",
+                "description": "Adopt a digital mindset. Transform organization to digital era",
+                "image": "http://res.cloudinary.com/dzmrr9uj9/image/upload/feature.png"
+            },
+            {
+                "title": "Accelerates Innovation",
+                "subtitle": "Implementing a foundation for continuous innovation",
+                "image": "http://res.cloudinary.com/dzmrr9uj9/image/upload/feature.png"
+            },
+            {
+                "title": "Easy to adapt",
+                "subtitle": "Accelerate cloud adoption.",
+                "description": "It can be the ideal foundation for an agile organization",
+                "image": "http://res.cloudinary.com/dzmrr9uj9/image/upload/feature.png"
+            },
+            {
+                "title": "Develop more, code less",
+                "subtitle": "API development is labor-intensive and error prone. We can focus on actually building features",
+                "description": "Build cognitive, iot, analytics, blockchained business apps",
+                "image": "http://res.cloudinary.com/dzmrr9uj9/image/upload/feature.png"
+            }
+        ]
+    },
+    {
+        "title": "Flexibility",
+        "subtitle": "Rapidly build business apps with low-code",
+        "contents": [
+            {
+                "title": "Minimize risk",
+                "subtitle": "Less manual code means fewer bugs and effortless maintenance",
+                "image": "http://res.cloudinary.com/dzmrr9uj9/image/upload/feature.png"
+            },
+            {
+                "title": "No fuss, no debt",
+                "subtitle": "Minimize heavy plumbing work and internal framework development",
+                "image": "http://res.cloudinary.com/dzmrr9uj9/image/upload/feature.png"
+            },
+            {
+                "title": "Choose your programming language and preferred tech stack",
+                "subtitle": "Create microservices using your favorite technology.",
+                "description": "Leverage from a wide range of programming languages and effective frameworks",
+                "image": "http://res.cloudinary.com/dzmrr9uj9/image/upload/feature.png"
+            },
+            {
+                "title": "Domain-specific transformation",
+                "subtitle": "Thinking outside the system",
+                "description": "Treat systems as independent domains",
+                "image": "http://res.cloudinary.com/dzmrr9uj9/image/upload/feature.png"
+            }
+        ]
+    }
+]

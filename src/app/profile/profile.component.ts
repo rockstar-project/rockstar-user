@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from './../shared';
-import { fadeInAnimation } from './../shared';
+import { AuthService } from './../auth';
+import { fadeInAnimation } from './../core';
 
 @Component({
   selector: 'app-profile',

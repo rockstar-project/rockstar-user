@@ -1,6 +1,6 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
-import { ContentService, Content } from 'app/shared';
-import { fadeInAnimation } from '../../shared';
+import { ContentService, Content } from 'app/core';
+import { fadeInAnimation } from '../../core';
 
 @Component({
     selector: 'app-home-howitworks',

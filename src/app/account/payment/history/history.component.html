@@ -1,0 +1,21 @@
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="text-center">ID</th>
+                <th>Date</th>
+                <th>Payment Method</th>
+                <th class="text-right">Amount</th>
+                <th class="text-right">Receipt</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of payments">
+                <td class="text-center"></td>
+                <td>{{item?.reference_number}}</td>
+                <td>{{item?.date}}</td>
+                <td class="text-right">{{item?.currency}} {{item?.amount}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

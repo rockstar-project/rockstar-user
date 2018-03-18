@@ -1,8 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { NgbTabChangeEvent } from '@ng-bootstrap/ng-bootstrap';
-import { MetadataResultSet, Metadata, MetadataService, fadeInAnimation, AuthService, DisplayOrderSortPipe } from 'app/shared';
-import { ProductService, Product, ProductSearchResult, ProductSearchCriteria } from 'app/shared';
-import { Router } from '@angular/router';
+import { Subscription } from 'rxjs/Subscription';
+import { MetadataResultSet, Metadata, MetadataService, fadeInAnimation, UtilsService } from 'app/core';
+import { ProductService, Product, ProductSearchResult, ProductSearchCriteria } from './../core';
+import { AuthService } from './../auth';
+
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-explore',
@@ -11,36 +14,33 @@ import { Router } from '@angular/router';
   animations: [ fadeInAnimation ],
   host: { '[@fadeInAnimation]': '' }
 })
-export class ExploreComponent implements OnInit {
+export class ExploreComponent implements OnInit, OnDestroy {
 
-  categories: Metadata[];
+  items: ProductSearchResult;
+  sub: any;
 
   constructor(
+    private route: ActivatedRoute,
     private router: Router,
-    private displayOrderSort: DisplayOrderSortPipe,
+    private utils: UtilsService,
     public authService: AuthService,
     private metadataService: MetadataService) { }
 
-  ngOnInit() {
-      this.authService.loggedIn$.subscribe(result => {
-        if (result) {
-          this.metadataService.searchMetadata('architecture')
-            .subscribe( result => {
-              if (result) {
-                this.categories = this.displayOrderSort.transform(result._embedded.metadataResourceList, null);
-                if (this.categories) {
-                  this.router.navigateByUrl('explore/' + this.categories[0].slug);
-                }
-              }
-        });
-        }
-    });
-      
-    }
+   ngOnInit() {
+    this.sub = this.route.params.subscribe(params => {
+      this.items = this.route.snapshot.data['products'];
+   });
+  }
 
-    onSelectArchitecture($event: NgbTabChangeEvent) {
-      this.router.navigateByUrl('explore/' + $event.nextId);
-    }
+
+  onSelectProduct(url: string) {
+    this.router.navigate(['product', this.utils.resourceId(url), {outlets: {'design': ['options'], 'develop': ['overview']}}]);
+    //this.router.navigateByUrl("/product/" + this.utils.resourceId(url));
+}
+
+  ngOnDestroy() {
+    this.sub.unsubscribe();
+  }
 
 
 }

@@ -1,0 +1,95 @@
+<nav class="navbar navbar-expand-md fixed-top">
+    <a class="navbar-brand" routerLink="/">
+        <img src="http://res.cloudinary.com/dzmrr9uj9/image/upload/brand/black_outline_61x75.png" alt="" width="20">
+    </a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-bar"></span>
+        <span class="navbar-toggler-bar"></span>
+        <span class="navbar-toggler-bar"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto" *ngIf="!authService.loggedIn">
+            <li class="nav-item">
+                <a class="nav-link">
+                    <a class="nav-link" routerLink="/home/hero">Home</a>
+                </a>
+            </li>
+            <li class="nav-item">
+                <div ngbDropdown class="dropdown image-dropdown">
+                    <div ngbDropdown class="dropdown">
+                        <a class="nav-link dropdown-toggle" ngbDropdownToggle>Product<b class="caret"></b></a>
+                        <div ngbDropdownMenu class="dropdown-menu dropdown-menu-right dropdown-default">
+                            <a class="dropdown-item" routerLink="/home/howitworks">How It Works</a>
+                            <a class="dropdown-item" routerLink="/home/features">Features</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+           
+            <li class="nav-item">
+                <a class="nav-link">
+                    <a class="nav-link" routerLink="/home/plans">Pricing</a>
+                </a>
+            </li>
+             <!--
+            <li class="nav-item">
+                <a class="nav-link">
+                    <a class="nav-link" routerLink="/home/blogs">Blogs</a>
+                </a>
+            </li>
+            -->
+            <li class="nav-item">
+                <a class="nav-link">
+                    <a class="nav-link" (click)="authService.login()">Sign in</a>
+                </a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto" *ngIf="authService.loggedIn">
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/explore" routerLinkActive="active">
+                    Explore
+                </a>
+            </li>
+            <!--
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/search" routerLinkActive="active">
+                    Search
+                </a>
+            </li> -->
+
+            <li class="nav-item">
+                <div ngbDropdown class="dropdown image-dropdown">
+                    <div class="nav-link" ngbDropdownToggle>
+                        <div class="profile-photo-small">
+                            <img [src]="authService.userProfile?.picture" [alt]="authService.userProfile?.name"  class="img-circle img-responsive img-no-padding">
+                        </div>
+                    </div>
+                    <div ngbDropdownMenu class="dropdown-menu dropdown-menu-right dropdown-default">
+                        <div class="dropdown-header">{{authService.userProfile?.nickname}}</div>
+                        
+                        <a class="dropdown-item" routerLink="/profile">
+                            <i class="nc-icon nc-badge"></i>&nbsp; Profile
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <!--
+                        <a class="dropdown-item" routerLink="/collections">
+                            
+                            <i class="nc-icon nc-tile-56"></i>&nbsp; Collections
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" routerLink="/account">
+                            <i class="nc-icon nc-settings"></i>&nbsp; Account
+                        </a>
+                    
+                        <div class="dropdown-divider"></div>
+                        -->
+                        <a class="dropdown-item" (click)="authService.logout()">
+                            <i class="nc-icon nc-lock-circle-open"></i>&nbsp; Sign out
+                        </a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>

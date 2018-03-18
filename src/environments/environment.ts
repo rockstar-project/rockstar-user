@@ -6,9 +6,10 @@ export const environment = {
 export const AUTH_CONFIG = {
   clientID: '8fGEyRsBmUNp7BfEjaV3nfpw5pAl4dU2',
   domain: 'rockstar.auth0.com',
-  redirect: 'http://localhost:4200/explore',
+  redirect: 'http://localhost:4200/callback',
   scope: 'openid profile email search:products read:products search:metadata read:metadata download:artifacts create:artifacts search:collections read:collections create:collections update:collections delete:collections',
-  audience: 'https://api.rock-star.io/'
+  audience: 'https://api.rock-star.io/',
+  namespace: 'http://localhost/roles'
 };
 
 export const ICONFINDER_CONFIG = {
@@ -17,8 +18,16 @@ export const ICONFINDER_CONFIG = {
   api_client_secret: 'wQmQpG1EWcWuCeaDwfaJog1YkVYb9PMaS92VI0HYI5U5SWHU6yiempxEDPjuuTrX'
 }
 
-export const AUTH0_MANAGEMENT_CONFIG = {
-  api_url: 'https://rock-star.auth0.com/api/v2',
-  api_client_id: '2FelqDJ5NJH7AXvf7Gqq4q7ciSdc5Pmu',
-  api_client_secret: 'rhHr9vGDIGitMRKV9qmc9jWUHN24nr6jPakcDuXJhBIrlWkJMM6P8CkwUeJEuWGL'
+export const AUTH0_USER_SERVICE_CONFIG = {
+  token_url: 'https://rockstar.auth0.com/oauth/token',
+  api_url: 'https://rockstar.auth0.com/api/v2/',
+  clientID: '2FelqDJ5NJH7AXvf7Gqq4q7ciSdc5Pmu',
+  clientSecret: 'rhHr9vGDIGitMRKV9qmc9jWUHN24nr6jPakcDuXJhBIrlWkJMM6P8CkwUeJEuWGL',
+  grant: 'client_credentials'
+}
+
+export const SWAGGERHUB_CONFIG = {
+  organization: 'rockstar',
+  api_url: '',
+  api_key: 'eyJUb2tlblR5cGUiOiJBUEkiLCJzYWx0IjoiOTkyNDQwNTQtYjQ2MC00Y2E5LTk0NjItMmFiZDZkOTNkY2I4IiwiYWxnIjoiSFM1MTIifQ.eyJqdGkiOiI0OWRiMWMyMC00MjMyLTRmZWYtODNiOS04NzBiYWIzNjcwNmIiLCJpYXQiOjE1MTI2NjAwNTJ9.bfZX8tPOnPm-hOMy1bBPLsjop0zGroVo3wAssB8qJ2aoI-6--sDsNUFdXUCgby1wFRoTNclBBAwXVRkUtfMjdg'
 }

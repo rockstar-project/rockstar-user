@@ -1,19 +1,17 @@
 :host {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
 }
 
-.cards {
+.collection-cards {
     display: flex;
     flex-wrap: wrap;
-    align-items: flex-start;
-    flex-direction: row;
-    max-height: 100vh;
-    margin:0 100px;
-  }
+}
 
-  .cards img {
-    margin: 10px;
-    border: 3px solid rgb(226, 225, 225);
-    box-shadow: 3px 3px 8px 0px rgba(223, 222, 222, 0.9); 
-    max-width: 23vw;
-  }
+.collection-card {
+    flex: 0 0 250px;
+    border: 1px solid lightgray;
+    margin: 5px;
+    height: 20vh;
+}

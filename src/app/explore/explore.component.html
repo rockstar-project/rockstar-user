@@ -1,16 +1,11 @@
-<div class="rs-header">
+
+<div class="header p-5">
     <h2>Discover your favorites</h2>
 </div>
 
-<div class="rs-content">
-    <ul class="nav nav-tabs nav-justified nav-fill">
-        <li class="nav-item" *ngFor="let category of categories">
-            <a routerLink="{{category?.slug}}" class="nav-link text-uppercase">
-                {{category?.title}}
-            </a>
-        </li>
-    </ul>
-   
-    <router-outlet></router-outlet>
-       
+<div class="content mx-5" *ngIf="items">
+    <div class="cards" *ngIf="items">
+        <app-explore-item [item]="item" *ngFor="let item of items?._embedded?.productResourceList" (select)="onSelectProduct($event)">
+        </app-explore-item>
+    </div>
 </div>

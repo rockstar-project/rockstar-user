@@ -1,0 +1,31 @@
+<div class="content-header">
+    <h2>{{plans?.title}}</h2>
+</div>
+<div class="content-body">
+    <div class="pricing-cards">
+        <div class="pricing-card m-2" *ngFor="let planitem of plans?.items">
+            <div class="text-center">
+                <h6 class="card-category text-success">{{planitem?.name}}</h6>
+                <h1 class="card-title">{{planitem?.currency_symbol}}{{planitem?.amount}}</h1>
+            </div>
+            <hr class="border">
+            <ul class="list-group">
+                <li class="px-0 list-group-item border-left-0 border-right-0" [ngClass]="{'border-top-0' : firstitem, 'border-bottom-0' : lastitem }" *ngFor="let featureitem of planitem?.features; let firstitem = first; let lastitem = last;">
+                    <div style="display:flex;flex-direction:row;flex-wrap:wrap;justify-content:space-between;">
+                        <p class="w-75">{{featureitem?.title}}</p>
+                        
+                        <bSwitch class="w-25" [switch-on-color]="'success'" [switch-off-color]="'info'"> </bSwitch>
+                    </div>
+                </li>
+            </ul>
+           
+            <hr class="border">
+            <div class="mt-3 w-100" style="display:flex;justify-content:center;">
+                <button class="btn btn-lg btn-outline-default btn-move-right" (click)="changePlan('upgrade')">
+                    Upgrade Plan <i class="nc-icon nc-minimal-right"></i>
+                </button>
+            </div>
+            
+        </div>
+    </div>
+</div>

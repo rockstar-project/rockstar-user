@@ -1,18 +1,36 @@
 {
-    "title": "Your enterprise @ startup speed",
-    "subtitle": "Create cloud apps, apis & functions without coding",
-    "contents": [
+    "title": "Rockstar",
+    "subtitle": "Create apps & api without coding",
+    "image": "http://res.cloudinary.com/dzmrr9uj9/image/upload/brand/logo_icon_text_black.png",
+    "tags": [ "website" ],
+    "links": [
         {
-            "title": "Apps",
-            "image": "http://res.cloudinary.com/dzmrr9uj9/image/upload/webapp.png"
+            "name": "explore",
+            "default": true,
+            "content" : {  
+                "title": "start developing faster", 
+                "url": "/explore" 
+            }
         },
         {
-            "title": "API",
-            "image": "http://res.cloudinary.com/dzmrr9uj9/image/upload/restapi.png"
-        },
-        {
-            "title": "Functions",
-            "image": "http://res.cloudinary.com/dzmrr9uj9/image/upload/function.png"
+            "name": "products",
+            "content" : {
+                "title": "Rockstar Products",
+                "links": [
+                    {
+                        "title": "Apps",
+                        "image": "http://res.cloudinary.com/dzmrr9uj9/image/upload/webapp.png"
+                    },
+                    {
+                        "title": "API",
+                        "image": "http://res.cloudinary.com/dzmrr9uj9/image/upload/restapi.png"
+                    },
+                    {
+                        "title": "Functions",
+                        "image": "http://res.cloudinary.com/dzmrr9uj9/image/upload/function.png"
+                    }
+                ]
+            }
         }
     ]
 }

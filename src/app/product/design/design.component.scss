@@ -1,8 +1,27 @@
-
-.information-container-wrapper {
-    display: none;
+:host {
+    height: 100%;
+    display: flex;
 }
 
-.global-server-container {
-    display: none;
+.sidenav {
+    height:100%;
+    background-color: #e5e5e5;
+    i {
+        border-radius: 0;
+    }
 }
+
+.content {
+    overflow: auto;
+    height:100%;
+    background-color: #f5f5f5;
+ }
+ 
+ .footer {
+     display: flex;
+     height: 9%;
+     flex-direction: row;
+     flex-wrap: nowrap;
+     justify-content:center;
+     border-radius: 0;
+ }

@@ -1,11 +1,9 @@
 import { NgModule } from '@angular/core';
-import { CommonModule, } from '@angular/common';
-import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
-import { AuthGuard, ProductsResolver } from './shared';
 
 import { CallbackComponent } from './callback/callback.component';
-import { PageNotFoundComponent } from './shared/error/notfound/notfound.component';
+import { AuthGuard } from './auth';
+import { LandingComponent } from './landing/landing.component';
 
 const routes: Routes =[
     { 
@@ -16,16 +14,57 @@ const routes: Routes =[
     { 
         path: 'callback',             
         component: CallbackComponent 
-    }
+    },
+    {
+        path: 'presentation',
+        redirectTo: 'presentation'
+    },
+    {
+        path: 'landing',
+        redirectTo: 'landing'
+    },
+    {
+        path: 'explore',
+        loadChildren: './explore/explore.module#ExploreModule',
+        canActivate: [
+          AuthGuard
+        ]
+    },
+    {
+        path: 'search',
+        loadChildren: './search/search.module#SearchModule',
+        canActivate: [
+          AuthGuard
+        ]
+    },
+    {
+        path: 'profile',
+        loadChildren: './profile/profile.module#ProfileModule',
+        canActivate: [
+          AuthGuard
+        ]
+    },
+    {
+        path: 'account',
+        loadChildren: './account/account.module#AccountModule',
+        canActivate: [
+          AuthGuard
+        ]
+    },
+    {
+        path: 'collections',
+        loadChildren: './collections/collections.module#CollectionsModule',
+        canActivate: [
+          AuthGuard
+        ]
+    },
 ];
 
 @NgModule({
-    imports: [
-        CommonModule,
-        BrowserModule,
-        RouterModule.forRoot(routes)
+    imports: [RouterModule.forRoot(routes)],
+    providers: [
+        AuthGuard
     ],
-    exports: [
-    ],
-})
-export class AppRoutingModule { }
+    exports: [RouterModule]
+  })
+  export class AppRoutingModule { }

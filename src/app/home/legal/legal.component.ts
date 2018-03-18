@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { fadeInAnimation } from '../../shared';
+import { fadeInAnimation } from '../../core';
 
 @Component({
   selector: 'app-legal',

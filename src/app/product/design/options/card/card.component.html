@@ -1,0 +1,8 @@
+<div class="card-option card-with-shadow">
+    <div class="card-option-header">{{item?.name}}</div>
+    <div class="card-option-body">
+        <img class="card-option-img" [src]="item?.image | default">
+        <div class="card-option-subtitle">{{item?.title}}</div>
+        <div class="card-option-text-sm">{{item?.version}}</div>
+    </div>
+</div>

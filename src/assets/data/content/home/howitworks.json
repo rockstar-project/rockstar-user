@@ -1,27 +1,28 @@
 {
-    "title": "Develop Microservices in Microseconds",
+    "title": "How it works!",
+    "subtitle": "Develop microservices in microseconds",
     "contents": [
         {
-            "title": "Select a template",
-            "subtitle": "Find your favorite from a growing list of technology templates",
-            "image": "http://res.cloudinary.com/dzmrr9uj9/image/upload/icons8-template-100.png",
+            "title": "Choose microservice",
+            "subtitle": "Find your favorite from a growing list of microservice catalog",
+            "image": "http://res.cloudinary.com/dzmrr9uj9/image/upload/content/choose_template.svg",
             "display_order": 1
         },
         {
-            "title": "Add your design",
-            "subtitle": "Import your domain model design specification",
-            "image": "http://res.cloudinary.com/dzmrr9uj9/image/upload/icons8-hierarchy-100.png",
+            "title": "Add design",
+            "subtitle": "Import your domain design specification",
+            "image": "http://res.cloudinary.com/dzmrr9uj9/image/upload/content/select_model.svg",
             "display_order": 2
         },
         {
             "title": "Click to download",
-            "subtitle": "Download a production-ready microservice code artifact",
-            "image": "http://res.cloudinary.com/dzmrr9uj9/image/upload/icons8-code-96_1.png",
+            "subtitle": "Download a production-grade microservice code artifact",
+            "image": "http://res.cloudinary.com/dzmrr9uj9/image/upload/v1521142349/content/create_artifact.svg",
             "display_order": 3
         }
     ],
     "content_links": [{
-        "title": "Explore Microservice Templates",
+        "title": "Let's make you a rockstar",
         "target": "/explore"
     }]
 }

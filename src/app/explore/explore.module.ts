@@ -1,28 +1,27 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from "@angular/common";
+import { CoreModule } from "./../core";
 import { RouterModule } from "@angular/router";
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ExploreRoutes as routes } from './explore.routes';
 import { ExploreComponent } from './explore.component';
-import { CardGridComponent } from './card-grid/card-grid.component';
-import { DisplayOrderSortPipe } from './../shared';
+import { ExploreCardComponent } from './card/card.component';
 
 @NgModule({
     declarations: [
         ExploreComponent,
-        CardGridComponent,
-        DisplayOrderSortPipe
+        ExploreCardComponent
     ],
     imports: [
         CommonModule,
         FormsModule,
         RouterModule,
         NgbModule,
+        CoreModule,
         RouterModule.forChild(routes)
     ],
     providers: [
-        DisplayOrderSortPipe
     ]
 })
 export class ExploreModule { }

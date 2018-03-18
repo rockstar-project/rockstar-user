@@ -1,25 +1,13 @@
 import { Routes } from '@angular/router';
 import { ExploreComponent } from './explore.component';
-import { ProductsResolver } from '../shared';
-import { CardGridComponent } from './card-grid/card-grid.component';
+import { ProductsResolve } from '../core';
 
 export const ExploreRoutes: Routes = [
     { 
-        path: 'explore',
+        path: '',
         component: ExploreComponent,
-        children: [
-            {
-                path: '',
-                redirectTo: 'restapi',
-                pathMatch: 'full'
-            },
-            {
-                path: ':architecture',
-                component: CardGridComponent,
-                resolve: {
-                    products: ProductsResolver
-                }
-            }
-        ]
+        resolve: {
+            products: ProductsResolve
+        }
     }
 ];

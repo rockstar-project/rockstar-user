@@ -3,29 +3,46 @@ import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router";
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { AceEditorModule } from 'ng2-ace-editor';
-import { OptionCardComponent } from './option-card/option-card.component';
+import { MarkdownModule } from 'ngx-markdown';
+import { NgxGalleryModule } from 'ngx-gallery';
+import { HighlightModule } from 'ngx-highlightjs'; 
+import { CoreModule } from './../core';
+import { OptionCardComponent } from './design/options/card/card.component';
 import { ProductRoutes as routes } from './product.routes';
-import { ProductDetailsComponent } from './details.component';
-import { OverviewComponent } from './overview/overview.component';
+import { ProductComponent } from './product.component';
 import { DesignComponent } from './design/design.component';
-import { CodeComponent } from './code/code.component';
-
+import { OptionsComponent } from './design/options/options.component';
+import { SpecificationComponent } from './design/spec/spec.component';
+import { DevelopComponent } from './develop/develop.component';
+import { OverviewComponent } from './develop/overview/overview.component';
+import { CodeComponent } from './develop/code/code.component';
+import { GalleryComponent } from './develop/gallery/gallery.component';
+import { ProductResolve } from '../core/services/product/product.resolve';
 @NgModule({
     declarations: [
-        ProductDetailsComponent,
-        OverviewComponent,
+        ProductComponent,
         DesignComponent,
+        SpecificationComponent,
+        OptionsComponent,
+        OptionCardComponent,
+        DevelopComponent,
+        OverviewComponent,
         CodeComponent,
-        OptionCardComponent
+        GalleryComponent
     ],
     imports: [
         CommonModule,
         FormsModule,
         RouterModule,
         NgbModule,
-        AceEditorModule,
+        MarkdownModule.forChild(),
+        CoreModule,
+        NgxGalleryModule,
+        HighlightModule.forRoot({ theme: 'tomorrow'}),
         RouterModule.forChild(routes)
+    ],
+    providers: [
+        ProductResolve
     ]
 })
-export class ProductHomeModule { }
+export class ProductModule { }

@@ -1,0 +1,20 @@
+
+                                
+    <div class="header">
+        <h2>{{product?.subtitle}}</h2>
+        <h4 class="mb-3">{{product?.title}}</h4>
+        <span class="label label-success">{{ product?.attributes | attribute:'architecture':'title' }}</span>
+    </div>
+
+    <div class="content">
+        <div class="border m-1 p-1">
+            <img [src]="product?.attributes | attribute:'specification':'image'">
+        </div>
+        <div class="border m-1 p-1">
+            <img [src]="product?.attributes | attribute:'language':'image'">
+        </div>
+        <div class="border m-1 p-1">
+            <img [src]="product?.attributes | attribute:'framework':'image'">
+        </div>
+    </div>
+    

@@ -1,80 +1,38 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { CommonModule } from '@angular/common';
-import { HttpModule } from '@angular/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { RouterModule } from '@angular/router';
+import { MarkdownModule } from 'ngx-markdown';
 import { AppRoutingModule } from './app.routing';
-import { TagInputModule } from 'ngx-chips';
-import { NouisliderModule } from 'ng2-nouislider';
-import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown/angular2-multiselect-dropdown';
-import { NgxGalleryModule } from 'ngx-gallery';
+
+import { CoreModule } from './core';
+import { AuthModule } from './auth';
+import { HomeModule } from './home/home.module';
+import { LandingModule } from './landing/landing.module';
+import { PresentationModule } from './presentation/presentation.module';
+import { ProductModule } from './product/product.module';
+
 import { AppComponent } from './app.component';
 import { CallbackComponent } from './callback/callback.component';
-import { ProductsResolver } from './shared';
-
-import { NavbarComponent } from './shared/navbar/navbar.component';
-import { FooterComponent } from './shared/footer/footer.component';
-import { PageNotFoundComponent } from './shared/error/notfound/notfound.component';
-
-import {
-    AuthGuard,
-    ProductService,
-    MetadataService,
-    AuthService,
-    ContentService,
-    ArtifactService,
-    AccountService
-} from './shared';
-
-import { HomeModule } from './home/home.module';
-import { AccountHomeModule } from './account/account.module';
-import { CollectionsModule } from './collections/collections.module';
-import { ExploreModule } from './explore/explore.module';
-import { SearchModule } from './search/search.module';
-import { ProfileModule } from './profile/profile.module';
-import { ProductHomeModule } from './product/product.module';
 
 @NgModule({
     declarations: [
         AppComponent,
-        CallbackComponent,
-        NavbarComponent,
-        FooterComponent,
-        PageNotFoundComponent
+        CallbackComponent
     ],
     imports: [
         BrowserAnimationsModule,
         NgbModule.forRoot(),
-        HttpModule,
-        HttpClientModule,
-        FormsModule,
-        RouterModule,
+        MarkdownModule.forRoot(),
         AppRoutingModule,
-        TagInputModule,
-        AngularMultiSelectModule,
-        NgxGalleryModule,
-        NouisliderModule,
         HomeModule,
-        ExploreModule,
-        AccountHomeModule,
-        CollectionsModule,
-        SearchModule,
-        ProfileModule,
-        ProductHomeModule
+        PresentationModule,
+        LandingModule,
+        ProductModule,
+        AuthModule.forRoot(),
+        CoreModule.forRoot()
     ],
     providers: [
-        AuthGuard,
-        ProductService,
-        AuthService,
-        ArtifactService,
-        ContentService,
-        ProductsResolver,
-        MetadataService,
-        AccountService
     ],
     bootstrap: [AppComponent]
 })

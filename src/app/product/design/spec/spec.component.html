@@ -1,0 +1,20 @@
+<div class="header">
+    <div class="input-group">
+        <input type="text" class="form-control" [ngModel]="product?.schema_url" aria-label="API Specification Url" aria-describedby="basic-addon2">
+
+            <a [routerLink]="['design']">
+                <i class="pe pe-7s-search pe-2x pe-border"></i>
+            </a>
+        
+    </div>
+</div>
+
+<div class="content">
+    <div *ngIf="format === 'openapi'">
+        <app-swagger [schemaUrl]="product?.schema_url"></app-swagger>
+    </div>
+
+    <div *ngIf="format === 'jsonschema'">
+        <app-jsoneditor [schemaUrl]="product?.schema_url"></app-jsoneditor>
+    </div>
+</div>

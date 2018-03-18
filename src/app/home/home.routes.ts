@@ -4,11 +4,11 @@ import { HomeComponent } from './home.component';
 import { HeroComponent } from './hero/hero.component';
 import { HowItWorksComponent } from './howitworks/howitworks.component';
 import { FeaturesComponent } from './features/features.component';
-import { PricingComponent } from './pricing/pricing.component';
 import { BlogsComponent } from './blogs/blogs.component';
 import { LegalComponent } from './legal/legal.component';
 import { TermsOfUseComponent } from './legal/termsofuse/termsofuse.component';
 import { PrivacyPolicyComponent } from './legal/privacypolicy/privacypolicy.component';
+import { PricingPlansComponent } from '../home/plan/plan.component';
 
 export const HomeRoutes: Routes = [
     { 
@@ -33,8 +33,8 @@ export const HomeRoutes: Routes = [
                 component: FeaturesComponent 
             },
             {
-                path: 'pricing',
-                component: PricingComponent 
+                path: 'plans',
+                component: PricingPlansComponent 
             },
             {
                 path: 'blogs',

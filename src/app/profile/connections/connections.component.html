@@ -1,28 +1,25 @@
 <div class="row following" id="follows">
-        <div class="col-md-6 ml-auto mr-auto">
-            <ul class="list-unstyled follows">
-                <li>
-                    <div class="row" *ngFor="let current of connections; let fi = first;">
-                        <hr *ngIf="!fi" />
-                        <div class="col-md-2 col-3">
-                            <img [src]="current?.image" [alt]="current?.title" class="img-thumbnail img-responsive" width="75" height="75">
-                        </div>
-                        <div class="col-md-7 col-4">
-                            <h6>{{current?.title}}<br/><small>info placeholder</small></h6>
-                        </div>
-                        <div class="col-md-3 col-2">
-                            <div class="unfollow" >
-                                    <bSwitch
-                                    [switch-on-color]="'info'"
-                                    [switch-off-color]="'info'"
-                                    [(ngModel)]="connections"
-                                    [name]="current?.name">
-                                </bSwitch>
-                            </div>
+    <div class="col-md-6 ml-auto mr-auto">
+        <ul class="list-unstyled follows">
+            <li>
+                <div class="row" *ngFor="let current of connections; let fi = first;">
+                    <hr *ngIf="!fi" />
+                    <div class="col-md-2 col-3">
+                        <img [src]="current?.image" [alt]="current?.title" class="img-thumbnail img-responsive" width="75" height="75">
+                    </div>
+                    <div class="col-md-7 col-4">
+                        <h6>{{current?.title}}<br/><small>info placeholder</small></h6>
+                    </div>
+                    <div class="col-md-3 col-2">
+                        <div class="unfollow" >
+                            <bSwitch
+                                [switch-on-color]="'info'"
+                                [switch-off-color]="'info'">
+                            </bSwitch>
                         </div>
                     </div>
-                </li>
-
-            </ul>
-        </div>
+                </div>
+            </li>
+        </ul>
     </div>
+</div>

@@ -1,23 +1,27 @@
-<div style="display:flex;flex-direction:column;flex-wrap:nowrap;height:30%;justify-content:center;align-items:center;
-    padding: 25px 0;">
+
+<div style="display:flex;flex-direction:column;flex-wrap:nowrap;height:20%;justify-content:center;align-items:center;border:1px solid #f5f5f5;">
     <h2>My Collections</h2>
 </div>
 
-<div class="nav-tabs-navigation" style="height:70%;">
+<div class="nav-tabs-navigation" style="height:80%;">
     <div class="nav-tabs-wrapper">
         <ngb-tabset [justify]="'center'">
             <ngb-tab title="Favorite">
                 <ng-template ngbTabContent>
-                     <main class="cards">
-                        <img [src]="item" *ngFor="let item of favoriteCollection">
+                     <main class="collection-cards">
+                        <div class="collection-card" *ngFor="let item of favoriteCollection"></div>
                      </main>
                 </ng-template>
             </ngb-tab>
             <ngb-tab title="Downloaded">
                 <ng-template ngbTabContent >
-                    <main class="cards">
-                        <img [src]="item" *ngFor="let item of downloadCollection">
+                    <!--
+                    <main class="collection-cards">
+                        <div class="collection-card" *ngFor="let item of downloadCollection"></div>
                     </main>
+                -->
+                
+                
                 </ng-template>
             </ngb-tab>
         </ngb-tabset>

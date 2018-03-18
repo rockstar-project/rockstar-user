@@ -1,5 +1,5 @@
 import { Component, HostBinding } from '@angular/core';
-import { fadeInAnimation } from '../../shared';
+import { fadeInAnimation } from '../../core';
 
 @Component({
     selector: 'app-home-features',

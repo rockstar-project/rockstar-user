@@ -3,7 +3,7 @@ import { CollectionsComponent } from './collections.component';
 
 export const CollectionsRoutes: Routes = [
     { 
-        path: 'collections',
+        path: '',
         component: CollectionsComponent
     }
 ];

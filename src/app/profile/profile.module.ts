@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from "@angular/common";
+import { CoreModule } from "./../core";
 import { RouterModule } from "@angular/router";
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -22,6 +23,7 @@ import { ConnectionsComponent } from './connections/connections.component';
         RouterModule,
         NgbModule,
         JWBootstrapSwitchModule,
+        CoreModule,
         RouterModule.forChild(routes)
     ]
 })

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { fadeInAnimation } from '../shared';
+import { fadeInAnimation } from '../core';
 
 @Component({
   selector: 'app-collections',
@@ -9,6 +9,8 @@ import { fadeInAnimation } from '../shared';
   host: { '[@fadeInAnimation]': '' }
 })
 export class CollectionsComponent  {
+
+    nocollections_error = "You do not have any collections. Create your first collection or check out the docs to get started";
 
     favoriteCollection: Array<any> = [
       "https://placeholdit.co//i/250x250?&bg=f5f5f5&fc=c4c4c4&text=favorite_1",
