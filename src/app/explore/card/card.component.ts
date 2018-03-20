@@ -14,27 +14,29 @@ export class ExploreCardComponent {
 
     @Output()
     select: EventEmitter<string> = new EventEmitter<string> ();
-
-    @HostBinding('class.card-outline-primary')private ishovering: boolean;
    
-    constructor(private el: ElementRef,
-        private renderer: Renderer) {}
+    /*hovering = false;*/
 
-    @HostListener('mouseover') onMouseOver() {
-        let part = this.el.nativeElement.querySelector('.card-text');
-        
-        this.renderer.setElementStyle(part, 'display', 'block');
-        this.ishovering = true;
-    }
-    
-    @HostListener('mouseout') onMouseOut() {
-        let part = this.el.nativeElement.querySelector('.card-text');
-        this.renderer.setElementStyle(part, 'display', 'none');
-        this.ishovering = false; 
-    }
+    /*
+    constructor(private el: ElementRef, private renderer: Renderer) {
+        // renderer.setElementStyle(el.nativeElement, 'backgroundColor', 'gray');
+    }*/
 
     onSelect(event: string) {
         this.select.emit(event);
     }
+
+    /*
+    @HostListener('mouseover') onMouseOver() {
+        this.hovering = true;    
+        let part = this.el.nativeElement.querySelector('.btn-preview');
+        this.renderer.setElementStyle(part, 'display', 'block');
+    }
+    
+    @HostListener('mouseout') onMouseOut() {
+        this.hovering = false;
+        let part = this.el.nativeElement.querySelector('.btn-preview');
+        this.renderer.setElementStyle(part, 'display', 'none');
+    }*/
   
 }

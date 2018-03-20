@@ -94,38 +94,39 @@
     </div>
     
    
-    <div class="search-grid" *ngIf="productResult">
-        <div class="search-item" (click)="onSelectProduct(item?._links.self.href)" *ngFor="let item of productResult?._embedded?.productResourceList">
-            <div class="d-block p-2 text-center">
-                <h6 class="card-category">{{ item?.attributes | attribute:'architecture':'title' }}</h6>
-            </div>
-            <div style="display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:center;">
-                <!--
-                <div class="p-1">
-                    <img [src]="item?.attributes | attribute:'specification':'image'" width="75" height="75" >
+    <ng-scrollbar>
+        <div class="search-grid" *ngIf="productResult">
+            <div class="search-item" (click)="onSelectProduct(item?._links.self.href)" *ngFor="let item of productResult?._embedded?.productResourceList">
+                <div class="d-block p-2 text-center">
+                    <h6 class="card-category">{{ item?.attributes | attribute:'architecture':'title' }}</h6>
                 </div>
-            -->
-                <div class="p-1">
-                    <img [src]="item?.attributes | attribute:'language':'image'" width="50" height="50">
-                </div>
-                <div class="p-1">
-                    <img [src]="item?.attributes | attribute:'framework':'image'" width="50" height="50">
-                </div>
+                <div style="display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:center;">
+                    <!--
+                    <div class="p-1">
+                        <img [src]="item?.attributes | attribute:'specification':'image'" width="75" height="75" >
+                    </div>
+                -->
+                    <div class="p-1">
+                        <img [src]="item?.attributes | attribute:'language':'image'" width="50" height="50">
+                    </div>
+                    <div class="p-1">
+                        <img [src]="item?.attributes | attribute:'framework':'image'" width="50" height="50">
+                    </div>
+                    
+                    <div class="p-1" *ngIf="getFeaturedOptionImage(item)">
+                        <img [src]="getFeaturedOptionImage(item)" width="50" height="50">
+                    </div>
                 
-                <div class="p-1" *ngIf="getFeaturedOptionImage(item)">
-                    <img [src]="getFeaturedOptionImage(item)" width="50" height="50">
                 </div>
             
-            </div>
+                <div class="d-block p-2 text-center">
+                    {{item?.subtitle}}
+                </div>
         
-            <div class="d-block p-2 text-center">
-                {{item?.subtitle}}
             </div>
-    
+            
         </div>
-        
-    </div>
-
+    </ng-scrollbar>
 </div>
 
 

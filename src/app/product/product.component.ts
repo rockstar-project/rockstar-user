@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService, Product, fadeInAnimation } from '../core';
 import { MetadataService, Metadata, Option } from '../core'
 import { UtilsService } from '../core';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-product',
@@ -20,7 +21,8 @@ export class ProductComponent implements OnInit {
         private router: Router,
         private route: ActivatedRoute, 
         private productService: ProductService,
-        private utilsService: UtilsService) {
+        private utilsService: UtilsService,
+        private location: Location) {
     }
 
     ngOnInit() {
@@ -30,6 +32,10 @@ export class ProductComponent implements OnInit {
     getProduct(id: string) {
         this.productService.getProduct(id)
             .subscribe( result => this.product = result);
+    }
+
+    onExit() {
+        this.location.back();
     }
 
 }

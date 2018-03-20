@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { CallbackComponent } from './callback/callback.component';
 import { AuthGuard } from './auth';
-import { LandingComponent } from './landing/landing.component';
 
 const routes: Routes =[
     { 
@@ -14,14 +13,6 @@ const routes: Routes =[
     { 
         path: 'callback',             
         component: CallbackComponent 
-    },
-    {
-        path: 'presentation',
-        redirectTo: 'presentation'
-    },
-    {
-        path: 'landing',
-        redirectTo: 'landing'
     },
     {
         path: 'explore',

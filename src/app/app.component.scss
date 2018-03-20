@@ -1,18 +1,5 @@
-
 :host {
     display: flex;
     flex-direction: column;
     height: 100%;
-}
-
-header {
-    height: 5%;
-
-}
-section {
-    height: 95%;
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
-    display: flex;
-    flex-direction: column;
 }

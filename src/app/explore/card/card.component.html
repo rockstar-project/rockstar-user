@@ -27,31 +27,31 @@
 -->
 
 
-<div class="card card-plain m-2 text-center">
-    <div class="card-header">
-        <h6 class="card-category text-muted">{{ item?.attributes | attribute:'architecture':'title' }}</h6>
-    </div>
+<div class="card card-plain text-center">
     <div class="card-body">
-        <h5 class="card-title ellipsis">{{item?.subtitle}}</h5>
+        <h6 class="card-category text-info">{{ item?.attributes | attribute:'architecture':'title' }}</h6>
+        <h5 class="card-title ellipsis m-3">{{item?.subtitle}}</h5>
 
-        <div class="my-4" style="display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:center;">
+        <div style="display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:center;" class="m-3">
             <ng-template ngFor let-attribute [ngForOf]="item?.attributes">
-                <div class="border mx-1 p-1" *ngIf="attribute?.name !== 'architecture'">
+                <div class="border m-1 p-1" *ngIf="attribute?.name !== 'architecture'">
                     <img [src]="attribute?.image" width="50" height="50" class="img-fluid">
                 </div>
             </ng-template>
-        </div>
-
-        <div class="mb-4" style="display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:center;">
+        
             <ng-template ngFor let-option [ngForOf]="item?.options">
-                <div class="border mx-1 p-1" *ngIf="option?.featured">
-                    <img [src]="option?.image" width="35" height="35" class="img-fluid">
+                <div class="border m-1 p-1" *ngIf="option?.featured">
+                    <img [src]="option?.image" width="50" height="50" class="img-fluid">
                 </div>
             </ng-template>
         </div>
-
-        <div style="display:block;" class="mx-4 mb-2">
+      
+        <p class="m-3 text-muted card-description text-left">
+            {{ item?.title }}
+        </p>
+        <div class="d-block mt-5">
             <button type="button" class="btn btn-outline-default" (click)="onSelect(item?._links.self.href)">Preview Code</button>
         </div>
+        
     </div>
 </div>

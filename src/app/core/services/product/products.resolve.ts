@@ -16,9 +16,7 @@ export class ProductsResolve implements Resolve<ProductSearchResult> {
 
   private featuredProductSearchCriteria() {
     let searchCriteria = new ProductSearchCriteria();
-    searchCriteria.featured = true;
     searchCriteria.visibility = 'public';
-    searchCriteria.state = 'publish'
     searchCriteria.featured = true;
     searchCriteria.organization = 'rockstar';
     return searchCriteria;

@@ -3,20 +3,20 @@
     "subtitle": "Develop microservices in microseconds",
     "contents": [
         {
-            "title": "Choose microservice",
-            "subtitle": "Find your favorite from a growing list of microservice catalog",
+            "title": "Explore",
+            "subtitle": "Find and choose your favorite microservice",
             "image": "http://res.cloudinary.com/dzmrr9uj9/image/upload/content/choose_template.svg",
             "display_order": 1
         },
         {
-            "title": "Add design",
+            "title": "Customize",
             "subtitle": "Import your domain design specification",
             "image": "http://res.cloudinary.com/dzmrr9uj9/image/upload/content/select_model.svg",
             "display_order": 2
         },
         {
-            "title": "Click to download",
-            "subtitle": "Download a production-grade microservice code artifact",
+            "title": "Download",
+            "subtitle": "Download a production-grade microservice code",
             "image": "http://res.cloudinary.com/dzmrr9uj9/image/upload/v1521142349/content/create_artifact.svg",
             "display_order": 3
         }

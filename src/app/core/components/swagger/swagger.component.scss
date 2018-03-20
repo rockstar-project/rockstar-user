@@ -1,6 +1,14 @@
 @import "~swagger-ui-dist/swagger-ui.css";
 
 .swagger-ui {
+    .wrapper {
+        padding: 0;
+    }
+
+    .opblock-summary-description {
+        display: none;
+    }
+    
     .information-container {
         display: none;
     }

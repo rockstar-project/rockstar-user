@@ -1,11 +1,27 @@
 
-<div class="header p-5">
+<div class="jumbotron w-100 text-center">
     <h2>Discover your favorites</h2>
 </div>
 
-<div class="content mx-5" *ngIf="items">
-    <div class="cards" *ngIf="items">
-        <app-explore-item [item]="item" *ngFor="let item of items?._embedded?.productResourceList" (select)="onSelectProduct($event)">
-        </app-explore-item>
+<div class="m-5">
+    <div class="container">
+        <div class="row">
+            <h3 class="m-3">Recently added</h3>
+        </div>
+        <div class="row">
+            <app-explore-item class="col" [item]="item" *ngFor="let item of publishitems" (select)="onSelectProduct($event)">
+            </app-explore-item>
+        </div>
     </div>
-</div>
+</div>   
+    <!--
+    <div class="container h-100">
+        <div class="row">
+            <h3 class="m-3">See what's up &amp; coming</h3>
+        </div>
+        <div class="row">
+            <app-explore-item  class="col" [item]="item" *ngFor="let item of upcomingitems" (select)="onSelectProduct($event)">
+            </app-explore-item>
+        </div>
+    </div>
+-->

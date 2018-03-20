@@ -8,8 +8,6 @@ import { AppRoutingModule } from './app.routing';
 import { CoreModule } from './core';
 import { AuthModule } from './auth';
 import { HomeModule } from './home/home.module';
-import { LandingModule } from './landing/landing.module';
-import { PresentationModule } from './presentation/presentation.module';
 import { ProductModule } from './product/product.module';
 
 import { AppComponent } from './app.component';
@@ -26,8 +24,6 @@ import { CallbackComponent } from './callback/callback.component';
         MarkdownModule.forRoot(),
         AppRoutingModule,
         HomeModule,
-        PresentationModule,
-        LandingModule,
         ProductModule,
         AuthModule.forRoot(),
         CoreModule.forRoot()

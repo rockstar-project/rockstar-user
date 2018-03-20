@@ -1,10 +1,8 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { NgbTabChangeEvent } from '@ng-bootstrap/ng-bootstrap';
+import { Component, OnInit, OnDestroy} from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
-import { MetadataResultSet, Metadata, MetadataService, fadeInAnimation, UtilsService } from 'app/core';
-import { ProductService, Product, ProductSearchResult, ProductSearchCriteria } from './../core';
+import { fadeInAnimation, UtilsService } from 'app/core';
+import { Product, ProductSearchResult } from './../core';
 import { AuthService } from './../auth';
-
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -16,26 +14,41 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class ExploreComponent implements OnInit, OnDestroy {
 
-  items: ProductSearchResult;
+  publishitems: Array<Product>;
+  upcomingitems: Array<Product>;
+
   sub: any;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private utils: UtilsService,
-    public authService: AuthService,
-    private metadataService: MetadataService) { }
+    private utils: UtilsService) { }
 
    ngOnInit() {
+     let result = null;
     this.sub = this.route.params.subscribe(params => {
-      this.items = this.route.snapshot.data['products'];
+      result = this.route.snapshot.data['products'];
+      if (result) {
+        this.publishitems = new Array<Product> ();
+        this.upcomingitems = new Array<Product> ();
+        if (result._embedded && result._embedded.productResourceList) {
+          for (let current of result._embedded.productResourceList) {
+            if (current.state === 'publish') {
+              this.publishitems.push(current);
+            } else if (current.state === 'draft') {
+              this.upcomingitems.push(current);
+            }
+          }
+        }
+      }
    });
   }
 
-
   onSelectProduct(url: string) {
-    this.router.navigate(['product', this.utils.resourceId(url), {outlets: {'design': ['options'], 'develop': ['overview']}}]);
-    //this.router.navigateByUrl("/product/" + this.utils.resourceId(url));
+    if (url) {
+      this.router.navigate(['product', this.utils.resourceId(url), {outlets: {'design': ['options'], 'develop': ['overview']}}]);
+      //this.router.navigateByUrl("/product/" + this.utils.resourceId(url));
+    }
 }
 
   ngOnDestroy() {

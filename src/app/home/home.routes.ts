@@ -1,9 +1,7 @@
 import { Routes } from '@angular/router';
 
 import { HomeComponent } from './home.component';
-import { HeroComponent } from './hero/hero.component';
-import { HowItWorksComponent } from './howitworks/howitworks.component';
-import { FeaturesComponent } from './features/features.component';
+import { HeroComponent } from './landing/hero/hero.component';
 import { BlogsComponent } from './blogs/blogs.component';
 import { LegalComponent } from './legal/legal.component';
 import { TermsOfUseComponent } from './legal/termsofuse/termsofuse.component';
@@ -17,20 +15,12 @@ export const HomeRoutes: Routes = [
         children: [
             {
                 path: '',
-                redirectTo: 'hero',
+                redirectTo: 'landing',
                 pathMatch: 'full'
             },
             {
-                path: 'hero',
-                component: HeroComponent 
-            },
-            {
-                path: 'howitworks',
-                component: HowItWorksComponent 
-            },
-            {
-                path: 'features',
-                component: FeaturesComponent 
+                path: 'landing',
+                loadChildren: './landing/landing.module#LandingModule'
             },
             {
                 path: 'plans',

@@ -1,6 +1,6 @@
 <ngb-carousel>
     <ng-template ngbSlide *ngFor="let item of product?.media_items;">
-        <img [src]="item?.src" [alt]="item?.title">
+        <img class="w-75" [src]="item?.src" [alt]="item?.title">
         <div class="carousel-caption">
             <h3>{{item?.title}}</h3>
         </div>
