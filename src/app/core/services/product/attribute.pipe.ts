@@ -23,6 +23,9 @@ export class AttributePipe implements PipeTransform {
               } else if (attributefield === 'title') {
                 value = current.title;
                 break;
+              } else if (attributefield === 'description') {
+                value = current.title + ' ' + current.version;
+                break;
               }
           }
       }

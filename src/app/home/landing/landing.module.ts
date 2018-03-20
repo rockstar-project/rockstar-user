@@ -8,14 +8,14 @@ import { LandingRoutes as routes } from './landing.routes';
 import { LandingComponent } from './landing.component';
 import { HeroComponent } from './hero/hero.component';
 import { HowItWorksComponent } from './howitworks/howitworks.component';
-import { FeaturesComponent } from './features/features.component';
+import { Feature1Component } from './feature1/feature1.component';
 import { Feature2Component } from './feature2/feature2.component';
 
 @NgModule({
     declarations: [
         HeroComponent,
         HowItWorksComponent,
-        FeaturesComponent,
+        Feature1Component,
         Feature2Component,
         LandingComponent
     ],

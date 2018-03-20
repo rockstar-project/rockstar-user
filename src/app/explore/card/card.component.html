@@ -28,30 +28,27 @@
 
 
 <div class="card card-plain text-center">
-    <div class="card-body">
+    <div class="mx-3 my-1 card-body">
         <h6 class="card-category text-info">{{ item?.attributes | attribute:'architecture':'title' }}</h6>
-        <h5 class="card-title ellipsis m-3">{{item?.subtitle}}</h5>
+        <h5 class="card-title ellipsis">{{item?.subtitle}}</h5>
 
-        <div style="display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:center;" class="m-3">
+        <div style="display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:center;" class="my-4 mx-2">
             <ng-template ngFor let-attribute [ngForOf]="item?.attributes">
                 <div class="border m-1 p-1" *ngIf="attribute?.name !== 'architecture'">
-                    <img [src]="attribute?.image" width="50" height="50" class="img-fluid">
+                    <img [src]="attribute?.image" width="50" height="50" class="img-fluid" placement="bottom" [ngbTooltip]="attribute?.title + ' ' + attribute?.version">
                 </div>
             </ng-template>
         
             <ng-template ngFor let-option [ngForOf]="item?.options">
                 <div class="border m-1 p-1" *ngIf="option?.featured">
-                    <img [src]="option?.image" width="50" height="50" class="img-fluid">
+                    <img [src]="option?.image" width="50" height="50" class="img-fluid" placement="bottom" [ngbTooltip]="option?.title + ' ' + option?.version">
                 </div>
             </ng-template>
         </div>
+
+        <p class="my-3 card-text text-left">{{ item?.title }}</p>
       
-        <p class="m-3 text-muted card-description text-left">
-            {{ item?.title }}
-        </p>
-        <div class="d-block mt-5">
-            <button type="button" class="btn btn-outline-default" (click)="onSelect(item?._links.self.href)">Preview Code</button>
-        </div>
+        <button type="button" class="btn btn-outline-default" (click)="onSelect(item?._links.self.href)">Preview Code</button>
         
     </div>
 </div>

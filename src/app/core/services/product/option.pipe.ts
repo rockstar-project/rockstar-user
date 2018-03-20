@@ -22,6 +22,9 @@ export class OptionPipe implements PipeTransform {
               } else if (optionfield === 'title') {
                 value = current.title;
                 break;
+              } else if (optionfield === 'description') {
+                value = current.title + ' ' + current.version;
+                break;
               }
           }
       }
