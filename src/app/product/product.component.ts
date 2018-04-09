@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService, Product, fadeInAnimation } from '../core';
-import { MetadataService, Metadata, Option } from '../core'
+import { Option } from '../core'
 import { UtilsService } from '../core';
 import {Location} from '@angular/common';
 
@@ -12,30 +12,55 @@ import {Location} from '@angular/common';
   animations: [ fadeInAnimation ],
   host: { '[@fadeInAnimation]': '' }
 })
-export class ProductComponent implements OnInit {
+export class ProductComponent implements OnInit, OnDestroy {
 
+    sub: any;
+    id: string;
     product: Product;
-    categories: Metadata[];
 
     constructor(
         private router: Router,
-        private route: ActivatedRoute, 
-        private productService: ProductService,
-        private utilsService: UtilsService,
+        private route: ActivatedRoute,
         private location: Location) {
     }
 
     ngOnInit() {
-        this.getProduct(this.route.snapshot.params['id']);
-    } 
-
-    getProduct(id: string) {
-        this.productService.getProduct(id)
-            .subscribe( result => this.product = result);
+        this.id = this.route.snapshot.params['id'];
+        this.sub = this.route.params.subscribe(params => {
+            this.product = this.route.snapshot.data['product'];
+        });
     }
+
+    ngOnDestroy() {
+        this.sub.unsubscribe();
+    }    
 
     onExit() {
         this.location.back();
     }
 
+    showOptions() {
+        this.router.navigate([{outlets : {sidebar: 'options'}}], { relativeTo: this.route });
+        //this.router.navigateByUrl('/product/' + this.id + '/(sidebar:options)');
+    }
+
+    showSpec() {
+        this.router.navigate([{outlets : {sidebar: 'spec'}}], { relativeTo: this.route });
+        //this.router.navigateByUrl('/product/' + this.id + '/(sidebar:spec)');
+    }
+
+    showOverview() {
+        this.router.navigate(['overview'], { relativeTo: this.route });
+        //this.router.navigateByUrl('/product/' + this.id + '/overview');
+    }
+
+    showCode() {
+        this.router.navigate(['code'], { relativeTo: this.route });
+        //this.router.navigateByUrl('/product/' + this.id + '/code');
+    }
+
+    showCI() {
+        this.router.navigate(['ci'], { relativeTo: this.route });
+        //this.router.navigateByUrl('/product/' + this.id + '/ci');
+    }
 }

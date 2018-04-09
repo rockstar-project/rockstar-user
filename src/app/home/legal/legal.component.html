@@ -1,21 +1,26 @@
-<div style="display:flex;flex-direction:column;flex-wrap:nowrap;height:30%;width:100%;justify-content:center;align-items:center;
-    padding: 25px 0;">
-    <h4 class="title">Legal</h4>
+<div class="jumbotron w-100 text-center">
+    <h2>Terms &amp; Conditions</h2>
 </div>
 
-<div class="nav-tabs-navigation" style="height:70%;">
-    <div class="nav-tabs-wrapper">
-        <ngb-tabset [justify]="'center'">
-            <ngb-tab title="Terms of Use">
-                <ng-template ngbTabContent>
-                    <app-legal-termsofuse></app-legal-termsofuse>
-                </ng-template>
-            </ngb-tab>
-            <ngb-tab title="Privacy Policy">
-                <ng-template ngbTabContent >
-                    <app-legal-privacypolicy></app-legal-privacypolicy>
-                </ng-template>
-            </ngb-tab>
-        </ngb-tabset>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="list-group list-group-flush">
+                <a [routerLink]="['../', 'termsofuse']" routerLinkActive="active" class="list-group-item">Terms of Use</a>
+                <a [routerLink]="['../', 'privacypolicy']" routerLinkActive="active" class="list-group-item list-group-item-action">Privacy Policy</a>
+                <a [routerLink]="['../', 'license']" routerLinkActive="active" class="list-group-item list-group-item-action">License</a>
+                <a [routerLink]="['../', 'faq']" routerLinkActive="active" class="list-group-item list-group-item-action">FAQ</a>
+            </div>
+        </div>
+        <div class="col-lg-9">
+            <div class="container-fluid">
+                <h3 class="text-center">{{item?.title}}</h3>
+                <div class="card card-plain">
+                    <div class="card-body">
+                        {{item?.description}}
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

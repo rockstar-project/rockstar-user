@@ -1,0 +1,18 @@
+.card {
+    width: 250px;
+    height: 250px;
+    border: 1px solid lightgray;
+    background-color: white;
+}
+
+.card img {
+    border-radius: 0px;
+}
+
+.ellipsis {
+    text-overflow: ellipsis;
+  
+    /* Required for text-overflow to do anything */
+    white-space: nowrap;
+    overflow: hidden;
+  }

@@ -1,0 +1,9 @@
+<div class="m-2 p-3 card card-plain w-100 border">
+    <div class="card-img-overlay" *ngIf="hovering">
+        <p class="m-2">{{ item?.description }}</p>
+    </div>
+    <div class="card-block text-center">
+        <img [src]="item?.thumbnail" width="150" height="150" alt="{{ item?.title }}" class="p-4 border rounded-circle">
+        <h4>{{ item?.title }}</h4>
+    </div>
+</div>

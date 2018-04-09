@@ -1,0 +1,32 @@
+<div class="card card-plain text-center">
+    <div class="card-body">
+        <h6 class="card-category text-info">{{ item?.attributes | attribute:'architecture':'title' }}</h6>
+        <div class="block text-center my-3">
+            <img src="{{ item?.attributes | attribute:'specification':'image' }}" width="30" height="30" class="img-fluid" placement="bottom" ngbTooltip="{{ item?.attributes | attribute:'specification':'description' }}">
+        </div>
+        <p class="m-2 card-title ellipsis">{{item?.subtitle}}</p>
+
+        
+        <div style="display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:center;" class="my-4 mx-2">
+           
+            <div class="border m-1 p-1">
+                <img src="{{ item?.attributes | attribute:'language':'image' }}" width="50" height="50" class="img-fluid" placement="bottom" ngbTooltip="{{ item?.attributes | attribute:'language':'description' }}">
+            </div>
+            <div class="border m-1 p-1">
+                <img src="{{ item?.attributes | attribute:'framework':'image' }}" width="50" height="50" class="img-fluid" placement="bottom" ngbTooltip="{{ item?.attributes | attribute:'framework':'description' }}">
+            </div>
+           
+        
+            <ng-template ngFor let-option [ngForOf]="item?.options">
+                <div class="border m-1 p-1" *ngIf="option?.featured">
+                    <img [src]="option?.image" width="50" height="50" class="img-fluid" placement="bottom" [ngbTooltip]="option?.title + ' ' + option?.version">
+                </div>
+            </ng-template>
+        </div>
+        <div class="card-img-overlay d-flex flex-column justify-content-center bg-info" style="opacity:0.95;" [ngClass]="{'invisible': !hovering, 'visible' : hovering}">
+            <div class="d-block p-4">
+                <button type="button" class="btn" [ngClass]="{'btn-white' : hovering, 'text-white' : hovering}" (click)="onSelect(item?._links.self.href)">Preview Code</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,5 +1,9 @@
 :host {
-    display: flex;
-    flex-direction: column;
+    display: block;
     height: 100%;
 }
+
+.navbar .navbar-brand {
+    padding: 5px 25px;
+}
+  

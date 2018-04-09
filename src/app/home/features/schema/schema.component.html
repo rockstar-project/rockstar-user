@@ -1,0 +1,13 @@
+<div class="jumbotron text-center">
+    <h2>Works with your domain</h2>
+</div>
+<div class="container" *ngIf="schemas">
+    <div class="row">
+        <div class="schema-card col-md-3 card card-plain" *ngFor="let current of schemas">
+            <div class="card-body text-center">
+                <img class="img-fluid" [src]="current?.thumbnail" width="75" height="75">
+                <h5 class="my-3">{{current?.title}}</h5>
+            </div>
+        </div>
+    </div>
+</div>

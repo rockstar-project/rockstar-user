@@ -1,29 +1,29 @@
-<div class="container text-center">
+<div class="text-center">
+    <button class="btn btn-lg btn-just-icon btn-magnify btn-link" routerLink="/home/landing/hero"> 
+        <i class="nc-icon nc-minimal-up"></i> 
+    </button>
+</div>
+<div class="container">
     <div class="row">
-        <div class="col">
-            <h2 class="mb-3">{{howitworks?.subtitle}}</h2>
+        <div class="ml-auto mr-auto">
+            <h2 class="title text-center">How it works</h2>
         </div>
     </div>
-    <div class="row m-5">
-        <div class="col" *ngFor="let item of howitworks?.contents">
-            <div class="card card-raised card-plain mx-1 text-center">
-                
-                <div class="card-body p-4">
-                    <h1 class="mt-2 mb-4 text-info">{{item?.display_order}}</h1>
-                    <img [src]="item?.image" width="80" height="80">
-        
-                    <h5 class="m-3 card-title">{{item?.title}}</h5>
-                    <p class="card-description">{{item?.subtitle}}</p>
-                </div>
+    <div class="row">
+        <div class="col-sm m-1 card card-plain text-center" *ngFor="let item of howitworks?.contents">
+            <div class="card-block px-3">
+                <h2 class="mb-1 text-info">{{item?.display_order}}</h2>
+                <h5 class="pb-4 card-title">{{item?.title}}</h5>
+                <img [src]="item?.image" width="80" height="80">
+                <p class="py-4">{{item?.subtitle}}</p>
             </div>
         </div>
     </div>
     <div class="row">
-        <div class="col">
-            <button class="btn btn-lg btn-outline-default btn-move-right" routerLink="/explore">
-                Let's make you a rockstar <i class="nc-icon nc-minimal-right"></i>
+        <div class="ml-auto mr-auto">
+            <button class="mt-5 btn btn-lg btn-outline-default btn-move-right" routerLink="/explore">
+                Be a Rockstar <i class="nc-icon nc-minimal-right"></i>
             </button>
         </div>
     </div>
-   
 </div>

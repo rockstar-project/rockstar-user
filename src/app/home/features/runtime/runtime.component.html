@@ -1,0 +1,35 @@
+<div class="jumbotron text-center">
+    <h2>Work across language &amp; frameworks</h2>
+</div>
+
+<div class="d-flex flex-column justify-content-center align-items-center">
+    <div class="frontend card card-plain">
+        <div class="card-block mt-0">
+            <h3>FrontEnd</h3>
+        </div>
+        <div class="card-block">
+            <div class="d-flex flex-row flex-nowrap">
+                <app-runtime-language [item]="current" *ngFor="let current of frontend_runtimes" (clicklanguage)="onToggleFrontendLanguage($event)"></app-runtime-language>
+            </div>
+
+            <div class="toggle-container" [@openClose]="frontendCollapse">
+                <app-preview [item]="{title: frontendSelected?.title + ' Frameworks', items: frontendSelected?.frameworks}" *ngIf="frontendSelected"></app-preview>
+            </div>
+        </div>
+    </div>
+
+    <div class="backend card card-plain">
+        <div class="card-block mt-0">
+            <h3>BackEnd</h3>
+        </div>
+        <div class="card-block">
+            <div class="d-flex flex-row flex-nowrap">
+                <app-runtime-language [item]="current" *ngFor="let current of backend_runtimes" (clicklanguage)="onToggleBackendLanguage($event)"></app-runtime-language>
+            </div>
+           
+            <app-preview [item]="{title: backendSelected?.title + ' Frameworks', items: backendSelected?.frameworks}"></app-preview>
+           
+        </div>
+    </div>
+    
+</div>

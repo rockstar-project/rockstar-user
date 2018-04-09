@@ -89,8 +89,15 @@ export class ProductSearchCriteria {
   price: string;
   featured: boolean;
   architecture: string;
+  specification: string;
   language: string;
   framework: string;
   page: number = 0;
   size: number = 50;
+}
+
+export class GroupOptions {
+  name: string;
+  title: string;
+  options: Option[];
 }

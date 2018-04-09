@@ -1,12 +1,6 @@
 import { Routes } from '@angular/router';
 
 import { HomeComponent } from './home.component';
-import { HeroComponent } from './landing/hero/hero.component';
-import { BlogsComponent } from './blogs/blogs.component';
-import { LegalComponent } from './legal/legal.component';
-import { TermsOfUseComponent } from './legal/termsofuse/termsofuse.component';
-import { PrivacyPolicyComponent } from './legal/privacypolicy/privacypolicy.component';
-import { PricingPlansComponent } from '../home/plan/plan.component';
 
 export const HomeRoutes: Routes = [
     { 
@@ -23,31 +17,28 @@ export const HomeRoutes: Routes = [
                 loadChildren: './landing/landing.module#LandingModule'
             },
             {
-                path: 'plans',
-                component: PricingPlansComponent 
+                path: 'features',
+                loadChildren: './features/features.module#FeaturesModule'
             },
             {
-                path: 'blogs',
-                component: BlogsComponent 
+                path: 'enterprise',
+                loadChildren: './enterprise/enterprise.module#EnterpriseModule'
+            },
+            {
+                path: 'pricing',
+                loadChildren: './pricing/pricing.module#PricingModule'  
+            },
+            {
+                path: 'blog',
+                loadChildren: './blog/blog.module#BlogModule'
             },
             {
                 path: 'legal',
-                component: LegalComponent,
-                children: [
-                    {
-                        path: '',
-                        redirectTo: 'terms',
-                        pathMatch: 'full'
-                    },
-                    {
-                        path: 'terms',
-                        component: TermsOfUseComponent 
-                    },
-                    {
-                        path: 'policy',
-                        component: PrivacyPolicyComponent 
-                    }
-                ]
+                loadChildren: './legal/legal.module#LegalModule'
+            },
+            {
+                path: 'contactus',
+                loadChildren: './contactus/contactus.module#ContactUsModule'
             }
         ]
     }

@@ -1,37 +1,7 @@
-<!--
-<div class="card m-2 card-plain card-with-shadow">
-    <img class="card-img" [src]="item?.image">
-    <div class="card-img-overlay" style="display:flex;flex-direction:column;flex-wrap:nowrap;justify-content:space-between;align-items:center;align-content:center;">
-        <h6 class="card-category text-muted">{{ item?.attributes | attribute:'architecture':'title' }}</h6>
-        <p class="text-center">{{item?.subtitle}}</p>
-        
-        <div style="display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:center;">
-            <div class="border mx-1 p-1">
-                <img [src]="item?.attributes | attribute:'specification':'image'" width="50" height="50" class="img-fluid">
-            </div>
-            <div class="border mx-1 p-1">
-                <img [src]="item?.attributes | attribute:'framework':'image'" width="50" height="50" class="img-fluid">
-            </div>
-        </div>
-
-        <div style="display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:center;">
-            <ng-template ngFor let-option [ngForOf]="item?.options">
-                <div class="border mx-1 p-1" *ngIf="option?.featured">
-                    <img [src]="option?.image" width="50" height="50" class="img-fluid">
-                </div>
-            </ng-template>
-        </div>
-        <button type="button" class="btn btn-outline-info btn-lg" (click)="onSelect(item?._links.self.href)">Preview Code</button>
-    </div>
-</div>
--->
-
-
 <div class="card card-plain text-center">
-    <div class="mx-3 my-1 card-body">
+    <img class="card-img" src="http://res.cloudinary.com/dzmrr9uj9/image/upload/cover_600x800_blank.jpg">
+    <div class="card-img-overlay">
         <h6 class="card-category text-info">{{ item?.attributes | attribute:'architecture':'title' }}</h6>
-        <h5 class="card-title ellipsis">{{item?.subtitle}}</h5>
-
         <div style="display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:center;" class="my-4 mx-2">
             <ng-template ngFor let-attribute [ngForOf]="item?.attributes">
                 <div class="border m-1 p-1" *ngIf="attribute?.name !== 'architecture'">
@@ -45,10 +15,29 @@
                 </div>
             </ng-template>
         </div>
-
-        <p class="my-3 card-text text-left">{{ item?.title }}</p>
-      
-        <button type="button" class="btn btn-outline-default" (click)="onSelect(item?._links.self.href)">Preview Code</button>
+        <div class="my-1">
+            <h5 class="card-title ellipsis">{{item?.subtitle}}</h5>
+            <p class="my-3 card-text text-left">{{ item?.title }}</p>
+        </div>
+       <hr>
+        <div class="mx-2 mt-3">
+            <button type="button" class="btn btn-outline-default" (click)="onSelect(item?._links.self.href)">Preview Code</button>
+        </div>
+    
+        <!--
+        <div class="m-0 p-0 card-footer text-left">
+            <div class="author">
+                <img src="http://res.cloudinary.com/dzmrr9uj9/image/upload/sal.jpg" alt="..." class="avatar img-raised rounded-circle">
+                <span>Sal Siddiqui</span>
+            </div>
+            <div class="stats">
+                <i class="pe pe-7s-like" aria-hidden="true" placement="bottom" [ngbTooltip]="'Favorites'"></i> 54
+                <i class="pe pe-7s-cloud-download" aria-hidden="true" placement="bottom" [ngbTooltip]="'Downloads'"></i> 12
+                <i class="pe pe-7s-look" aria-hidden="true" placement="bottom" [ngbTooltip]="'Views'"></i> 89
+            </div>
+        </div>
+    -->
         
     </div>
+    
 </div>

@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MarkdownModule } from 'ngx-markdown';
 import { AppRoutingModule } from './app.routing';
+import { SidebarModule } from 'ng-sidebar';
 
 import { CoreModule } from './core';
 import { AuthModule } from './auth';
@@ -25,6 +26,7 @@ import { CallbackComponent } from './callback/callback.component';
         AppRoutingModule,
         HomeModule,
         ProductModule,
+        SidebarModule.forRoot(),
         AuthModule.forRoot(),
         CoreModule.forRoot()
     ],

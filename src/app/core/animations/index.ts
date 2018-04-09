@@ -3,3 +3,4 @@ export * from './list.animation';
 export * from './router.animation';
 export * from './expandcollapse.animation';
 export * from './slideinout.animation';
+export * from './custom.animations';

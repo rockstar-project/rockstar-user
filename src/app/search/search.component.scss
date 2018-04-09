@@ -1,23 +1,30 @@
 :host {
-    display: flex;
-    flex-direction: row;
-    height: 100%;
-    justify-content: flex-start;
+    display: block;
+    overflow: hidden;
 }
 
-.search-grid {
-    display: flex;
-    flex-wrap: wrap;
+.jumbotron {
+    margin-bottom: 0;
+    .pe {
+        padding: 13px;
+    }
 }
 
-.search-item {
-    display:flex;
-    flex-direction:column;
-    flex-wrap:nowrap;
-    justify-content:space-between;
-    flex: 0 0 250px;
-    border: 1px solid lightgray;
-    margin: 5px;
-    height: 20vh;
-    background-color: white;
+.jumbotron .form-control {
+    border-radius: 0 !important;
+    border: none;
+}
+
+.jumbotron .input-lg {
+    height: 56px;
+    padding: 0 10px;
+}
+
+.dropdown {
+    border-radius: 0;
+}
+
+::ng-deep .ng-sidebar {
+    width: 250px;
+    font-size: 14px;
 }

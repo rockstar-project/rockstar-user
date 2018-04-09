@@ -3,3 +3,4 @@ export * from './navbar';
 export * from './footer';
 export * from './swagger';
 export * from './jsoneditor';
+export * from './preview';

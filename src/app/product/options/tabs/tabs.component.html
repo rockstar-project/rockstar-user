@@ -1,0 +1,12 @@
+
+        <ngb-tabset [justify]="'center'" *ngIf="items">
+            <ngb-tab [id]="item?.name" *ngFor="let item of items">
+                <ng-template ngbTabTitle>
+                        {{item?.title}}
+                </ng-template>
+                <ng-template ngbTabContent>
+                        <app-option-grid [items]="item?.options"></app-option-grid>
+                </ng-template>
+            </ngb-tab>
+        </ngb-tabset>
+    

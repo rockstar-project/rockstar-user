@@ -1,0 +1,38 @@
+
+
+<div class="main">
+    <div class="sidebar bg-light">
+        <ngb-accordion #acc="ngbAccordion" border-bottom-0 [closeOthers]="true">
+            <ngb-panel [id]="folder?.name" *ngFor="let folder of folders">
+                <ng-template ngbPanelTitle>
+                    <h6 class="mb-0 panel-title">
+                        <a class="collapsed">
+                            {{folder?.name | capitalize}}
+                            <i class="nc-icon nc-minimal-down"></i>
+                        </a>
+                    </h6>
+                </ng-template>
+                <ng-template ngbPanelContent>
+                    <div class="list-group">
+                        <a class="list-group-item list-group-item-action" (click)="onSelectFile(folder?.name, file?.name)" *ngFor="let file of folder?.files;">{{ file?.name }}</a>
+                    </div>
+                </ng-template>
+            </ngb-panel>
+        </ngb-accordion>
+    </div>
+
+    <div class="content">
+        <ng-scrollbar>
+            <ng-container *ngIf="selectedfile?.ext === 'md'; then markdownCode; else javaCode">
+            </ng-container>
+        </ng-scrollbar>
+    </div>
+
+    <ng-template #markdownCode>
+        <div class="pl-2" markdown [data]="readme"></div>
+    </ng-template>
+    <ng-template #javaCode>
+        <pre><code highlight [textContent]="selectedfile?.content"></code></pre>
+    </ng-template>
+        
+</div>

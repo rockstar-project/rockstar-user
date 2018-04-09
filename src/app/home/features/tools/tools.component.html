@@ -1,0 +1,14 @@
+<div class="jumbotron text-center">
+    <h2>Works with your Toolchain</h2>
+    <h5>Rockstar generates scripts to connect with services you already use</h5>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3 card card-plain" *ngFor="let current of tools">
+            <div class="card-body text-center">
+                <img class="img-fluid" [src]="current?.thumbnail" width="75" height="75">
+                <h5 class="my-3">{{current?.title}}</h5>
+            </div>
+        </div>
+    </div>
+</div>

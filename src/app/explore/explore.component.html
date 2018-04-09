@@ -1,23 +1,24 @@
-
 <div class="jumbotron w-100 text-center">
     <h2>Discover your favorites</h2>
 </div>
 
-<div class="m-5">
-    <div class="container">
-        <div class="row">
-            <h3 class="m-3">newly added</h3>
+<div class="container">
+    <div class="card card-plain">
+        <div class="card-block">
+            <h3 class="card-title">newly added</h3>
         </div>
-        <div class="row">
-            <app-explore-item class="col" [item]="item" *ngFor="let item of publishitems" (select)="onSelectProduct($event)">
-            </app-explore-item>
+        <div class="card-block">
+            <div class="row">
+                <app-explore-item class="col-sm" [item]="item" *ngFor="let item of publishitems" (select)="onSelectProduct($event)">
+                </app-explore-item>
+            </div>
         </div>
     </div>
-</div>   
-    <!--
-    <div class="container h-100">
+</div>
+<!--
+    <div class="container">
         <div class="row">
-            <h3 class="m-3">See what's up &amp; coming</h3>
+            <h3 class="m-3">upcoming</h3>
         </div>
         <div class="row">
             <app-explore-item  class="col" [item]="item" *ngFor="let item of upcomingitems" (select)="onSelectProduct($event)">

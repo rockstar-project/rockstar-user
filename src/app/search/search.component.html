@@ -1,132 +1,103 @@
-<div style="display:flex;flex-direction:column;flex-wrap:wrap;justify-content:flex-start;width:15%;height:100%;">
-    <ul class="nav">
-        <li class="nav-item">
-            <a class="nav-link active" href="#">Filter Menu</a>
-        </li>
-    </ul>
-    <div class="card card-refine height:100%;overflow:auto;">
-
-        <ngb-accordion #acc="ngbAccordion" [closeOthers]="true">
-            <ngb-panel *ngFor="let optionkey of optionfilterkeys">
-                <ng-template ngbPanelTitle>
-                    <h5 class="mb-0 panel-title">
-                        <a class="collapsed">
-                            {{getOptionFilterTitle(optionkey) | capitalize }} <i class="nc-icon nc-minimal-down"></i>
-                        </a>
-                    </h5>
-                </ng-template>
-                <ng-template ngbPanelContent>
-                    <div class="form-check" *ngFor="let currentOption of getOptionFilterData(optionkey)">
-                        <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" [value]="currentOption?.slug">
-                            {{ currentOption?.title }}
-                            <span class="form-check-sign"></span>
-                        </label>
-                    </div>
-                </ng-template>
-            </ngb-panel>
-        </ngb-accordion>
-    </div> 
-</div>
-
-<div style="display:flex;flex-direction:column;flex-wrap:nowrap;justify-content:flex-start;width:85%;margin: 0 5px;height:100%;overflow:hidden;" class="section-gray">
-    
-    <div style="display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:flex-start;align-items:center;height:8%;border:1px solid #f2f2f2;background:white;">
-        <div class="w-50" style="display:flex;" *ngIf="attributefilters">
-                <!--
-            <angular2-multiselect [data]="getAttributeFilterItems(attributekey)" [(ngModel)]="getAttributeFilterSelection(attributekey)"
-                [settings]="getAttributeFilterSettings(attributekey)"
-                (onSelect)="onItemSelect($event)"
-                (onDeSelect)="OnItemDeSelect($event)"
-                (onSelectAll)="onSelectAll($event)"
-                (onDeSelectAll)="onDeSelectAll($event)" style="width:20%;margin:5px;"
-                *ngFor="let attributekey of attributefilterkeys">
-            </angular2-multiselect>
-        -->
-            <!--
-            <angular2-multiselect [data]="architectureList" [(ngModel)]="architectureSelectedItems"
-                [settings]="architectureDropdownSettings"
-                (onSelect)="onItemSelect($event)"
-                (onDeSelect)="OnItemDeSelect($event)"
-                (onSelectAll)="onSelectAll($event)"
-                (onDeSelectAll)="onDeSelectAll($event)" style="width:20%;margin:5px;">
-            </angular2-multiselect>
-
-            <angular2-multiselect [data]="specificationList" [(ngModel)]="specificationSelectedItems"
-                [settings]="specificationDropdownSettings"
-                (onSelect)="onItemSelect($event)"
-                (onDeSelect)="OnItemDeSelect($event)"
-                (onSelectAll)="onSelectAll($event)"
-                (onDeSelectAll)="onDeSelectAll($event)" style="width:20%;margin:5px;">
-            </angular2-multiselect>
-
-            <angular2-multiselect [data]="languageList" [(ngModel)]="languageSelectedItems1"
-                [settings]="languageDropdownSettings"
-                (onSelect)="onItemSelect($event)"
-                (onDeSelect)="OnItemDeSelect($event)"
-                (onSelectAll)="onSelectAll($event)"
-                (onDeSelectAll)="onDeSelectAll($event)" style="width:20%;margin:5px;">
-            </angular2-multiselect>
-        
-            <angular2-multiselect [data]="frameworkList" [(ngModel)]="frameworkSelectedItems"
-                [settings]="frameworkDropdownSettings"
-                (onSelect)="onItemSelect($event)"
-                (onDeSelect)="OnItemDeSelect($event)"
-                (onSelectAll)="onSelectAll($event)"
-                (onDeSelectAll)="onDeSelectAll($event)" style="width:20%;margin:5px;">
-            </angular2-multiselect>
-            -->
-
-        </div>
-        <div class="w-50" style="display:flex;justify-content:flex-end;" >
-                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                        <label class="btn btn-primary active">
-                          <input type="checkbox" checked="" autocomplete="off"> Active
-                        </label>
-                        <label class="btn btn-primary">
-                          <input type="checkbox" autocomplete="off"> Check
-                        </label>
-                        <label class="btn btn-primary">
-                          <input type="checkbox" autocomplete="off"> Check
-                        </label>
-                      </div>
+<!--
+<div class="jumbotron text-center">
+    <div class="row">
+        <div class="col-md-6 col-12 ml-auto mr-auto text-center">
+            <h3 class="mb-3">Developers marketplace for publishing, discovering and consuming microservice code artifacts.</h3>
+            <form role="search" class="form-inline search-form">
+                <div class="input-group w-100">
+                    <span class="input-group-addon addon-lg" id="basic-addon1"><i class="pe pe-7s-search pe-2x"></i></span>
+                    <input type="text" class="form-control input-lg" placeholder="discover microservices" aria-describedby="basic-addon1">
+                </div>
+            </form>
         </div>
     </div>
-    
-   
-    <ng-scrollbar>
-        <div class="search-grid" *ngIf="productResult">
-            <div class="search-item" (click)="onSelectProduct(item?._links.self.href)" *ngFor="let item of productResult?._embedded?.productResourceList">
-                <div class="d-block p-2 text-center">
-                    <h6 class="card-category">{{ item?.attributes | attribute:'architecture':'title' }}</h6>
-                </div>
-                <div style="display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:center;">
-                    <!--
-                    <div class="p-1">
-                        <img [src]="item?.attributes | attribute:'specification':'image'" width="75" height="75" >
-                    </div>
-                -->
-                    <div class="p-1">
-                        <img [src]="item?.attributes | attribute:'language':'image'" width="50" height="50">
-                    </div>
-                    <div class="p-1">
-                        <img [src]="item?.attributes | attribute:'framework':'image'" width="50" height="50">
-                    </div>
-                    
-                    <div class="p-1" *ngIf="getFeaturedOptionImage(item)">
-                        <img [src]="getFeaturedOptionImage(item)" width="50" height="50">
-                    </div>
-                
-                </div>
-            
-                <div class="d-block p-2 text-center">
-                    {{item?.subtitle}}
-                </div>
-        
-            </div>
-            
-        </div>
-    </ng-scrollbar>
 </div>
+-->
+<div class="d-flex">
+    <ul class="nav flex-column">
+        <li class="nav-item border-bottom" [routerLinkActive]="['active']" *ngFor="let capability of capabilities">
+            <a (click)="toggleSidebar(capability?.slug)">
+                <img class="m-3" [src]="capability?.thumbnail" width="50" height="50">
+            </a>
+        </li>
+    </ul>
 
+    <ng-sidebar-container style="height:98vh;" >
 
+            <!-- A sidebar -->
+            <ng-sidebar [(opened)]="_opened" [mode]="'push'" [position]="'left'">
+                <app-option-filters [title]="selectedCapability?.title" [filters]="selectedCapability?.subcapabilities" (selectfilter)="onFilterToggle($event)">
+                </app-option-filters>
+            </ng-sidebar>
+    
+            <!-- Page content -->
+            <div ng-sidebar-content>
+                <div class="card card-plain" style="overflow:hidden;">
+                    <div class="card-header d-flex">
+                        <div class="w-50">
+                            <form role="search" class="form-inline search-form">
+                                <div class="input-group w-50">
+                                    <input type="text" class="form-control" placeholder="discover microservices" aria-describedby="basic-addon1">
+                                    <span class="input-group-addon" id="basic-addon1"><i class="pe pe-7s-search pe-border pe-2x"></i></span>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="d-flex w-50">
+                            <angular2-multiselect [data]="architectureList" [(ngModel)]="architectureSelectedItems"
+                                [settings]="architectureDropdownSettings"
+                                (onSelect)="onItemSelect($event)"
+                                (onDeSelect)="OnItemDeSelect($event)"
+                                (onSelectAll)="onSelectAll($event)"
+                                (onDeSelectAll)="onDeSelectAll($event)" style="width:25%;">
+                            </angular2-multiselect>
+
+                            <angular2-multiselect [data]="specificationList" [(ngModel)]="specificationSelectedItems"
+                                [settings]="specificationDropdownSettings"
+                                (onSelect)="onItemSelect($event)"
+                                (onDeSelect)="OnItemDeSelect($event)"
+                                (onSelectAll)="onSelectAll($event)"
+                                (onDeSelectAll)="onDeSelectAll($event)" style="width:25%;">
+                            </angular2-multiselect>
+                    
+                            <angular2-multiselect [data]="languageList" [(ngModel)]="languageSelectedItems1"
+                                [settings]="languageDropdownSettings"
+                                (onSelect)="onItemSelect($event)"
+                                (onDeSelect)="OnItemDeSelect($event)"
+                                (onSelectAll)="onSelectAll($event)"
+                                (onDeSelectAll)="onDeSelectAll($event)" style="width:25%;">
+                            </angular2-multiselect>
+                        </div>
+                    <!--
+                        <div class="d-inline-flex">
+                            <div class="btn-group btn-group-toggle" ngbRadioGroup [(ngModel)]="searchCriteria.state">
+                                <label ngbButtonLabel class="btn-outline-default btn-sm">
+                                <input ngbButton type="radio" value="start">Draft
+                                </label>
+                                <label ngbButtonLabel class="btn-outline-default btn-sm">
+                                <input ngbButton type="radio" value="center">Publish
+                                </label>
+                                <label ngbButtonLabel class="btn-outline-default btn-sm">
+                                <input ngbButton type="radio" value="end">Upcoming
+                                </label>
+                            </div>
+                        </div>
+                    -->
+                        
+                    </div>
+
+                    <div class="card-body bg-light">
+                        <ng-scrollbar>
+                            <div class="d-flex flex-row flex-wrap justify-content-around">
+                                <app-search-item [item]="item" *ngFor="let item of productResult?._embedded?.productResourceList" (select)="onSelectProduct($event)">
+                                </app-search-item>
+                            </div>
+                        </ng-scrollbar>
+                    </div>
+                    <div class="d-flex justify-content-center card-footer bg-light">
+                        <button class="btn btn-outline-default">Load more</button>
+                    </div>
+                </div>
+            </div>
+    
+    </ng-sidebar-container>
+</div>

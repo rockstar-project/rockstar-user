@@ -1,14 +1,12 @@
 import { Routes } from '@angular/router';
 
 import { ProductComponent } from './product.component';
-import { DesignComponent } from './design/design.component';
-import { DevelopComponent } from './develop/develop.component';
 import { ProductRoutes as routes } from './product.routes';
-import { OptionsComponent } from './design/options/options.component';
-import { SpecificationComponent } from './design/spec/spec.component';
-import { OverviewComponent } from './develop/overview/overview.component';
-import { CodeComponent } from './develop/code/code.component';
-import { GalleryComponent } from './develop/gallery/gallery.component';
+import { OptionsComponent } from './options/options.component';
+import { SpecificationComponent } from './spec/spec.component';
+import { OverviewComponent } from './overview/overview.component';
+import { CodeComponent } from './code/code.component';
+import { GalleryComponent } from './gallery/gallery.component';
 import { ProductResolve } from '../core/services/product/product.resolve';
 
 export const ProductRoutes: Routes = [
@@ -20,43 +18,31 @@ export const ProductRoutes: Routes = [
         },
         children: [
             {
-                path: '',
-                outlet: 'design',
-                component: DesignComponent,
-                children: [
-                    {
-                        path: 'options',
-                        component: OptionsComponent
-                    },
-                    {
-                        path: 'spec',
-                        component: SpecificationComponent
-                    }
-                ]
+                path: 'overview',
+                component: OverviewComponent
+            },
+            {
+                path: 'code',
+                component: CodeComponent
+            },
+            {
+                path: 'ci',
+                component: GalleryComponent
+            },
+            {
+                outlet: 'sidebar',
+                path: 'options',
+                component: OptionsComponent
+            },
+            {
+                outlet: 'sidebar',
+                path: 'spec',
+                component: SpecificationComponent
             },
             {
                 path: '',
-                outlet: 'develop',
-                component: DevelopComponent,
-                children: [
-                    {
-                        path: '',
-                        redirectTo: 'overview',
-                        pathMatch: 'full'
-                    },
-                    {
-                        path: 'overview',
-                        component: OverviewComponent
-                    },
-                    {
-                        path: 'code',
-                        component: CodeComponent
-                    },
-                    {
-                        path: 'ci',
-                        component: GalleryComponent
-                    }
-                ]
+                redirectTo: 'overview',
+                pathMatch: 'full'
             }
         ]
     }

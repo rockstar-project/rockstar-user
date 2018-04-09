@@ -1,0 +1,28 @@
+{
+    "title": "How it works!",
+    "subtitle": "Develop microservices in microseconds",
+    "contents": [
+        {
+            "title": "Explore",
+            "subtitle": "Find and choose your favorite microservice",
+            "image": "http://res.cloudinary.com/dzmrr9uj9/image/upload/monitoring2.png",
+            "display_order": 1
+        },
+        {
+            "title": "Customize",
+            "subtitle": "Import your domain design specification",
+            "image": "http://res.cloudinary.com/dzmrr9uj9/image/upload/customize.png",
+            "display_order": 2
+        },
+        {
+            "title": "Download",
+            "subtitle": "Download a production-grade microservice code",
+            "image": "http://res.cloudinary.com/dzmrr9uj9/image/upload/clicktodownload.png",
+            "display_order": 3
+        }
+    ],
+    "content_links": [{
+        "title": "Let's make you a rockstar",
+        "target": "/explore"
+    }]
+}

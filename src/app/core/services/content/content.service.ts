@@ -14,18 +14,27 @@ export class ContentService {
 
     if (type) {
       if (type === 'hero') {
-         return this.httpClient.get<Content>('assets/data/content/home/hero.json')
+         return this.httpClient.get<Content>('assets/data/content/home/landing/hero.json')
           .pipe(catchError(this.handleError));
       } else if (type === 'howitworks') {
-        return this.httpClient.get<Content>('assets/data/content/home/howitworks.json')
+        return this.httpClient.get<Content>('assets/data/content/home/landing/howitworks.json')
          .pipe(catchError(this.handleError));
       } else if (type === 'features') {
         return this.httpClient.get<Content>('assets/data/content/home/features.json')
          .pipe(catchError(this.handleError));
-     } else if (type === 'app') {
-      return this.httpClient.get<Content>('assets/data/content/home/app.json')
-       .pipe(catchError(this.handleError));
-    } 
+     } else if (type === 'termsofuse') {
+        return this.httpClient.get<Content>('assets/data/content/home/legal/termsofuse.json')
+        .pipe(catchError(this.handleError));
+      } else if (type === 'privacypolicy') {
+        return this.httpClient.get<Content>('assets/data/content/home/legal/privacypolicy.json')
+        .pipe(catchError(this.handleError));
+      } else if (type === 'license') {
+        return this.httpClient.get<Content>('assets/data/content/home/legal/license.json')
+        .pipe(catchError(this.handleError));
+      } else if (type === 'faq') {
+        return this.httpClient.get<Content>('assets/data/content/home/legal/faq.json')
+        .pipe(catchError(this.handleError));
+      } 
     }
 
     return null;

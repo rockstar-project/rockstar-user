@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { MetadataResultSet, MetadataService, fadeInAnimation, UtilsService } from 'app/core';
+import { MicroserviceService, fadeInAnimation, UtilsService, listAnimation, Architecture, Runtime, Schema, Capability } from 'app/core';
 import { ProductService, ProductSearchResult, ProductSearchCriteria, Product } from 'app/core';
 import { CapitalizePipe } from './../core';
 
@@ -18,14 +18,13 @@ class SingleSelectList {
 })
 export class SearchComponent implements OnInit {
 
-    attributefilterkeys = ["architecture", "specification", "language", "framework"];
-    optionfilterkeys = ["datastore", "messaging", "security", "monitoring", "gateway", "discovery", "document"];
+    private _opened: boolean = false;
+    
+    selectedCapability: Capability;
 
-    attributefilters: Map<string, SingleSelectList>;
-    optionfilters: Map<string, MetadataResultSet>;
     productResult: ProductSearchResult;
+    searchCriteria: ProductSearchCriteria;
 
-    /**
     specificationList = [];
     specificationSelectedItems = [];
     specificationDropdownSettings = {};
@@ -38,37 +37,24 @@ export class SearchComponent implements OnInit {
     languageSelectedItems = [];
     languageDropdownSettings = {};
 
-    frameworkList = [];
-    frameworkSelectedItems = [];
-    frameworkDropdownSettings = {};
-
-    datastoreMetadata: MetadataResultSet;
-    messagingMetadata: MetadataResultSet;
-    securityMetadata: MetadataResultSet;
-    monitoringMetadata: MetadataResultSet;
-    */
-    
-
+    capabilities: Array<Capability>; 
+   
     constructor(
         private router: Router, 
         private route: ActivatedRoute, 
         private utils: UtilsService,
         private productService: ProductService, 
-        private metadataService: MetadataService) { }
+        private microserviceService: MicroserviceService) { }
 
     ngOnInit() {
-        let searchCriteria = new ProductSearchCriteria();
-        searchCriteria.featured = false;
-        searchCriteria.state = 'publish';
-        searchCriteria.organization = 'rockstar';
-        searchCriteria.visibility = 'private';
-        searchCriteria.architecture = 'restapi';
-        searchCriteria.page = 0;
-        searchCriteria.size = 50;
-        //this.getMetadata();
-        this.getAttributeSearchFilters();
-        this.getOptionSearchFilters();
-        this.getAllProducts(searchCriteria);
+        this.searchCriteria = new ProductSearchCriteria();
+       
+        this.searchCriteria.organization = 'rockstar';
+        this.searchCriteria.page = 0;
+        this.searchCriteria.size = 50;
+        this.getAttributes();
+        this.getCapabilities();
+        this.getAllProducts(this.searchCriteria);
     }
 
     public getAllProducts(criteria: ProductSearchCriteria) {
@@ -76,127 +62,39 @@ export class SearchComponent implements OnInit {
                         .subscribe(resultset => this.productResult = resultset)
     }
 
-    public getOptionSearchFilters() {
-        this.optionfilters = new Map<string, MetadataResultSet>();
-
-        for (let currentfilter of this.optionfilterkeys) {
-                this.metadataService.searchMetadata$(currentfilter)
-                        .subscribe(resultset => {
-                                this.optionfilters.set(currentfilter, resultset);
-                        }
-                );
-        }
-    }
-    
-    public getAttributeSearchFilters() {
-        this.attributefilters = new Map<string, SingleSelectList>();
-
-        for (let currentfilter of this.attributefilterkeys) {
-                this.metadataService.searchMetadata$(currentfilter)
-                        .subscribe(resultset => {
-                                this.attributefilters.set(currentfilter, this.loadSelectList(resultset));
-                        }
-                );
-        }
-
+    public getAttributes() {
+        this.microserviceService.getSchemas()
+                .subscribe(resultset => this.loadSchemasDropdown(resultset));
+        this.microserviceService.getArchitectures()
+                .subscribe(resultset => this.loadArchitecturesDropdown(resultset));
+        this.microserviceService.getRuntimes()
+                .subscribe(resultset => this.loadRuntimesDropdown(resultset));
     }
 
-    loadSelectList(metadata: MetadataResultSet) {
-        let singleSelectList = null;
-        let dropdownList = [];
-        let selectedItems = [];
-        let settings = null;
-        if (metadata) {
-                settings = { singleSelection: true, text: metadata._embedded.metadataResourceList[0].group, classes:""};
-                for (let current of metadata._embedded.metadataResourceList) {
-                        dropdownList.push({"id":current.slug,"itemName":current.title});
-                }
-                singleSelectList = new SingleSelectList();
-                singleSelectList.items = dropdownList;
-                singleSelectList.settings = settings;
-        }
-        return singleSelectList;
-    }
-
-    getOptionFilterTitle(key: string) {
-        if (key) {
-                let optionfilterResultset = this.optionfilters.get(key);
-                if (optionfilterResultset) {
-                        if (optionfilterResultset._embedded) {
-                                if (optionfilterResultset._embedded.metadataResourceList) {
-                                        if (optionfilterResultset._embedded.metadataResourceList.length > 0)
-                                        return optionfilterResultset._embedded.metadataResourceList[0].group;
+    public getCapabilities() {
+        this.microserviceService.getCapabilities()
+                .subscribe(resultset => {
+                        if (resultset) {
+                                this.capabilities = resultset;
+                                for (let currentCapability of resultset) {
+                                        this.microserviceService.getCapabilityItems(currentCapability.slug)
+                                                .subscribe(capabilityItems => {
+                                                        currentCapability.subcapabilities = capabilityItems;
+                                                }
+                                        );
                                 }
                         }
-                }
-        }
+                })
+        
     }
 
-    getOptionFilterData(key: string) {
-        if (key) {
-                let optionfilterResultset = this.optionfilters.get(key);
-                if (optionfilterResultset) {
-                        if (optionfilterResultset._embedded) {
-                                return optionfilterResultset._embedded.metadataResourceList;
-                        }
-                }
-        }
-    }
-
-    getAttributeFilterSettings(key: string) {
-        if (key) {
-                let attributefilter = this.attributefilters.get(key);
-                if (attributefilter) {
-                        return attributefilter.settings;
-                }
-        }
-    }
-
-    getAttributeFilterItems(key: string) {
-        if (key) {
-                let attributefilter = this.attributefilters.get(key);
-                if (attributefilter) {
-                        return attributefilter.items;
-                }
-        }
-    }
-
-    getAttributeFilterSelection(key: string) {
-        if (key) {
-                let attributefilter = this.attributefilters.get(key);
-                if (attributefilter) {
-                        return attributefilter.selection;
-                }
-        }
-    }
-
-    /** 
-    public getMetadata() {
-        this.metadataService.searchMetadata$('specification')
-                .subscribe(resultset => this.loadSpecificationDropdown(resultset));
-        this.metadataService.searchMetadata$('architecture')
-                .subscribe(resultset => this.loadArchitectureDropdown(resultset));
-        this.metadataService.searchMetadata$('language')
-                .subscribe(resultset => this.loadLanguageDropdown(resultset));
-        this.metadataService.searchMetadata$('framework')
-                .subscribe(resultset => this.loadFrameworkDropdown(resultset));
-
-        this.metadataService.searchMetadata$('datastore')
-                .subscribe(resultset => this.datastoreMetadata = resultset);
-        this.metadataService.searchMetadata$('messaging')
-                .subscribe(resultset => this.messagingMetadata = resultset);
-        this.metadataService.searchMetadata$('security')
-                .subscribe(resultset => this.securityMetadata = resultset);
-        this.metadataService.searchMetadata$('monitoring')
-                .subscribe(resultset => this.monitoringMetadata = resultset);
-    }
-
-
-    loadArchitectureDropdown(metadata: MetadataResultSet) {
+    loadArchitecturesDropdown(architectures: Array<Architecture>) {
         this.architectureList = [];
-        if (metadata) {
-                for (let current of metadata._embedded.metadataResourceList) {
-                        this.architectureList.push({"id":current.slug,"itemName":current.title});
+        if (architectures) {
+                for (let current of architectures) {
+                        if (current.enabled) {
+                                this.architectureList.push({"id":current.slug,"itemName":current.title});
+                        }
                 }
         }
         this.architectureSelectedItems = [];
@@ -207,11 +105,13 @@ export class SearchComponent implements OnInit {
         };
     }
 
-    loadLanguageDropdown(metadata: MetadataResultSet) {
+    loadRuntimesDropdown(runtimes: Array<Runtime>) {
         this.languageList = [];
-        if (metadata) {
-                for (let current of metadata._embedded.metadataResourceList) {
-                        this.languageList.push({"id":current.slug,"itemName":current.title});
+        if (runtimes) {
+                for (let current of runtimes) {
+                        if (current.enabled) {
+                                this.languageList.push({"id":current.slug,"itemName":current.title});
+                        }
                 }
         }
         this.languageSelectedItems = [];
@@ -222,56 +122,33 @@ export class SearchComponent implements OnInit {
         };
     }
 
-    loadFrameworkDropdown(metadata: MetadataResultSet) {
-        this.frameworkList = [];
-        if (metadata) {
-                for (let current of metadata._embedded.metadataResourceList) {
-                        this.frameworkList.push({"id":current.slug,"itemName":current.title});
-                }
-        }
-        this.frameworkSelectedItems = [];
-        this.frameworkDropdownSettings = {
-                    singleSelection: true,
-                    text:"Framework",
-                    classes:""
-        };
-    }
-
-    loadSpecificationDropdown(metadata: MetadataResultSet) {
+    loadSchemasDropdown(schemas: Array<Schema>) {
         this.specificationList = [];
-        if (metadata) {
-                for (let current of metadata._embedded.metadataResourceList) {
-                        this.specificationList.push({"id":current.slug,"itemName":current.title});
+        if (schemas) {
+                for (let current of schemas) {
+                        if (current.enabled) {
+                                this.specificationList.push({"id":current.slug,"itemName":current.title});
+                        }
                 }
         }
         this.specificationSelectedItems = [];
         this.specificationDropdownSettings = {
                     singleSelection: true,
-                    text:"Specification",
+                    text:"Schema",
                     classes:""
         };
     }
-    */
-
-    getFeaturedOption(item: Product) {
-        if (item) {
-            for (let current of item.options) {
-                if (current.featured) {
-                    return current;
-                }
-            }
-        }
-    }
-
-    getFeaturedOptionImage(item: Product) {
-        let featuredOption = this.getFeaturedOption(item);
-        if (featuredOption) {
-            return featuredOption.image;
-        }
-        return null;
-    }
 
     onSelectProduct(url: string) {
-        this.router.navigate(['../product', this.utils.resourceId(url)]);
+        if (url) {
+                this.router.navigateByUrl("/product/" + this.utils.resourceId(url) + '/(overview//sidebar:options)');
+        }
+    }
+
+    toggleSidebar(slug: string) {
+        this._opened = !this._opened;
+        if (slug) {
+                this.selectedCapability = this.capabilities.find(c => c.slug === slug);
+        }
     }
 }

@@ -1,8 +1,12 @@
-
-    <div class="container text-center">
-        <img [src]="hero?.image" [alt]="hero?.title" class="img-fluid">
-        <h2>{{hero?.subtitle}}</h2>
-        <button class="mt-5 btn btn-lg btn-outline-default btn-move-right" routerLink="/explore">
-            Start developing faster <i class="nc-icon nc-minimal-right"></i>
-        </button>
-    </div>
+<div class="jumbotron text-center">
+    <img [src]="hero?.image" [alt]="hero?.title" class="img-fluid">
+    <h2>{{hero?.subtitle}}</h2>
+    <button class="mt-5 btn btn-lg btn-outline-default btn-move-right" routerLink="/explore">
+        Start developing faster <i class="nc-icon nc-minimal-right"></i>
+    </button>
+</div>
+<div class="text-center">
+    <button class="btn btn-lg btn-just-icon btn-magnify btn-link" routerLink="/home/landing/howitworks"> 
+        <i class="nc-icon nc-minimal-down"></i> 
+    </button>
+</div>

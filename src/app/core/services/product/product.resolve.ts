@@ -10,7 +10,7 @@ export class ProductResolve implements Resolve<Product> {
   constructor(private router: Router, private productService: ProductService) {}
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Product> {
-    let productId = route.paramMap.get('id');;
+    let productId = route.paramMap.get('id');
     return this.productService.getProduct(productId);
   }
 

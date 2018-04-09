@@ -1,0 +1,21 @@
+<!--
+<ng-template [ngIf]="groupOptions">
+    <app-option-tabs [items]="groupOptions"></app-option-tabs>
+</ng-template>
+
+<ng-template [ngIf]="groupOptions">
+    <app-option-accordion [items]="groupOptions"></app-option-accordion>
+</ng-template>
+-->
+
+        <ngb-tabset class="bg-light" [justify]="'center'" *ngIf="groupOptions">
+            <ngb-tab [id]="item?.name" *ngFor="let item of groupOptions">
+                <ng-template ngbTabTitle>
+                        {{item?.title}}
+                </ng-template>
+                <ng-template ngbTabContent>
+                        <app-option-grid [items]="item?.options"></app-option-grid>
+                </ng-template>
+            </ngb-tab>
+        </ngb-tabset>
+   

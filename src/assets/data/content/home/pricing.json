@@ -6,14 +6,18 @@
         "name": "free",
         "title": "Free",
         "description": "Short plan description",
-        "currency_symbol": "$",
-        "amount": 0,
-        "unit_of_measure": "month",
-        "uom_quantity": 1,
+        "price": {
+          "currency_symbol": "$",
+          "amount": 0
+        },
+        "consumption": {
+          "unit": "downloads/month",
+          "quantity": 0
+        },
         "features": [
           {
             "id": "explore",
-            "title": "Explore Templates",
+            "title": "Explore Microservices",
             "enable": true
           },
           {
@@ -22,7 +26,7 @@
             "enable": true
           },
           {
-            "id": "import",
+            "id": "customize",
             "title": "Import Design Spec",
             "enable": false
           },
@@ -34,17 +38,21 @@
         ]
       },
       {
-        "name": "Premium",
+        "name": "Individual",
         "title": "For Individual Developers",
         "description": "Short description of premium plan",
-        "currency_symbol": "$",
-        "amount": 99,
-        "unit_of_measure": "month",
-        "uom_quantity": 1,
+        "price": {
+          "currency_symbol": "$",
+          "amount": 99
+        },
+        "consumption": {
+          "unit": "downloads/month",
+          "quantity": 3
+        },
         "features": [
             {
                 "id": "explore",
-                "title": "Explore Templates",
+                "title": "Explore Microservices",
                 "enable": true
               },
               {
@@ -68,14 +76,12 @@
         "name": "enterprise",
         "title": "Enterprise",
         "description": "3 cooking events (5 meals)",
-        "currency_symbol": "$",
-        "amount": 299,
         "unit_of_measure": "month",
         "uom_quantity": 3,
         "features": [
             {
                 "id": "explore",
-                "title": "Explore Templates",
+                "title": "Explore Microservices",
                 "enable": true
               },
               {

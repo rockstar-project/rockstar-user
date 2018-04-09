@@ -1,0 +1,27 @@
+<div class="card card-plain height:100%;overflow:auto;" *ngIf="optionfilterkeys">
+    <div class="card-header">
+        <h5>{{title}}}</h5>
+    </div>
+    <div class="card-body">
+        <ngb-accordion class="m-2" #acc="ngbAccordion" [closeOthers]="true">
+            <ngb-panel *ngFor="let filter of filters">
+                <ng-template ngbPanelTitle>
+                    <h5 class="panel-title">
+                        <a class="collapsed">
+                            {{ filter?.title }} <i class="nc-icon nc-minimal-down"></i>
+                        </a>
+                    </h5>
+                </ng-template>
+                <ng-template ngbPanelContent>
+                    <div class="form-check" *ngFor="let currentOption of filter?.options">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" [value]="currentOption?.slug" (change)="onSelect(currentOption)">
+                            {{ currentOption?.title }}
+                            <span class="form-check-sign"></span>
+                        </label>
+                    </div>
+                </ng-template>
+            </ngb-panel>
+        </ngb-accordion>
+    </div>
+</div> 

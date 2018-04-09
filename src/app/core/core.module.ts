@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ScrollbarModule } from 'ngx-scrollbar';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { Title } from '@angular/platform-browser';
 
 import {
@@ -19,13 +20,13 @@ import {
     SwaggerComponent,
     LoadingComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    PreviewComponent
 } from './components';
 
 import {
     UserService,
     ProductService,
-    MetadataService,
     ArtifactService,
     UtilsService,
     ContentService,
@@ -34,8 +35,10 @@ import {
     UserResolve,
     AttributePipe,
     OptionPipe,
-    SchemaService
+    SchemaService,
+    MicroserviceService
 } from './services';
+import { PreviewCardComponent } from './components/preview/card/card.component';
 
 @NgModule({
   imports: [
@@ -46,7 +49,8 @@ import {
     FormsModule,
     NgbModule,
     ScrollbarModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FlexLayoutModule
   ],
   exports: [
     HttpModule,
@@ -60,6 +64,7 @@ import {
     LoadingComponent,
     NavbarComponent,
     FooterComponent,
+    PreviewComponent,
     CapitalizePipe,
     DefaultPipe,
     AttributePipe,
@@ -76,7 +81,9 @@ import {
     NavbarComponent,
     FooterComponent,
     JsonEditorComponent,
-    SwaggerComponent
+    SwaggerComponent,
+    PreviewCardComponent,
+    PreviewComponent
   ]
 })
 export class CoreModule {
@@ -89,7 +96,7 @@ export class CoreModule {
           ProductsResolve,
           UserService,
           ProductService,
-          MetadataService,
+          MicroserviceService,
           ArtifactService,
           AccountService,
           UtilsService,

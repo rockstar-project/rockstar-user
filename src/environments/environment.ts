@@ -7,7 +7,7 @@ export const AUTH_CONFIG = {
   clientID: '8fGEyRsBmUNp7BfEjaV3nfpw5pAl4dU2',
   domain: 'rockstar.auth0.com',
   redirect: 'http://localhost:4200/callback',
-  scope: 'openid profile email search:products read:products search:metadata read:metadata download:artifacts create:artifacts search:collections read:collections create:collections update:collections delete:collections',
+  scope: 'openid profile email search:products read:products download:artifacts create:artifacts search:collections read:collections create:collections update:collections delete:collections',
   audience: 'https://api.rock-star.io/',
   namespace: 'http://localhost/roles'
 };
@@ -30,4 +30,10 @@ export const SWAGGERHUB_CONFIG = {
   organization: 'rockstar',
   api_url: '',
   api_key: 'eyJUb2tlblR5cGUiOiJBUEkiLCJzYWx0IjoiOTkyNDQwNTQtYjQ2MC00Y2E5LTk0NjItMmFiZDZkOTNkY2I4IiwiYWxnIjoiSFM1MTIifQ.eyJqdGkiOiI0OWRiMWMyMC00MjMyLTRmZWYtODNiOS04NzBiYWIzNjcwNmIiLCJpYXQiOjE1MTI2NjAwNTJ9.bfZX8tPOnPm-hOMy1bBPLsjop0zGroVo3wAssB8qJ2aoI-6--sDsNUFdXUCgby1wFRoTNclBBAwXVRkUtfMjdg'
+}
+
+export const CONTENTFUL_SERVICE_CONFIG = {
+  space_id: 'twvbu1gxtnm1',
+  access_token: '9751dacd380c40e8531c6420790ee5e022c7520d7c49dbb7985460d6e467cfb6',
+  api_url: 'https://cdn.contentful.com'
 }

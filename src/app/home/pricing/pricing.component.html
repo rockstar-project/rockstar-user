@@ -1,0 +1,51 @@
+<div class="jumbotron text-center">
+    <h2>{{plans?.title}}</h2>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-4" *ngFor="let planitem of plans?.items">
+            <div class="card card-plain">
+                <div class="card-header text-center">
+                    <h6 class="card-category text-success">{{planitem?.name}}</h6>
+                    <ng-container *ngIf="planitem?.price; then displayPrice; else displayContactUs"></ng-container>
+                    <ng-template #displayPrice>
+                        <h1 class="card-title">{{planitem?.price?.currency_symbol}}{{planitem?.price?.amount}}</h1>
+                        <p *ngIf="planitem?.consumption"><small>{{planitem?.consumption?.quantity}} {{planitem?.consumption?.unit}}</small></p>
+                    </ng-template>
+                    <ng-template #displayContactUs>
+                        <p class="mt-5 mb-5">Get in touch for pricing</p>
+                    </ng-template>
+                </div>
+                <div class="card-block p-3">
+                    <ul class="list-group">
+                        <li class="px-0 list-group-item border-left-0 border-right-0" [ngClass]="{'border-top-0' : firstitem, 'border-bottom-0' : lastitem }" *ngFor="let featureitem of planitem?.features; let firstitem = first; let lastitem = last;">
+                            <div style="display:flex;flex-direction:row;flex-wrap:wrap;justify-content:space-between;">
+                                <p class="w-75">{{featureitem?.title}}</p>
+                                
+                                <bSwitch class="w-25" [switch-disabled]="false" [switch-on-color]="'success'" [switch-off-color]="'info'" [(ngModel)]="featureitem.enable"></bSwitch>
+                            </div>
+                        </li>
+                    </ul>
+            
+                </div>
+
+                <div class="card-footer mb-2 w-100 text-center">
+                    <ng-container *ngIf="planitem?.price; then upgradePlan; else contactUs"></ng-container>
+                    <ng-template #upgradePlan>
+                        <button class="btn btn-lg btn-outline-default btn-move-right" (click)="changePlan('upgrade')">
+                            Upgrade Plan <i class="nc-icon nc-minimal-right"></i>
+                        </button>
+                    </ng-template>
+                    <ng-template #contactUs>
+                        <button class="btn btn-lg btn-outline-default btn-move-right" routerLink="/home/contactus">
+                            Contact Us <i class="nc-icon nc-minimal-right"></i>
+                        </button>
+                    </ng-template>
+                </div>
+            </div>
+        </div>
+       
+    </div>
+</div>
+
+    

@@ -1,30 +1,40 @@
-<nav class="topbar navbar navbar-expand-md">
-    <a class="navbar-brand" routerLink="/">
-        <img src="http://res.cloudinary.com/dzmrr9uj9/image/upload/brand/black_outline_61x75.png" alt="" width="20">
-    </a>
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-bar"></span>
-        <span class="navbar-toggler-bar"></span>
-        <span class="navbar-toggler-bar"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link" (click)="onExit()">
-                    Exit
+<div class="content">
+    <div class="left">
+        <ul class="nav flex-column">
+            <li class="nav-item" [routerLinkActive]="['active']">
+                <a (click)="showOptions()">
+                    <i class="pe pe-7s-keypad pe-2x border-bottom p-3"></i>
                 </a>
             </li>
-    
+            <li class="nav-item" [routerLinkActive]="['active']">
+                <a (click)="showSpec()">
+                    <i class="pe pe-7s-network pe-2x border-bottom p-3"></i>
+                </a>
+            </li>
         </ul>
+        <div class="content p-2">
+            <router-outlet name="sidebar"></router-outlet>
+        </div>
     </div>
-</nav>
-<div class="content">
-    <div class="content-left">
-        <router-outlet name="design"></router-outlet>
-    </div>
-    <div class="content-right">
-        <router-outlet name="develop"></router-outlet>
+    <div class="right">
+        <div class="bg-light header">
+            <a class="navbar-brand" (click)="showOverview()">REST API</a>
+            
+            <a (click)="showCI()">
+                <i class="pe pe-7s-refresh-2 pe-2x pe-border fw"></i>
+            </a>
+            <a (click)="showCode()">
+                <i class="pe pe-7s-look pe-2x pe-border fw"></i>
+            </a>
+        </div>
+        <div class="content">
+            <router-outlet></router-outlet>
+        </div>
+        <nav class="bg-light footer">
+            <button class="btn btn-round btn-lg btn-outline-default d-flex align-self-center" routerLink="/explore">
+                <span>Download Microservice</span>
+            </button>
+        </nav>
+        
     </div>
 </div>

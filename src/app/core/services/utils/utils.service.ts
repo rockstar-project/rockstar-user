@@ -24,7 +24,7 @@ export class UtilsService {
       }
   }
 
-  sortDisplayOrder(arr: any[], args: any): any[]{
+  sortDisplayOrder(arr: any[]): any[]{
     arr.sort((a: any, b: any) => {
         if (a && b) {
             if (a.display_order < b.display_order) {

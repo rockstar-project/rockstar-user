@@ -5,27 +5,32 @@ import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MarkdownModule } from 'ngx-markdown';
 import { NgxGalleryModule } from 'ngx-gallery';
+import { SidebarModule } from 'ng-sidebar';
+
 import { HighlightModule } from 'ngx-highlightjs'; 
 import { CoreModule } from './../core';
-import { OptionCardComponent } from './design/options/card/card.component';
+import { OptionCardComponent } from './options/card/card.component';
 import { ProductRoutes as routes } from './product.routes';
 import { ProductComponent } from './product.component';
-import { DesignComponent } from './design/design.component';
-import { OptionsComponent } from './design/options/options.component';
-import { SpecificationComponent } from './design/spec/spec.component';
-import { DevelopComponent } from './develop/develop.component';
-import { OverviewComponent } from './develop/overview/overview.component';
-import { CodeComponent } from './develop/code/code.component';
-import { GalleryComponent } from './develop/gallery/gallery.component';
+import { OptionsComponent } from './options/options.component';
+import { OptionAccordionComponent } from './options/accordion/accordion.component';
+import { OptionTabsComponent } from './options/tabs/tabs.component';
+import { OptionGridComponent } from './options/grid/grid.component';
+import { SpecificationComponent } from './spec/spec.component';
+import { OverviewComponent } from './overview/overview.component';
+import { CodeComponent } from './code/code.component';
+import { GalleryComponent } from './gallery/gallery.component';
 import { ProductResolve } from '../core/services/product/product.resolve';
+
 @NgModule({
     declarations: [
         ProductComponent,
-        DesignComponent,
         SpecificationComponent,
         OptionsComponent,
+        OptionAccordionComponent,
+        OptionTabsComponent,
+        OptionGridComponent,
         OptionCardComponent,
-        DevelopComponent,
         OverviewComponent,
         CodeComponent,
         GalleryComponent
@@ -37,6 +42,7 @@ import { ProductResolve } from '../core/services/product/product.resolve';
         NgbModule,
         MarkdownModule.forChild(),
         CoreModule,
+        SidebarModule,
         NgxGalleryModule,
         HighlightModule.forRoot({ theme: 'tomorrow'}),
         RouterModule.forChild(routes)
