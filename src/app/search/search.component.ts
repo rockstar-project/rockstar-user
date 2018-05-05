@@ -13,11 +13,11 @@ class SingleSelectList {
   selector: 'app-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss'],
-  animations: [ fadeInAnimation ],
-  host: { '[@fadeInAnimation]': '' }
+  animations: [ listAnimation ]
 })
 export class SearchComponent implements OnInit {
 
+    sub: any;
     private _opened: boolean = false;
     
     selectedCapability: Capability;
@@ -47,19 +47,9 @@ export class SearchComponent implements OnInit {
         private microserviceService: MicroserviceService) { }
 
     ngOnInit() {
-        this.searchCriteria = new ProductSearchCriteria();
-       
-        this.searchCriteria.organization = 'rockstar';
-        this.searchCriteria.page = 0;
-        this.searchCriteria.size = 50;
+        this.productResult = this.route.snapshot.data['products'];
         this.getAttributes();
         this.getCapabilities();
-        this.getAllProducts(this.searchCriteria);
-    }
-
-    public getAllProducts(criteria: ProductSearchCriteria) {
-        this.productService.searchProducts(criteria)
-                        .subscribe(resultset => this.productResult = resultset)
     }
 
     public getAttributes() {
@@ -72,14 +62,14 @@ export class SearchComponent implements OnInit {
     }
 
     public getCapabilities() {
-        this.microserviceService.getCapabilities()
+        this.microserviceService.getCapabilities(null)
                 .subscribe(resultset => {
                         if (resultset) {
                                 this.capabilities = resultset;
                                 for (let currentCapability of resultset) {
-                                        this.microserviceService.getCapabilityItems(currentCapability.slug)
-                                                .subscribe(capabilityItems => {
-                                                        currentCapability.subcapabilities = capabilityItems;
+                                        this.microserviceService.getCapability(currentCapability.slug)
+                                                .subscribe(capabilityItem => {
+                                                        currentCapability.subcapabilities = capabilityItem.subcapabilities;
                                                 }
                                         );
                                 }
@@ -151,4 +141,5 @@ export class SearchComponent implements OnInit {
                 this.selectedCapability = this.capabilities.find(c => c.slug === slug);
         }
     }
+
 }

@@ -28,6 +28,7 @@ export class MicroserviceFeature {
     description: string;
     versions: Array<string> = [];
     frameworks: Array<Framework> = [];
+    state: string = 'inactive';
   }
 
   export class Schema {
@@ -77,7 +78,8 @@ export class MicroserviceFeature {
     display_order: number;
     enabled: boolean;
     description: string;
-    subcapabilities: Array<Capability>;
+    color: string;
+    subcapabilities: Array<Capability> = [];
     options: Choice[];
   }
 
@@ -97,5 +99,6 @@ export class MicroserviceFeature {
     display_order: number;
     enabled: boolean;
     description: string;
+    color: string;
     patterns: Array<Pattern> = [];
   }

@@ -1,24 +1,21 @@
-
-
-<div class="main-route-container d-flex justify-content-center w-100">
-    <ng-container *ngFor="let current of features">
-        <div class="w-25 d-flex flex-column justify-content-center align-items-center" style="flex:0 1 auto;border:1px solid #f5f5f5;" *ngIf="current?.enabled">
-        
-            <div class="card card-plain text-center">
-                <div class="card-block">
-                    <img class="img-fluid" [src]="current?.thumbnail" width="100" height="100">
-                </div>
-                <div class="card-body">
-                    <h3>{{current?.title}}</h3>
-                    <p class="mx-5 pt-4">{{current?.description}}</p>
-                </div>
-                <div class="card-footer">
-                    <button class="btn btn-lg btn-move-right btn-link" [routerLink]="current?.slug"> 
-                        <i class="nc-icon nc-minimal-right"></i> 
-                    </button>
-                </div>
+<div class="jumbotron">
+    <div class="filter"></div>
+    <div class="card card-plain">
+            <h1>Your Enterprise @ Startup Speed</h1>
+            <h3>Take a cloud-native approach for building apps &amp; api with a microservice architecture</h3>
+    </div>
+</div>
+<div class="section-features h-100">
+    <div class="h-100 container-fluid m-0 p-0 d-flex justify-content-center align-items-center" >
+        <div [id]="current?.slug + '-feature-card'" class="w-25 h-100 m-0 py-4 card card-plain feature-card text-center text-white" *ngFor="let current of features" style="border:1px solid #0a0a0a;">
+            <div class="card-body py-5">
+                <img class="img-fluid" [src]="current?.thumbnail" width="100" height="100">
+                <h3>{{current?.title}}</h3>
+                <p class="mx-5 pt-4">{{current?.description}}</p>
+                <button class="btn btn-lg btn-move-right btn-link" [routerLink]="['../' + current?.slug]"> 
+                    <i class="nc-icon nc-minimal-right"></i> 
+                </button>
             </div>
-        
         </div>
-    </ng-container>
+    </div>
 </div>

@@ -5,19 +5,19 @@
         {
             "title": "Explore",
             "subtitle": "Find and choose your favorite microservice",
-            "image": "http://res.cloudinary.com/dzmrr9uj9/image/upload/monitoring2.png",
+            "image": "http://res.cloudinary.com/dzmrr9uj9/image/upload/explore_white.png",
             "display_order": 1
         },
         {
             "title": "Customize",
             "subtitle": "Import your domain design specification",
-            "image": "http://res.cloudinary.com/dzmrr9uj9/image/upload/customize.png",
+            "image": "http://res.cloudinary.com/dzmrr9uj9/image/upload/editing_white.png",
             "display_order": 2
         },
         {
             "title": "Download",
             "subtitle": "Download a production-grade microservice code",
-            "image": "http://res.cloudinary.com/dzmrr9uj9/image/upload/clicktodownload.png",
+            "image": "http://res.cloudinary.com/dzmrr9uj9/image/upload/click_white.png",
             "display_order": 3
         }
     ],

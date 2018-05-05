@@ -10,6 +10,7 @@ import { SearchRoutes as routes } from './search.routes';
 import { SearchComponent } from './search.component';
 import { SearchItemComponent } from './card/card.component';
 import { OptionFilterComponent } from './filters/option/option.component';
+import { SearchProductsResolve } from './search.resolve';
 
 @NgModule({
     declarations: [
@@ -26,6 +27,9 @@ import { OptionFilterComponent } from './filters/option/option.component';
         SidebarModule,
         AngularMultiSelectModule,
         RouterModule.forChild(routes)
+    ],
+    providers: [
+        SearchProductsResolve
     ]
 })
 export class SearchModule { }

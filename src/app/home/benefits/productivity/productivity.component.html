@@ -1,0 +1,12 @@
+<div class="jumbotron text-center">
+    <h1>{{item?.title}}</h1>
+    <h3>{{item?.description}}</h3>
+</div>
+<div class="info-container mx-5 px-5 d-flex flex-row">
+    <info-box class="px-5 border-right" [item]="subitem" *ngFor="let subitem of item?.contents"></info-box>
+</div>
+<div class="mt-3 mb-0 text-center">
+    <button class="btn btn-lg btn-just-icon btn-magnify btn-link" routerLink="../flexibility"> 
+        <i class="nc-icon nc-minimal-down"></i> 
+    </button>
+</div>

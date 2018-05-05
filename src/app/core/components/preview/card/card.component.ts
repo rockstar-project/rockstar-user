@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 
+
 @Component({
     selector: 'app-preview-card',
     templateUrl: './card.component.html',

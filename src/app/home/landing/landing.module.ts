@@ -3,7 +3,9 @@ import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router";
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { AckFxModule, fxArray } from "ack-angular-fx";
+import { CoreModule } from './../../core';
+import { TypingAnimationModule } from 'angular-typing-animation';
+
 import { ContentService } from "./content.service";
 import { LandingRoutes as routes } from './landing.routes';
 import { LandingComponent } from './landing.component';
@@ -21,7 +23,8 @@ import { HowItWorksComponent } from './howitworks/howitworks.component';
         FormsModule,
         RouterModule,
         NgbModule,
-        AckFxModule,
+        CoreModule,
+        TypingAnimationModule,
         RouterModule.forChild(routes)
     ],
     providers: [

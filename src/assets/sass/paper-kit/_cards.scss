@@ -574,7 +574,7 @@
     &[data-background="image"]{
 
         .filter{
-            @include opacity(0.55);
+            @include opacity(0.95);
         }
 
         &:hover .filter{
@@ -605,6 +605,10 @@
 
     &[data-color="orange"]{
         background: $bg-danger;
+    }
+
+    &[data-color="black"]{
+        background: $black-color;
     }
 }
 

@@ -25,17 +25,19 @@ export class UtilsService {
   }
 
   sortDisplayOrder(arr: any[]): any[]{
-    arr.sort((a: any, b: any) => {
-        if (a && b) {
-            if (a.display_order < b.display_order) {
-                return -1;
-            } else if (a.display_order > b.display_order) {
-                return 1;
-            } else {
-                return 0;
+    if (arr) {
+        arr.sort((a: any, b: any) => {
+            if (a && b) {
+                if (a.display_order < b.display_order) {
+                    return -1;
+                } else if (a.display_order > b.display_order) {
+                    return 1;
+                } else {
+                    return 0;
+                }
             }
-        }
-    });
+        });
+    }
     return arr;
 }
 }

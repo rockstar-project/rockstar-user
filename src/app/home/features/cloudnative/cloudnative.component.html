@@ -1,0 +1,28 @@
+<div class="h-100">
+    <!--
+        <button class="btn btn-lg btn-just-icon btn-magnify btn-link" (click)="goback()"> 
+            <i class="nc-icon nc-minimal-up"></i> 
+        </button>
+    -->
+    <div class="jumbotron">
+        <div class="filter"></div>
+        <div class="card card-plain">
+            <h1>Cloud-native</h1>
+            <h3>Built-in capabilities to build &amp; run micro services</h3>
+        </div>
+    </div>
+    <div class="container-fluid d-flex p-0" *ngIf="capabilities">
+        <div class="media-card m-3 text-white d-flex w-25" *ngFor="let item of capabilities">
+            <div class="media p-4" (click)="onSelectCapability(item)">
+                <img [src]="item?.thumbnail" width="40" height="40">
+                <div class="media-body">
+                    <h5 class="pl-3">{{item?.title}}</h5>
+                    <p class="pl-3 text-muted">{{item?.description}}</p>
+                    <button class="btn btn-move-right btn-link" (click)="onSelectCapability(item)"> 
+                        <i class="nc-icon nc-minimal-right"></i> Learn More
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

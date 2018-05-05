@@ -87,7 +87,7 @@
 
                     <div class="card-body bg-light">
                         <ng-scrollbar>
-                            <div class="d-flex flex-row flex-wrap justify-content-around">
+                            <div class="d-flex flex-row flex-wrap justify-content-around" [@listAnimation]="div">
                                 <app-search-item [item]="item" *ngFor="let item of productResult?._embedded?.productResourceList" (select)="onSelectProduct($event)">
                                 </app-search-item>
                             </div>

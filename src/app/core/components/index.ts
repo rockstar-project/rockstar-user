@@ -4,3 +4,6 @@ export * from './footer';
 export * from './swagger';
 export * from './jsoneditor';
 export * from './preview';
+export * from './slider';
+export * from './info';
+export * from './media';

@@ -1,0 +1,11 @@
+<div class="d-flex flex-column m-0 p-0 w-20 h-100" *ngIf="capabilities">
+    <div class="card card-plain h-25" style="width:200px;" *ngFor="let current of capabilities" style="border-bottom:1px solid #222;" (click)="onSelectCapability(current)">
+        <div class="card-body text-center">
+            <img [src]="current?.thumbnail" width="50" height="50">
+            <h6 class="m-3 card-category">{{current?.title}}</h6>
+        </div>
+    </div>
+</div>
+
+
+<router-outlet></router-outlet>

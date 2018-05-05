@@ -7,6 +7,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ExploreRoutes as routes } from './explore.routes';
 import { ExploreComponent } from './explore.component';
 import { ExploreCardComponent } from './card/card.component';
+import { ExploreProductsResolve } from './explore.resolve';
 
 @NgModule({
     declarations: [
@@ -22,6 +23,7 @@ import { ExploreCardComponent } from './card/card.component';
         RouterModule.forChild(routes)
     ],
     providers: [
+        ExploreProductsResolve
     ]
 })
 export class ExploreModule { }

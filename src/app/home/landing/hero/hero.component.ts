@@ -11,11 +11,13 @@ import { trigger, query, stagger, transition, style, animate } from '@angular/an
     animations: [
         trigger('pageAnimations', [
             transition(':enter', [
-              query('.jumbotron', [
-                style({ opacity: 0, transform: 'translateY(-100px)'}),
-                animate('800ms cubic-bezier(0.35, 0, 0.25, 1)', style({ opacity: 1, transform: 'none'}))
+                query(':self, h1,h3', [
+                  style({ opacity: 0 }),
+                  stagger(100, [
+                    animate('1000ms ease-out', style({ opacity: 1 }))
+                  ])
+                ])
               ])
-            ])
           ])
       ]
 })

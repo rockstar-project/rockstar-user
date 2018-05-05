@@ -1,0 +1,12 @@
+:host {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 300px;
+    border: 1px solid #d4d4d4;
+    margin: 1em;
+    padding: 1em;
+}

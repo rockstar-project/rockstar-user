@@ -21,8 +21,8 @@ export const HomeRoutes: Routes = [
                 loadChildren: './features/features.module#FeaturesModule'
             },
             {
-                path: 'enterprise',
-                loadChildren: './enterprise/enterprise.module#EnterpriseModule'
+                path: 'benefits',
+                loadChildren: './benefits/benefits.module#BenefitsModule'
             },
             {
                 path: 'pricing',

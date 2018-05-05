@@ -1,0 +1,23 @@
+<div class="section-architecture h-100" style="background-image: url('http://res.cloudinary.com/dzmrr9uj9/image/upload/microservice4_background.jpg');">
+    <div class="container text-center">
+        <button class="btn btn-lg btn-just-icon btn-magnify btn-link" (click)="goback()"> 
+            <i class="nc-icon nc-minimal-up"></i> 
+        </button>
+    </div>
+    <div class="container py-3 text-center text-white">
+        <h2>SOLID Microservices</h2>
+        <h4>Code your architecture with style, quality, security, and test coverage</h4>
+    </div>
+    <div class="container p-5">
+        <div class="row">
+            <app-microservice-item class="item col-md-4" [item]="current" *ngFor="let current of architectures"></app-microservice-item>
+        </div>
+    </div>
+
+    <div class="container mt-4 text-center">
+        <button class="btn btn-lg btn-just-icon btn-magnify btn-link" routerLink="/home/features/apifirst"> 
+            <i class="nc-icon nc-minimal-down"></i> 
+        </button>
+    </div>
+
+</div>

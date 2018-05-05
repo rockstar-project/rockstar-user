@@ -1,0 +1,10 @@
+
+<div class="m-2 p-3 card card-plain w-100" [ngClass]="'border-' + item?.color" data-background="color" data-color="black" data-radius="none">
+    <div class="card-block text-center">
+        <img [src]="item?.thumbnail" width="50" height="50" alt="{{ item?.title }}">
+        <div class="overlay">
+            <p class="text">{{ item?.description }}</p>
+        </div>
+        <h4 style="color:white;">{{ item?.title }}</h4>
+    </div>
+</div>

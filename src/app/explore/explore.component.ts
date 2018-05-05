@@ -47,7 +47,7 @@ export class ExploreComponent implements OnInit, OnDestroy {
   onSelectProduct(url: string) {
     if (url) {
       //this.router.navigate(['product', this.utils.resourceId(url), {outlets: {sidebar: ['options']}}]);
-      this.router.navigateByUrl("/product/" + this.utils.resourceId(url) + '/(overview//sidebar:options)');
+      this.router.navigateByUrl("/product/" + this.utils.resourceId(url) + '/(code//sidebar:overview)');
     }
 }
 

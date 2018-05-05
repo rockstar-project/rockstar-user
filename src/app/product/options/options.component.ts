@@ -33,7 +33,7 @@ export class OptionsComponent implements OnInit {
             if (product) {
               
               architecture = this.attributePipe.transform(product.attributes, 'architecture', 'value');
-              this.microserviceService.getCapabilities()
+              this.microserviceService.getCapabilities(null)
                   .subscribe( capabilities => {
                     this.groupOptions = new Array<GroupOptions> ();
                     
@@ -41,6 +41,7 @@ export class OptionsComponent implements OnInit {
                       currentGroupOption = new GroupOptions();
                       currentGroupOption.name = current.slug;
                       currentGroupOption.title = current.title;
+                      currentGroupOption.thumbnail = current.thumbnail;
                       currentGroupOption.options = this.getMatchingOptions(product.options, current.slug);
                       this.groupOptions.push(currentGroupOption);
                     }

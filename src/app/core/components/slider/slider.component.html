@@ -1,0 +1,19 @@
+<div style="margin: 20px 10px;">
+    <button (click)="previous()" class="btn btn-sm">
+        <i class="pe-7s-angle-left pe-2x"></i>
+    </button>
+    <button (click)="next()" class="btn btn-sm">
+        <i class="pe-7s-angle-right pe-2x"></i>
+    </button>
+</div>
+
+<div [@slider]="selectedIndex" class="slider-container" style="margin: 20px 10px;">
+    <div class="slide d-flex flex-nowrap flex-row"> 
+        <div class="card card-plain" *ngFor="let current of items | slice:start:end">
+            <div class="card-body text-center">
+                <img class="img-fluid" [src]="current?.thumbnail" width="75" height="75">
+                <h5 class="my-3">{{current?.title}}</h5>
+            </div>
+        </div>
+    </div>
+</div>

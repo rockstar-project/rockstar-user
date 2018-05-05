@@ -99,5 +99,6 @@ export class ProductSearchCriteria {
 export class GroupOptions {
   name: string;
   title: string;
+  thumbnail: string;
   options: Option[];
 }

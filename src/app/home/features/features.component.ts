@@ -1,7 +1,8 @@
-import { Component, ViewEncapsulation, HostBinding } from '@angular/core';
-import { fadeInAnimation } from './fadein.animation';
+import { Component, ViewEncapsulation, HostBinding, OnInit, OnDestroy } from '@angular/core';
+import { fadeInAnimation } from './features.animation';
 import {trigger, animate, style, group, animateChild, query, stagger, transition} from '@angular/animations';
 import { UtilsService, MicroserviceService, MicroserviceFeature } from '../../core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 const NICE_EASING = 'cubic-bezier(0.35, 0, 0.25, 1)';
 
@@ -12,7 +13,7 @@ const NICE_EASING = 'cubic-bezier(0.35, 0, 0.25, 1)';
     animations: [
         trigger('pageAnimations', [
             transition(':enter', [
-              query('.main-route-container', [
+              query('.container-fluid, .container-fluid .feature-card', [
                 style({ opacity: 0, transform: 'translateY(100px)'}),
                 animate('800ms ' + NICE_EASING, style({ opacity: 1, transform: 'none'}))
               ])
@@ -21,21 +22,29 @@ const NICE_EASING = 'cubic-bezier(0.35, 0, 0.25, 1)';
       ]
 })
 
-export class FeaturesComponent  {
+export class FeaturesComponent implements OnInit, OnDestroy {
 
     @HostBinding('@pageAnimations')
     public animatePage = true;
-     
+
+    sub: any;
     features: Array<MicroserviceFeature>
 
-    constructor(private microserviceService: MicroserviceService, private utilsService: UtilsService) {}
+    constructor(
+        private router: Router,
+        private route: ActivatedRoute,
+        private utilsService: UtilsService) {
+    }
 
     ngOnInit() {
-        this.getMicroserviceFeatures();
+        this.sub = this.route.params.subscribe(params => {
+            this.features = this.utilsService.sortDisplayOrder(this.route.snapshot.data['features']);
+        });
     }
 
-    getMicroserviceFeatures() {
-        this.microserviceService.getFeatures()
-                .subscribe( resultset => this.features = this.utilsService.sortDisplayOrder(resultset));
-    }
+    ngOnDestroy() {
+        if (this.sub) {
+            this.sub.unsubscribe();
+        }
+    }   
 }

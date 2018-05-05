@@ -1,13 +1,13 @@
 import { Routes } from '@angular/router';
 import { ExploreComponent } from './explore.component';
-import { ProductsResolve } from '../core';
+import { ExploreProductsResolve } from './explore.resolve';
 
 export const ExploreRoutes: Routes = [
     { 
         path: '',
         component: ExploreComponent,
         resolve: {
-            products: ProductsResolve
+            products: ExploreProductsResolve
         }
     }
 ];

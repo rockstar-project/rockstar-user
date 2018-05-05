@@ -1,0 +1,17 @@
+.slider-container {
+    position:relative;
+    height: 400px;
+    width: auto;
+    overflow:hidden;
+    border: 1px solid #f5f5f5;
+  }
+
+ .slide {
+    position:absolute;
+  }
+
+  .card {
+    margin-bottom: 0;
+    width: 200px;
+    border: 1px solid #f5f5f5;
+}

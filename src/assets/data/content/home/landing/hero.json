@@ -1,7 +1,8 @@
 {
-    "title": "Rockstar",
+    "title": "BE A ROCKSTAR",
     "subtitle": "Create apps & api without coding",
     "image": "http://res.cloudinary.com/dzmrr9uj9/image/upload/brand/logo_icon_text_black.png",
+    "image1": "http://res.cloudinary.com/dzmrr9uj9/image/upload/brand/white_outline_450x260.png",
     "tags": [ "website" ],
     "links": [
         {

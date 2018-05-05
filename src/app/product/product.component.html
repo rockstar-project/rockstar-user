@@ -1,32 +1,32 @@
 <div class="content">
     <div class="left">
-        <ul class="nav flex-column">
-            <li class="nav-item" [routerLinkActive]="['active']">
-                <a (click)="showOptions()">
-                    <i class="pe pe-7s-keypad pe-2x border-bottom p-3"></i>
+        <ul class="nav flex-column" style="background-color:rgb(68, 67, 67);">
+            <li class="nav-item border-bottom px-2 py-3" [routerLinkActive]="['active']">
+                <a (click)="showOverview()">
+                    <img [src]="'http://res.cloudinary.com/dzmrr9uj9/image/upload/polyglot1_lightgray.png'" width="30" height="30"> 
                 </a>
             </li>
-            <li class="nav-item" [routerLinkActive]="['active']">
+            <li class="nav-item border-bottom px-2 py-3" [routerLinkActive]="['active']">
+                <a (click)="showOptions()">
+                    <img [src]="'http://res.cloudinary.com/dzmrr9uj9/image/upload/capabilities_lightgray.png'" width="30" height="30"> 
+                </a>
+            </li>
+            <li class="nav-item border-bottom px-2 py-3" [routerLinkActive]="['active']" style="border-bottom-color:#363636;">
                 <a (click)="showSpec()">
-                    <i class="pe pe-7s-network pe-2x border-bottom p-3"></i>
+                    <img [src]="'http://res.cloudinary.com/dzmrr9uj9/image/upload/design_lightgray.png'" width="30" height="30"> 
+                </a>
+            </li>
+            <li class="nav-item border-bottom px-2 py-3" [routerLinkActive]="['active']">
+                <a (click)="showCI()">
+                    <img [src]="'http://res.cloudinary.com/dzmrr9uj9/image/upload/architecture_lightgray.png'" width="30" height="30"> 
                 </a>
             </li>
         </ul>
-        <div class="content p-2">
+        <div class="content">
             <router-outlet name="sidebar"></router-outlet>
         </div>
     </div>
     <div class="right">
-        <div class="bg-light header">
-            <a class="navbar-brand" (click)="showOverview()">REST API</a>
-            
-            <a (click)="showCI()">
-                <i class="pe pe-7s-refresh-2 pe-2x pe-border fw"></i>
-            </a>
-            <a (click)="showCode()">
-                <i class="pe pe-7s-look pe-2x pe-border fw"></i>
-            </a>
-        </div>
         <div class="content">
             <router-outlet></router-outlet>
         </div>

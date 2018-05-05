@@ -1,51 +1,68 @@
 import { Routes } from '@angular/router';
 
 import { FeaturesComponent } from './features.component';
-import { ArchitectureFeatureComponent } from './architecture/architecture.component';
-import { SchemaFeatureComponent } from './schema/schema.component';
-import { RuntimeFeatureComponent } from './runtime/runtime.component';
-import { CapabilityItemsFeatureComponent } from './capabilityitems/capabilityitems.component';
-import { CapabilitiesFeatureComponent } from './capabilities/capabilities.component';
-import { SchemaFeatureResolve } from './schema/schema.resolve';
-import { ArchitectureFeatureResolve } from './architecture/architecture.resolve';
-import { RuntimeFeatureResolve } from './runtime/runtime.resolve';
-import { CapabilityItemsFeatureResolve } from './capabilityitems/capabilityitems.resolve';
-import { CapabilityFeatureResolve } from './capabilities/capabilities.resolve';
-import { ToolsFeatureComponent } from './tools/tools.component';
-import { ToolsFeatureResolve } from './tools/tools.resolve';
+import { FeaturesResolve } from './features.resolve';
+import { MicroserviceFeatureComponent } from './microservice/microservice.component';
+import { MicroserviceFeatureResolve } from './microservice/microservice.resolve';
+import { ApiFirstFeatureComponent } from './apifirst/apifirst.component';
+import { ApiFirstFeatureResolve } from './apifirst/apifirst.resolve';
+import { CloudnativeFeatureComponent } from './cloudnative/cloudnative.component';
+import { CloudnativeFeatureResolve } from './cloudnative/cloudnative.resolve';
+import { PolyglotFeatureComponent } from './polyglot/polyglot.component';
+import { PolyglotFeatureResolve } from './polyglot/polyglot.resolve';
+import { CoreCapabilityComponent } from './cloudnative/core/core.component';
+import { CoreCapabilityResolve } from './cloudnative/core/core.resolve'
+import { SupportingCapabilityComponent } from './cloudnative/supporting/supporting.component';
+import { SupportingCapabilityResolve } from './cloudnative/supporting/supporting.resolve';
+import { CloudnativeCapabilityComponent } from './cloudnative/capabilities/capabilities.component';
+import { CloudnativeCapabilitiesResolve } from './cloudnative/capabilities/capabilities.resolve';
+import { InfrastructureCapabilityComponent } from './cloudnative/infrastructure/infrastructure.component';
+import { InfrastructureCapabilityResolve } from './cloudnative/infrastructure/infrastructure.resolve';
+import { ProcessGovernCapabilityComponent } from './cloudnative/processgovern/processgovern.component';
+import { ProcessGovernCapabilityResolve } from './cloudnative/processgovern/processgovern.resolve';
 
 export const FeaturesRoutes: Routes = [
     { 
         path: '',
         component: FeaturesComponent,
+        resolve: {
+            features: FeaturesResolve
+        }
     },
     {
-        path: 'architecture',
-        component: ArchitectureFeatureComponent,
+        path: 'microservice',
+        component: MicroserviceFeatureComponent,
         resolve: {
-            architectures: ArchitectureFeatureResolve      
+            architectures: MicroserviceFeatureResolve      
         }
     },
     {
         path: 'apifirst',
-        component: SchemaFeatureComponent,
+        component: ApiFirstFeatureComponent,
         resolve: {
-            schemas: SchemaFeatureResolve      
+            schemas: ApiFirstFeatureResolve      
         }
     },
     {
-        path: 'language',
-        component: RuntimeFeatureComponent,
+        path: 'polyglot',
+        component: PolyglotFeatureComponent,
         resolve: {
-            runtimes: RuntimeFeatureResolve
+            runtimes: PolyglotFeatureResolve
         }
     },
     {
         path: 'cloudnative',
-        component: CapabilitiesFeatureComponent,
+        component: CloudnativeFeatureComponent,
         resolve: {
-            capabilities: CapabilityFeatureResolve
-        },
+            capabilities: CloudnativeFeatureResolve
+        }
+    },
+    {
+        path: 'capabilities',
+        component: CloudnativeCapabilityComponent,
+        resolve: {
+            capabilities: CloudnativeCapabilitiesResolve
+        }, 
         children: [
             {
                 path: '',
@@ -53,19 +70,33 @@ export const FeaturesRoutes: Routes = [
                 pathMatch: 'full'
             },
             {
-                path: ':slug',
-                component: CapabilityItemsFeatureComponent,
+                path: 'core',
+                component: CoreCapabilityComponent,
                 resolve: {
-                    capabilityitems: CapabilityItemsFeatureResolve
+                    core: CoreCapabilityResolve
+                }
+            },
+            {
+                path: 'supporting',
+                component: SupportingCapabilityComponent,
+                resolve: {
+                    supporting: SupportingCapabilityResolve
+                }
+            },
+            {
+                path: 'process_governance',
+                component: ProcessGovernCapabilityComponent,
+                resolve: {
+                    processgovern: ProcessGovernCapabilityResolve
+                }
+            },
+            {
+                path: 'infrastructure',
+                component: InfrastructureCapabilityComponent,
+                resolve: {
+                    infrastructure: InfrastructureCapabilityResolve
                 }
             }
         ]
-    },
-    {
-        path: 'tools',
-        component: ToolsFeatureComponent,
-        resolve: {
-            tools: ToolsFeatureResolve
-        }
     }
 ];

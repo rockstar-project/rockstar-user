@@ -21,7 +21,10 @@ import {
     LoadingComponent,
     NavbarComponent,
     FooterComponent,
-    PreviewComponent
+    PreviewComponent,
+    SliderComponent,
+    MediaComponent,
+    InfoComponent
 } from './components';
 
 import {
@@ -31,7 +34,6 @@ import {
     UtilsService,
     ContentService,
     AccountService,
-    ProductsResolve,
     UserResolve,
     AttributePipe,
     OptionPipe,
@@ -65,6 +67,9 @@ import { PreviewCardComponent } from './components/preview/card/card.component';
     NavbarComponent,
     FooterComponent,
     PreviewComponent,
+    SliderComponent,
+    MediaComponent,
+    InfoComponent,
     CapitalizePipe,
     DefaultPipe,
     AttributePipe,
@@ -83,7 +88,10 @@ import { PreviewCardComponent } from './components/preview/card/card.component';
     JsonEditorComponent,
     SwaggerComponent,
     PreviewCardComponent,
-    PreviewComponent
+    PreviewComponent,
+    SliderComponent,
+    MediaComponent,
+    InfoComponent
   ]
 })
 export class CoreModule {
@@ -93,7 +101,6 @@ export class CoreModule {
         providers: [
           Title,
           UserResolve,
-          ProductsResolve,
           UserService,
           ProductService,
           MicroserviceService,

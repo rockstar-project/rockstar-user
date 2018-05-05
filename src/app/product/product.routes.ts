@@ -18,16 +18,18 @@ export const ProductRoutes: Routes = [
         },
         children: [
             {
-                path: 'overview',
-                component: OverviewComponent
-            },
-            {
                 path: 'code',
                 component: CodeComponent
             },
             {
-                path: 'ci',
+                outlet: 'sidebar',
+                path: 'architecture',
                 component: GalleryComponent
+            },
+            {
+                outlet: 'sidebar',
+                path: 'overview',
+                component: OverviewComponent
             },
             {
                 outlet: 'sidebar',
@@ -41,7 +43,7 @@ export const ProductRoutes: Routes = [
             },
             {
                 path: '',
-                redirectTo: 'overview',
+                redirectTo: 'code',
                 pathMatch: 'full'
             }
         ]

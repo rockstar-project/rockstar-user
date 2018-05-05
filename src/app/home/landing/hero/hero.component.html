@@ -1,12 +1,18 @@
-<div class="jumbotron text-center">
-    <img [src]="hero?.image" [alt]="hero?.title" class="img-fluid">
-    <h2>{{hero?.subtitle}}</h2>
-    <button class="mt-5 btn btn-lg btn-outline-default btn-move-right" routerLink="/explore">
-        Start developing faster <i class="nc-icon nc-minimal-right"></i>
-    </button>
-</div>
-<div class="text-center">
-    <button class="btn btn-lg btn-just-icon btn-magnify btn-link" routerLink="/home/landing/howitworks"> 
-        <i class="nc-icon nc-minimal-down"></i> 
-    </button>
+<div class="section-hero h-100" style="background-image: url('http://res.cloudinary.com/dzmrr9uj9/image/upload/rockstar_cover3.jpg');">
+    <div class="container-fluid h-75 text-white d-flex flex-column justify-content-center align-items-center">
+    <!-- <img [src]="hero?.image" [alt]="hero?.title" class="img-fluid"> -->
+    <div id="typewriter">
+        <h1 style="letter-spacing: 25px;">{{hero?.title}}</h1>
+    </div>
+        <h3 class="my-4">{{hero?.subtitle}}</h3>
+        <button class="mt-5 btn btn-lg btn-outline-neutral btn-move-right" routerLink="/explore">
+            Start developing faster <i class="nc-icon nc-minimal-right"></i>
+        </button>  
+    </div>
+    <div class="container-fluid h-25 d-flex justify-content-center align-items-end">
+        <button class="btn btn-lg btn-just-icon btn-magnify btn-link" routerLink="/home/landing/howitworks"> 
+            <i class="p-2 nc-icon nc-minimal-down"></i> 
+        </button>
+    </div>
+    
 </div>

@@ -37,3 +37,8 @@ export const CONTENTFUL_SERVICE_CONFIG = {
   access_token: '9751dacd380c40e8531c6420790ee5e022c7520d7c49dbb7985460d6e467cfb6',
   api_url: 'https://cdn.contentful.com'
 }
+
+export const NOUNPROJECT_CONFIG = {
+  key: '4a0e4ed7d5fb47b8a417fe6b73464689',
+  secret: '6e58572b4a474d209acd583434eff38e'
+}
