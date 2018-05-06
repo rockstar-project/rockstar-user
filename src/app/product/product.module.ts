@@ -21,6 +21,7 @@ import { OverviewComponent } from './overview/overview.component';
 import { CodeComponent } from './code/code.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { ProductResolve } from '../core/services/product/product.resolve';
+import { OptionsResolve } from './options/options.resolve';
 
 @NgModule({
     declarations: [
@@ -48,7 +49,8 @@ import { ProductResolve } from '../core/services/product/product.resolve';
         RouterModule.forChild(routes)
     ],
     providers: [
-        ProductResolve
+        ProductResolve,
+        OptionsResolve
     ]
 })
 export class ProductModule { }

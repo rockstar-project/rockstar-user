@@ -1,8 +1,8 @@
-<div class="d-flex flex-column m-0 p-0 w-20 h-100" *ngIf="capabilities">
-    <div class="card card-plain h-25" style="width:200px;" *ngFor="let current of capabilities" style="border-bottom:1px solid #222;" (click)="onSelectCapability(current)">
-        <div class="card-body text-center">
+<div class="d-flex flex-column m-0 p-0 h-100" *ngIf="capabilities">
+    <div class="card card-plain h-25" [ngClass]="{'card-active': current?.slug === selected?.slug}" *ngFor="let current of capabilities" (click)="onSelectCapability(current)">
+        <div class="card-body d-flex flex-column justify-content-center align-items-center">
             <img [src]="current?.thumbnail" width="50" height="50">
-            <h6 class="m-3 card-category">{{current?.title}}</h6>
+            <p class="m-3">{{current?.title}}</p>
         </div>
     </div>
 </div>

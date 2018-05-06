@@ -5,6 +5,12 @@
 
 .card {
     background-color: #181818;
+    width:33%;
+}
+
+.jumbotron {
+    background-color: transparent;
+    margin-bottom: 0;
 }
 
 .section-howitworks {
@@ -22,7 +28,7 @@
         width: 100%;
         z-index: 1;
     }
-    & .container-fluid{
+    & .jumbotron, .container-fluid{
         position: relative;
         z-index: 2;
     }

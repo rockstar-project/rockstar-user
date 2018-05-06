@@ -9,7 +9,7 @@ import { Option } from '../../../core';
 export class OptionGridComponent implements OnChanges {
 
   @Input()
-  items: Option[];
+  items: any[];
 
   ngOnChanges(changes: SimpleChanges) {
     const itemChange: SimpleChange = changes.items;

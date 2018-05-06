@@ -9,6 +9,6 @@ import { Option, GroupOptions } from '../../../core';
 export class OptionAccordionComponent {
 
   @Input()
-  items: GroupOptions[];
+  items: any[];
 
 }

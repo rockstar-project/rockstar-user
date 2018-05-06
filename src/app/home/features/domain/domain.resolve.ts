@@ -4,7 +4,7 @@ import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot, ActivatedRoute, R
 import { Schema, MicroserviceService, UtilsService } from '../../../core';
 
 @Injectable()
-export class ApiFirstFeatureResolve implements Resolve<Array<Schema>> {
+export class DomainDrivenFeatureResolve implements Resolve<Array<Schema>> {
 
   constructor(private router: Router, private microserviceService: MicroserviceService) {}
 

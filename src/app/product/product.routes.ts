@@ -8,6 +8,7 @@ import { OverviewComponent } from './overview/overview.component';
 import { CodeComponent } from './code/code.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { ProductResolve } from '../core/services/product/product.resolve';
+import { OptionsResolve } from './options/options.resolve';
 
 export const ProductRoutes: Routes = [
     { 
@@ -34,7 +35,10 @@ export const ProductRoutes: Routes = [
             {
                 outlet: 'sidebar',
                 path: 'options',
-                component: OptionsComponent
+                component: OptionsComponent,
+                resolve: {
+                    options: OptionsResolve
+                }
             },
             {
                 outlet: 'sidebar',

@@ -11,6 +11,8 @@ export class OptionTabsComponent implements OnInit, OnChanges {
   @Input()
   items: GroupOptions[];
 
+  selected: GroupOptions;
+
   ngOnInit() {
   }
   
@@ -21,6 +23,10 @@ export class OptionTabsComponent implements OnInit, OnChanges {
             this.items = itemChange.currentValue;
         }
     }
+  }
+
+  onSelectCapability(groupOptions: GroupOptions) {
+    this.selected = groupOptions;
   }
 
 }

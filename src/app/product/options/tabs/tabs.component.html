@@ -1,4 +1,4 @@
-
+<!--
         <ngb-tabset [justify]="'center'" *ngIf="items">
             <ngb-tab [id]="item?.name" *ngFor="let item of items">
                 <ng-template ngbTabTitle>
@@ -9,4 +9,11 @@
                 </ng-template>
             </ngb-tab>
         </ngb-tabset>
-    
+-->
+
+
+<ul class="nav nav-tabs nav-justified" *ngIf="items">
+  <li class="nav-item" *ngFor="let item of items">
+        <a class="nav-link" data-toggle="tab" [ngClass]="{'active' : item?.slug === selected?.slug}" (click)="onSelectOption(item)">{{item?.title}}</a>
+  </li>
+</ul>

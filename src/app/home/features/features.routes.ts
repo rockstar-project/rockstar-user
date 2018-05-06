@@ -4,8 +4,8 @@ import { FeaturesComponent } from './features.component';
 import { FeaturesResolve } from './features.resolve';
 import { MicroserviceFeatureComponent } from './microservice/microservice.component';
 import { MicroserviceFeatureResolve } from './microservice/microservice.resolve';
-import { ApiFirstFeatureComponent } from './apifirst/apifirst.component';
-import { ApiFirstFeatureResolve } from './apifirst/apifirst.resolve';
+import { DomainDrivenFeatureComponent } from './domain/domain.component';
+import { DomainDrivenFeatureResolve } from './domain/domain.resolve';
 import { CloudnativeFeatureComponent } from './cloudnative/cloudnative.component';
 import { CloudnativeFeatureResolve } from './cloudnative/cloudnative.resolve';
 import { PolyglotFeatureComponent } from './polyglot/polyglot.component';
@@ -37,10 +37,10 @@ export const FeaturesRoutes: Routes = [
         }
     },
     {
-        path: 'apifirst',
-        component: ApiFirstFeatureComponent,
+        path: 'domain',
+        component: DomainDrivenFeatureComponent,
         resolve: {
-            schemas: ApiFirstFeatureResolve      
+            schemas: DomainDrivenFeatureResolve      
         }
     },
     {

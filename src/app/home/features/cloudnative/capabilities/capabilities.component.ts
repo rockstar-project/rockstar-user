@@ -12,6 +12,7 @@ export class CloudnativeCapabilityComponent implements OnInit, OnDestroy {
 
     sub: any;
     capabilities: Array<Capability>;
+    selected: Capability;
 
     constructor(
         private router: Router,
@@ -22,6 +23,7 @@ export class CloudnativeCapabilityComponent implements OnInit, OnDestroy {
     ngOnInit() {
         this.sub = this.route.params.subscribe(params => {
             this.capabilities = this.utilsService.sortDisplayOrder(this.route.snapshot.data['capabilities']);
+            this.selected = this.capabilities[0];
         });
     }
 
@@ -33,6 +35,7 @@ export class CloudnativeCapabilityComponent implements OnInit, OnDestroy {
 
     onSelectCapability(capability: Capability) {
         if (capability) {
+            this.selected = capability;
             this.router.navigate(['../capabilities/' + capability.slug], { relativeTo: this.route });
         }
     }

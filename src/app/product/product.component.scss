@@ -7,6 +7,25 @@
     align-content: stretch;
 }
 
+.navbar-nav {
+    background-color: #181818;
+    height: 100%;
+}
+
+.nav-item {
+    border-bottom:1px solid #222;
+    color: white;
+}
+
+.nav-item:hover {
+    border-bottom: 2px solid #5c5a5a;
+}
+
+.navitem-active {
+    border-bottom: 2px solid #e4e3e3;
+}
+
+
 .content {
     height: 100%;
     display: flex;
@@ -26,6 +45,7 @@
             overflow: auto;
             height:100%;
             width: 100%;
+            background-color: #1f1e1e;
         }
     }
     .right {
@@ -43,22 +63,6 @@
                 border-radius: 0;
                 border: .01em solid #eaeaea;
             }
-        }
-        
-        .content {
-           display:flex;
-           flex-direction:column;
-           overflow: auto;
-           height:85%;
-        }
-        
-        .footer {
-            display: flex;
-            height: 9%;
-            flex-direction: row;
-            flex-wrap: nowrap;
-            justify-content:center;
-            border-radius: 0;
         }
     }
 }

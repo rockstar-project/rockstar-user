@@ -3,6 +3,7 @@ import { Routes } from '@angular/router';
 import { LandingComponent } from './landing.component';
 import { HeroComponent } from './hero/hero.component';
 import { HowItWorksComponent } from './howitworks/howitworks.component';
+import { HowItWorksContentResolve } from './howitworks/howitworks.resolve';
 
 export const LandingRoutes: Routes = [
     { 
@@ -20,7 +21,10 @@ export const LandingRoutes: Routes = [
             },
             {
                 path: 'howitworks',
-                component: HowItWorksComponent
+                component: HowItWorksComponent,
+                resolve: {
+                    howitworks: HowItWorksContentResolve
+                }
             }
         ]
     }

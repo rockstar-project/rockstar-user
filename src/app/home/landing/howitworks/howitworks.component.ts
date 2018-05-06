@@ -1,7 +1,9 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
 import { Content } from './../content.model';
 import { ContentService } from './../content.service';
-import { trigger, query, transition, style, animate, stagger } from '@angular/animations';
+import { trigger, group, query, transition, style, animate, stagger } from '@angular/animations';
+import { Router, ActivatedRoute } from '@angular/router';
+import { UtilsService } from '../../../core';
 
 @Component({
     selector: 'app-home-landing',
@@ -11,45 +13,43 @@ import { trigger, query, transition, style, animate, stagger } from '@angular/an
         
         trigger('pageAnimations', [
             transition(':enter', [
-              query('.container-fluid, .container-fluid .item', [
-                style({ opacity: 0, transform: 'translateY(-50px)' }),
-                stagger(100, [
-                  animate('0.5s ease-out', style({ opacity: 1, transform: 'none' }))
-                ])
-              ])
+              
+                  query('.howitworks-card', [
+                    style({ opacity: 0 }),
+                    stagger(200, [
+                        animate('0.5s ease-out', style({ opacity: 1}))
+                    ])
+                ]),
+            
             ])
           ])
-          /*
-         trigger('pageAnimations', [
-            transition(':enter', [
-              query('.container', [
-                style({ opacity: 0 }),
-                stagger(100, [
-                  animate('1000ms ease-out', style({ opacity: '*' })),
-                ])
-              ])
-            ])
-          ]),
-          */
       ]
 })
 
 export class HowItWorksComponent  implements OnInit {
 
-    @HostBinding('@pageAnimations')
-    public animatePage = true;
+  @HostBinding('@pageAnimations')
+  public animatePage = true;
 
-    howitworks: Content;
-    
-    constructor(private contentService: ContentService) { }
+  sub: any;
+  howitworks: Content
 
-    ngOnInit() {
-        this.getHowItWorksContent();
-    }
+  constructor(
+      private router: Router,
+      private route: ActivatedRoute,
+      private utilsService: UtilsService) {
+  }
 
-     getHowItWorksContent() {
-        this.contentService.getContent('howitworks')
-           .subscribe(resultset => this.howitworks = resultset);
-    }
+  ngOnInit() {
+      this.sub = this.route.params.subscribe(params => {
+          this.howitworks =this.route.snapshot.data['howitworks'];
+      });
+  }
+
+  ngOnDestroy() {
+      if (this.sub) {
+          this.sub.unsubscribe();
+      }
+  }   
     
 }

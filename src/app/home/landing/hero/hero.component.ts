@@ -11,10 +11,10 @@ import { trigger, query, stagger, transition, style, animate } from '@angular/an
     animations: [
         trigger('pageAnimations', [
             transition(':enter', [
-                query(':self, h1,h3', [
+                query('h1,h3', [
                   style({ opacity: 0 }),
-                  stagger(100, [
-                    animate('1000ms ease-out', style({ opacity: 1 }))
+                  stagger(500, [
+                    animate('2000ms ease-out', style({ opacity: 1 }))
                   ])
                 ])
               ])

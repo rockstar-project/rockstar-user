@@ -4,3 +4,18 @@
     width:100%;
     height: 100%;
 }
+
+.card {
+    background-color: #181818;
+    width: 150px;
+    border-bottom:1px solid #222;
+    color: white;
+}
+
+.card:hover {
+    border-bottom: 2px solid #5c5a5a;
+}
+
+.card-active {
+    border-bottom: 2px solid #e4e3e3;
+}

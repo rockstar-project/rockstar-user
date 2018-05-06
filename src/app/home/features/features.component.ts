@@ -13,10 +13,20 @@ const NICE_EASING = 'cubic-bezier(0.35, 0, 0.25, 1)';
     animations: [
         trigger('pageAnimations', [
             transition(':enter', [
-              query('.container-fluid, .container-fluid .feature-card', [
-                style({ opacity: 0, transform: 'translateY(100px)'}),
-                animate('800ms ' + NICE_EASING, style({ opacity: 1, transform: 'none'}))
-              ])
+                group ([
+                    query('h2,h4', [
+                        style({ opacity: 0 }),
+                        stagger(100, [
+                          animate('1000ms ease-out', style({ opacity: 1 }))
+                        ])
+                      ]),
+                    query('.feature-card', [
+                        style({opacity: 0, transform: 'translateY(-50px)'}),
+                        stagger(100, [
+                            animate('0.5s ease-out', style({ opacity: 1, transform: 'none' }))
+                        ])
+                    ])
+                ])
             ])
           ])
       ]

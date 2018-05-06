@@ -48,16 +48,20 @@ export class PolyglotFeatureComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-        this.frontend_runtimes = new Array<Runtime>();
-        this.backend_runtimes = new Array<Runtime>();
+        let runtime:Runtime = null;
+        this.runtimes = new Array<Runtime>();
+    
         this.sub = this.route.params.subscribe(params => {
-            this.runtimes = this.utilsService.sortDisplayOrder(this.route.snapshot.data['runtimes']);
-            for (let current of this.runtimes) {
-                if (current.stack === 'frontend') {
-                    this.frontend_runtimes.push(current);
-                } else if (current.stack === 'backend') {
-                    this.backend_runtimes.push(current);
-                }
+            let result = this.utilsService.sortDisplayOrder(this.route.snapshot.data['runtimes']);
+            for (let current of result) {
+                runtime = new Runtime();
+                runtime.slug = current.slug;
+                runtime.title = current.title;
+                runtime.description = current.description;
+                runtime.enabled = current.enabled;
+                runtime.thumbnail = current.thumbnail;
+                runtime.frameworks = this.utilsService.sortDisplayOrder(current.frameworks);
+                this.runtimes.push(runtime);
             }
         });
     }

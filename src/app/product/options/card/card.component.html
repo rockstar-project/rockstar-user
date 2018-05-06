@@ -1,12 +1,12 @@
 <div class="card card-plain text-center">
-    <div class="card-header">
-        <h6 class="card-category">{{item?.name}}</h6>
+    <div class="card-block pt-2 pb-1">
+        <h6 class="card-category">{{item?.title}}</h6>
     </div>
-    <div class="card-body">
-        <img class="img-fluid" width="50" height="50" [src]="item?.image">
-        <div class="mt-2 card-block">
-            <p class="card-title">{{item?.title}}</p>
-            <h6 class="card-subtitle mb-2 text-muted">{{item?.version}}</h6>
+    <div class="card-block py-2">
+        <img class="img-fluid" width="35" height="35" [src]="item?.image">
+        <div class="mt-1 card-block">
+            <p class="card-title text-white">{{item?.value}}</p>
+            <p class="m-1 text-muted">{{item?.version}}</p>
         </div>
     </div>
 </div>

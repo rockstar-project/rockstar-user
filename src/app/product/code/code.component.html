@@ -1,7 +1,7 @@
 
 
 <div class="main">
-    <div class="sidebar bg-light">
+    <div class="sidebar">
         <ngb-accordion #acc="ngbAccordion" border-bottom-0 [closeOthers]="true">
             <ngb-panel [id]="folder?.name" *ngFor="let folder of folders">
                 <ng-template ngbPanelTitle>
@@ -29,7 +29,7 @@
     </div>
 
     <ng-template #markdownCode>
-        <div class="pl-2" markdown [data]="readme"></div>
+        <div class="readme pl-2" markdown [data]="readme"></div>
     </ng-template>
     <ng-template #javaCode>
         <pre><code highlight [textContent]="selectedfile?.content"></code></pre>

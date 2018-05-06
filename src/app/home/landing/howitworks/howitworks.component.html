@@ -1,26 +1,29 @@
 <div class="section-howitworks h-100" style="background-image: url('http://res.cloudinary.com/dzmrr9uj9/image/upload/background/binary1_bg_1920x1080.jpg');">
+    <!--
     <div class="container-fluid text-center">
         <button class="btn btn-lg btn-just-icon btn-magnify btn-link" routerLink="/home/landing/hero"> 
             <i class="nc-icon nc-minimal-up"></i> 
         </button>
     </div>
-    <div class="container-fluid py-3 text-center text-white">
+    -->
+    <div class="jumbotron text-center text-white">
         <h2>How It Works</h2>
         <h4>Develop Microservices in Microseconds</h4>
     </div>
-    <div class="container-fluid text-center text-white">
-        <div class="item d-flex">
-            <div class="col card card-plain m-3 text-white"  *ngFor="let item of howitworks?.contents">
-                <div class="card-body">
-                    <h3>{{item?.display_order}}. {{item?.title}}</h3>
-                    <img class="m-4" [src]="item?.image" width="100" height="100">
-                    <h4 class="px-4">{{item?.subtitle}}</h4>
-                </div>
+    <div class="container-fluid d-flex justify-content-center align-items-center" >
+       
+        <div class="card card-plain howitworks-card m-3 text-white"  *ngFor="let item of howitworks?.contents">
+            <div class="card-body text-center p-5">
+                <h3>{{item?.display_order}}. {{item?.title}}</h3>
+                <img class="m-4" [src]="item?.image" width="100" height="100">
+                <h4 class="px-4">{{item?.subtitle}}</h4>
             </div>
         </div>
+           
+    </div>
+    <div class="container-fluid text-center text-white">
         <button class="mt-5 btn btn-lg btn-outline-neutral btn-move-right" routerLink="/explore">
             Explore Microservices <i class="nc-icon nc-minimal-right"></i>
         </button>
-           
     </div>
 </div>

@@ -12,8 +12,8 @@ import { MicroserviceFeatureComponent } from './microservice/microservice.compon
 import { MicroserviceFeatureResolve } from './microservice/microservice.resolve';
 import { MicroserviceFeatureItemComponent } from './microservice/item/item.component';
 
-import { ApiFirstFeatureComponent } from './apifirst/apifirst.component';
-import { ApiFirstFeatureResolve } from './apifirst/apifirst.resolve';
+import { DomainDrivenFeatureComponent } from './domain/domain.component';
+import { DomainDrivenFeatureResolve } from './domain/domain.resolve';
 
 import { PolyglotFeatureItemComponent } from './polyglot/item/item.component';
 import { PolyglotFeatureComponent } from './polyglot/polyglot.component';
@@ -37,7 +37,7 @@ import { ProcessGovernCapabilityResolve } from './cloudnative/processgovern/proc
         FeaturesComponent,
         MicroserviceFeatureComponent,
         MicroserviceFeatureItemComponent,
-        ApiFirstFeatureComponent,
+        DomainDrivenFeatureComponent,
         PolyglotFeatureComponent,
         PolyglotFeatureItemComponent,
         CloudnativeFeatureComponent,
@@ -56,7 +56,7 @@ import { ProcessGovernCapabilityResolve } from './cloudnative/processgovern/proc
     ],
     providers: [
         FeaturesResolve,
-        ApiFirstFeatureResolve,
+        DomainDrivenFeatureResolve,
         CloudnativeFeatureResolve,
         PolyglotFeatureResolve,
         MicroserviceFeatureResolve,

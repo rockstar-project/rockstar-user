@@ -1,40 +1,40 @@
 <div class="content">
     <div class="left">
-        <ul class="nav flex-column" style="background-color:rgb(68, 67, 67);">
-            <li class="nav-item border-bottom px-2 py-3" [routerLinkActive]="['active']">
-                <a (click)="showOverview()">
-                    <img [src]="'http://res.cloudinary.com/dzmrr9uj9/image/upload/polyglot1_lightgray.png'" width="30" height="30"> 
-                </a>
-            </li>
-            <li class="nav-item border-bottom px-2 py-3" [routerLinkActive]="['active']">
-                <a (click)="showOptions()">
-                    <img [src]="'http://res.cloudinary.com/dzmrr9uj9/image/upload/capabilities_lightgray.png'" width="30" height="30"> 
-                </a>
-            </li>
-            <li class="nav-item border-bottom px-2 py-3" [routerLinkActive]="['active']" style="border-bottom-color:#363636;">
-                <a (click)="showSpec()">
-                    <img [src]="'http://res.cloudinary.com/dzmrr9uj9/image/upload/design_lightgray.png'" width="30" height="30"> 
-                </a>
-            </li>
-            <li class="nav-item border-bottom px-2 py-3" [routerLinkActive]="['active']">
-                <a (click)="showCI()">
-                    <img [src]="'http://res.cloudinary.com/dzmrr9uj9/image/upload/architecture_lightgray.png'" width="30" height="30"> 
-                </a>
-            </li>
-        </ul>
+       
+        <nav class="navbar">
+
+            <ul class="navbar-nav" >
+                <li class="nav-item">
+                    <a  class="nav-link" (click)="showOverview()">
+                        <img [src]="'http://res.cloudinary.com/dzmrr9uj9/image/upload/polyglotprogramming_bluewhite.png'" width="30" height="30"> 
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" (click)="showOptions()">
+                        <img [src]="'http://res.cloudinary.com/dzmrr9uj9/image/upload/cloudnative_bluewhite.png'" width="30" height="30"> 
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" (click)="showSpec()">
+                        <img [src]="'http://res.cloudinary.com/dzmrr9uj9/image/upload/domain_bluewhite.png'" width="30" height="30"> 
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" (click)="showCI()">
+                        <img [src]="'http://res.cloudinary.com/dzmrr9uj9/image/upload/microservice1_bluewhite.png'" width="30" height="30"> 
+                    </a>
+                </li>
+            </ul>
+            
+        </nav>
+
         <div class="content">
             <router-outlet name="sidebar"></router-outlet>
         </div>
     </div>
     <div class="right">
-        <div class="content">
-            <router-outlet></router-outlet>
-        </div>
-        <nav class="bg-light footer">
-            <button class="btn btn-round btn-lg btn-outline-default d-flex align-self-center" routerLink="/explore">
-                <span>Download Microservice</span>
-            </button>
-        </nav>
         
+        <router-outlet></router-outlet>
+       
     </div>
 </div>

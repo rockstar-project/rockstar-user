@@ -11,6 +11,7 @@ import { LandingRoutes as routes } from './landing.routes';
 import { LandingComponent } from './landing.component';
 import { HeroComponent } from './hero/hero.component';
 import { HowItWorksComponent } from './howitworks/howitworks.component';
+import { HowItWorksContentResolve } from './howitworks/howitworks.resolve';
 
 @NgModule({
     declarations: [
@@ -28,7 +29,8 @@ import { HowItWorksComponent } from './howitworks/howitworks.component';
         RouterModule.forChild(routes)
     ],
     providers: [
-        ContentService
+        ContentService,
+        HowItWorksContentResolve
     ]
 })
 export class LandingModule { }

@@ -50,8 +50,13 @@ export class ProductComponent implements OnInit, OnDestroy {
     }
 
     showOverview() {
-        this.router.navigate(['overview'], { relativeTo: this.route });
+        this.router.navigate([{outlets : {sidebar: 'overview'}}], { relativeTo: this.route });
         //this.router.navigateByUrl('/product/' + this.id + '/overview');
+    }
+
+    showCI() {
+        this.router.navigate([{outlets : {sidebar: 'ci'}}], { relativeTo: this.route });
+        //this.router.navigateByUrl('/product/' + this.id + '/ci');
     }
 
     showCode() {
@@ -59,8 +64,4 @@ export class ProductComponent implements OnInit, OnDestroy {
         //this.router.navigateByUrl('/product/' + this.id + '/code');
     }
 
-    showCI() {
-        this.router.navigate(['ci'], { relativeTo: this.route });
-        //this.router.navigateByUrl('/product/' + this.id + '/ci');
-    }
 }

@@ -5,9 +5,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
 @Component({
-    selector: 'app-feature-apifirst',
-    templateUrl: './apifirst.component.html',
-    styleUrls: ['./apifirst.component.scss'],
+    selector: 'app-feature-domain',
+    templateUrl: './domain.component.html',
+    styleUrls: ['./domain.component.scss'],
     animations: [
         trigger('pageAnimations', [
             transition(':enter', [
@@ -28,7 +28,7 @@ import { Location } from '@angular/common';
     ]
 })
 
-export class ApiFirstFeatureComponent implements OnInit, OnDestroy {
+export class DomainDrivenFeatureComponent implements OnInit, OnDestroy {
 
     @HostBinding('@pageAnimations')
     public animatePage = true;
