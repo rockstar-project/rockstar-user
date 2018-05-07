@@ -14,7 +14,7 @@
 </div>
 -->
 <div class="d-flex">
-    <ul class="nav flex-column">
+    <ul class="nav flex-column" style="background-color:#1e1e1e">
         <li class="nav-item border-bottom" [routerLinkActive]="['active']" *ngFor="let capability of capabilities">
             <a (click)="toggleSidebar(capability?.slug)">
                 <img class="m-3" [src]="capability?.thumbnail" width="50" height="50">
@@ -32,7 +32,7 @@
     
             <!-- Page content -->
             <div ng-sidebar-content>
-                <div class="card card-plain" style="overflow:hidden;">
+                <div class="card card-plain" style="overflow:hidden;background-color:#1e1e1e;">
                     <div class="card-header d-flex">
                         <div class="w-50">
                             <form role="search" class="form-inline search-form">
@@ -85,7 +85,7 @@
                         
                     </div>
 
-                    <div class="card-body bg-light">
+                    <div class="card-body bg-dark">
                         <ng-scrollbar>
                             <div class="d-flex flex-row flex-wrap justify-content-around" [@listAnimation]="div">
                                 <app-search-item [item]="item" *ngFor="let item of productResult?._embedded?.productResourceList" (select)="onSelectProduct($event)">
@@ -93,7 +93,7 @@
                             </div>
                         </ng-scrollbar>
                     </div>
-                    <div class="d-flex justify-content-center card-footer bg-light">
+                    <div class="d-flex justify-content-center card-footer" style="background-color:#1e1e1e;">
                         <button class="btn btn-outline-default">Load more</button>
                     </div>
                 </div>

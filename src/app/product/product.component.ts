@@ -55,7 +55,7 @@ export class ProductComponent implements OnInit, OnDestroy {
     }
 
     showCI() {
-        this.router.navigate([{outlets : {sidebar: 'ci'}}], { relativeTo: this.route });
+        this.router.navigate([{outlets : {sidebar: 'architecture'}}], { relativeTo: this.route });
         //this.router.navigateByUrl('/product/' + this.id + '/ci');
     }
 
