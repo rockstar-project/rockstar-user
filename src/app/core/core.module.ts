@@ -12,7 +12,8 @@ import { Title } from '@angular/platform-browser';
 import {
     CapitalizePipe,
     DefaultPipe,
-    ResourceIdPipe
+    ResourceIdPipe,
+    DisplayOrderSortPipe,
 } from './pipes';
 
 import {
@@ -74,12 +75,14 @@ import { PreviewCardComponent } from './components/preview/card/card.component';
     DefaultPipe,
     AttributePipe,
     OptionPipe,
-    ResourceIdPipe
+    ResourceIdPipe,
+    DisplayOrderSortPipe
   ],
   declarations: [
     CapitalizePipe,
     DefaultPipe,
     ResourceIdPipe,
+    DisplayOrderSortPipe,
     OptionPipe,
     AttributePipe,
     LoadingComponent,
@@ -111,7 +114,8 @@ export class CoreModule {
           ContentService,
           AttributePipe,
           OptionPipe,
-          ResourceIdPipe
+          ResourceIdPipe,
+          DisplayOrderSortPipe
         ]
       };
     }

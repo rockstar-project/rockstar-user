@@ -10,7 +10,6 @@ import { UtilsService } from '../../../core';
     templateUrl: './howitworks.component.html',
     styleUrls: ['./howitworks.component.scss' ],
     animations: [
-        
         trigger('pageAnimations', [
             transition(':enter', [
               

@@ -10,7 +10,7 @@ import { Router, ActivatedRoute } from '@angular/router';
     animations: [
         trigger('pageAnimations', [
             transition(':enter', [
-                query('.container, .container .card', [
+                query('.container-fluid, .container-fluid .media', [
                     style({ opacity: 0, transform: 'translateX(-50px)' }),
                     stagger(100, [
                         animate('0.5s ease-out', style({ opacity: 1, transform: 'none' }))
@@ -36,17 +36,14 @@ export class CoreCapabilityComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-        console.log("inside CoreCapabilityFeatureComponent ")
         this.sub = this.route.params.subscribe(params => {
             this.core = this.route.snapshot.data['core'];
             
             if (this.core && this.core.subcapabilities) {
-                for (let current of this.core.subcapabilities) {
+                for (let current of this.utilsService.sortDisplayOrder(this.core.subcapabilities)) {
                     if (current.slug === 'clientsidelb') {
-                        console.log('clientsidelb');
                         current.color = 'frost';
                     } else if (current.slug === 'httplistener') {
-                        console.log('httplistener');
                         current.color = 'flickr';
                     } else if (current.slug === 'logging') {
                         current.color = 'vine';

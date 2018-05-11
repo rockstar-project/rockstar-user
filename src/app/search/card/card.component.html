@@ -1,6 +1,5 @@
 <div class="card card-plain text-center">
     
-        
         <div class="card-body text-center">
             <h6 class="card-category text-info mb-3">{{ item?.attributes | attribute:'architecture':'title' }}</h6>
             <img src="{{ item?.attributes | attribute:'specification':'image' }}" width="30" height="30" class="img-fluid" placement="bottom" ngbTooltip="{{ item?.attributes | attribute:'specification':'description' }}">

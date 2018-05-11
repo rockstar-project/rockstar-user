@@ -1,8 +1,10 @@
-<ngb-accordion class="content-left-body" #optionsAccordion="ngbAccordion">
-    <ngb-panel [id]="item?.name" *ngFor="let item of items">
+<ngb-accordion class="content-left-body" [activeIds]="activeIds">
+    <ngb-panel [id]="'panel-' + item?.name" *ngFor="let item of items">
         <ng-template ngbPanelTitle>
             <h5 class="mb-0 panel-title">
-                <a class="collapsed">{{item?.title}}<i class="nc-icon nc-minimal-down"></i></a>
+                <a class="collapsed">{{item?.title}}
+                   <!-- <i class="nc-icon nc-minimal-down"></i> -->
+                </a>
             </h5>
         </ng-template>
         <ng-template ngbPanelContent>

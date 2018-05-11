@@ -3,18 +3,16 @@
         <h2>Develop more, code less</h2>
         <h4>Easy to get started and become productive quickly</h4>
     </div>
-    <div class="container py-3 d-flex flex-row flex-wrap">
+    <div class="container-fluid py-3 d-flex flex-row flex-wrap">
         <div class="mx-5 d-flex flex-row flex-wrap capability-container py-2 text-white justify-content-center">
-        
-            <div class="m-1 card card-plain" *ngFor="let current of core?.subcapabilities" style="width:300px;" [ngClass]="'border-' + current?.color">
-                <div class="card-block d-flex flex-row align-items-center p-2 justify-content-between">
-                    <div class="d-flex align-items-center">
-                        <img [src]="current?.thumbnail" width="40" height="40">
-                        <h6 class="px-3 text-muted">{{current?.title}}</h6>
-                    </div>
+            <div class="m-2 pt-3 pb-1 media border-bottom-0" *ngFor="let current of core?.subcapabilities" style="width:400px;" [ngClass]="'border-' + current?.color">
+                <img class="m-3 p-2 rounded-circle border border-white" [src]="current?.thumbnail" width="50" height="50">
+                <div class="media-body">
+                    <h5>{{current?.title}}</h5>
+                    {{current?.description}}
                 </div>
             </div>
         
         </div>
     </div>
-</div>
+</div> 

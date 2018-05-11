@@ -20,7 +20,7 @@
         width: 100%;
         z-index: 1;
     }
-    & .container, .jumbotron-fluid {
+    & .container-fluid, .jumbotron-fluid {
         position: relative;
         z-index: 2;
     }
@@ -33,7 +33,7 @@
     text-align: center;
 }
 
-.card {
+.card,.media {
     background-color: #181818;
     color: white;
     border-radius: none;
@@ -89,8 +89,4 @@
 
 .border-delhi {
     border-left: 2px solid #08ce39;
-}
-
-.border-white {
-    border-left: 2px solid #b40505;
 }

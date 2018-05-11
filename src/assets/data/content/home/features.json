@@ -1,5 +1,49 @@
 [
     {
+        "title": "Additional Features",
+        "subtitle": "",
+        "description": "",
+        "contents": [
+            {
+                "title": "Small in size",
+                "description": "CA Live API Creator enables microservices that are small when measured logically, physically or even in effort required. Developers are granted complete autonomy over logical service granularity, can deploy instances to anything from a Raspberry Pi to a massively scaled cluster and can accomplish an unprecedented amount of work with significantly less time and effort"
+            },
+            {
+                "title": "Messaging enabled",
+                "description": "Every microservice comes with a robust set of CRUD APIs for interacting with resources, as well as the ability to add functional APIs for more workflow-oriented use cases. The APIs are consistent and full-featured, providing pagination, sorting, searching, filtering, hypermedia links to related resources, multiple message formats and many parameters for customization."
+            },
+            {
+                "title": "Bounded by contexts",
+                "description": ""
+            },
+            {
+                "title": "",
+                "description": ""
+            },
+            {
+                "title": "",
+                "description": ""
+            },
+            {
+                "title": "",
+                "description": ""
+            },
+            {
+                "title": "",
+                "description": ""
+            },
+            {
+                "title": "",
+                "description": ""
+            },
+            {
+                "title": "",
+                "description": ""
+            }
+            
+        ]
+    },
+    {
         "title": "Developer Productivity",
         "subtitle": "Developing microservices in microseconds",
         "contents": [
@@ -80,7 +124,7 @@
     },
     {
         "title": "Flexibility",
-        "subtitle": "Rapidly build business apps with low-code",
+        "subtitle": "Take advantage of emerging technologies or team skills<",
         "contents": [
             {
                 "title": "Minimize risk",
@@ -93,7 +137,7 @@
                 "image": "http://res.cloudinary.com/dzmrr9uj9/image/upload/feature.png"
             },
             {
-                "title": "Choose your programming language and preferred tech stack",
+                "title": "Tailored to your programming language or platform",
                 "subtitle": "Create microservices using your favorite technology.",
                 "description": "Leverage from a wide range of programming languages and effective frameworks",
                 "image": "http://res.cloudinary.com/dzmrr9uj9/image/upload/feature.png"

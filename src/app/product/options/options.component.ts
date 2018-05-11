@@ -43,7 +43,7 @@ export class OptionsComponent implements OnInit, OnDestroy {
     if (product && resultset) {
       this.groupOptions = new Array<GroupOptions> ();
             
-      for (let current of resultset[0]) {
+      for (let current of this.utilsService.sortDisplayOrder(resultset[0])) {
         currentGroupOption = new GroupOptions();
         currentGroupOption.name = current.slug;
         currentGroupOption.title = current.title;
@@ -60,7 +60,7 @@ export class OptionsComponent implements OnInit, OnDestroy {
           capabilities = resultset[4].subcapabilities
         }
 
-        for (let currentCapability of capabilities) {
+        for (let currentCapability of this.utilsService.sortDisplayOrder(capabilities)) {
           let productOption = this.getMatchingOption(product.options, currentCapability.slug)
           if (productOption) {
             option = new Option();
