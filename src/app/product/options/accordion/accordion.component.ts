@@ -14,7 +14,8 @@ export class OptionAccordionComponent implements OnInit {
   activeIds: string[] = [];
 
   ngOnInit() {
-    this.activeIds = this.items.map(i => 'panel-' + i.name);
+    //this.activeIds = this.items.map(i => 'panel-' + i.name);
+    this.activeIds.push('panel-' + 'core');
   }
 
 }

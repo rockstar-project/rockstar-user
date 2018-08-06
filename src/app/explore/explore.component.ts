@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy} from '@angular/core';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 import { fadeInAnimation, UtilsService } from 'app/core';
 import { Product, ProductSearchResult } from './../core';
 import { AuthService } from './../auth';

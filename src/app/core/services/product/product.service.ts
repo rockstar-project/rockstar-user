@@ -1,6 +1,7 @@
+
+import {throwError as observableThrowError,  Observable, pipe } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams, HttpErrorResponse } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
 import { catchError } from 'rxjs/operators';
 import { environment } from '../../../../environments/environment';
 import { ProductSearchResult, ProductSearchCriteria, Product, Media } from './';
@@ -81,7 +82,7 @@ export class ProductService {
 
   private handleError(err: HttpErrorResponse | any) {
     console.error('An error occurred', err);
-    return Observable.throw(err.message || err);
+    return observableThrowError(err.message || err);
   }
 
 }

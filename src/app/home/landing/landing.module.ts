@@ -4,7 +4,6 @@ import { RouterModule } from "@angular/router";
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CoreModule } from './../../core';
-import { TypingAnimationModule } from 'angular-typing-animation';
 
 import { ContentService } from "./content.service";
 import { LandingRoutes as routes } from './landing.routes';
@@ -25,7 +24,6 @@ import { HowItWorksContentResolve } from './howitworks/howitworks.resolve';
         RouterModule,
         NgbModule,
         CoreModule,
-        TypingAnimationModule,
         RouterModule.forChild(routes)
     ],
     providers: [

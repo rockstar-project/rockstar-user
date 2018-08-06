@@ -4,7 +4,6 @@ import { RouterModule } from "@angular/router";
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MarkdownModule } from 'ngx-markdown';
-import { NgxGalleryModule } from 'ngx-gallery';
 import { SidebarModule } from 'ng-sidebar';
 
 import { HighlightModule } from 'ngx-highlightjs'; 
@@ -44,7 +43,6 @@ import { OptionsResolve } from './options/options.resolve';
         MarkdownModule.forChild(),
         CoreModule,
         SidebarModule,
-        NgxGalleryModule,
         HighlightModule.forRoot({ theme: 'tomorrow'}),
         RouterModule.forChild(routes)
     ],

@@ -2,23 +2,26 @@
 
 <div class="main">
     <div class="sidebar">
-        <ngb-accordion #acc="ngbAccordion" border-bottom-0 [closeOthers]="true">
-            <ngb-panel [id]="folder?.name" *ngFor="let folder of folders">
-                <ng-template ngbPanelTitle>
-                    <h6 class="mb-0 panel-title">
-                        <a class="collapsed">
+
+        <div id="accordion-code">
+            <div class="card card-plain" *ngFor="let folder of folders">
+                <div class="card-header" [id]="'header-' + folder?.name">
+                    <h5 class="mb-0 media_item_header">
+                        <button class="btn btn-link" data-toggle="collapse" [attr.data-target]="'#' + 'collapse-' + folder?.name" aria-expanded="true" [attr.aria-controls]="'collapse-' + folder?.name">
                             {{folder?.name | capitalize}}
-                            <i class="nc-icon nc-minimal-down"></i>
-                        </a>
-                    </h6>
-                </ng-template>
-                <ng-template ngbPanelContent>
-                    <div class="list-group">
-                        <a class="list-group-item list-group-item-action" (click)="onSelectFile(folder?.name, file?.name)" *ngFor="let file of folder?.files;">{{ file?.name }}</a>
+                        </button>
+                    </h5>
+                </div>
+                
+                <div [id]="'collapse-' + folder?.name" class="collapse" [attr.aria-labelledby]="'header-'+folder?.name" data-parent="#accordion-code">
+                    <div class="card-body media_item_content">
+                        <div class="list-group">
+                            <a class="list-group-item list-group-item-action" (click)="onSelectFile(folder?.name, file?.name)" *ngFor="let file of folder?.files;">{{ file?.name }}</a>
+                        </div>
                     </div>
-                </ng-template>
-            </ngb-panel>
-        </ngb-accordion>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="content">

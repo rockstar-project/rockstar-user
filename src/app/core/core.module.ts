@@ -6,7 +6,6 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ScrollbarModule } from 'ngx-scrollbar';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { Title } from '@angular/platform-browser';
 
 import {
@@ -52,8 +51,7 @@ import { PreviewCardComponent } from './components/preview/card/card.component';
     FormsModule,
     NgbModule,
     ScrollbarModule,
-    ReactiveFormsModule,
-    FlexLayoutModule
+    ReactiveFormsModule
   ],
   exports: [
     HttpModule,

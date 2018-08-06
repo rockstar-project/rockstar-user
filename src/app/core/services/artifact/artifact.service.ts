@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, Response, RequestOptions, ResponseContentType } from '@angular/http';
-import { Observable } from 'rxjs/Rx';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
+import { Observable, pipe } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
+
 import { environment } from '../../../../environments/environment';
 import { Artifact } from './';
 
@@ -20,8 +20,10 @@ export class ArtifactService {
     const options = new RequestOptions({ headers: headers });
 
     return this.http.post(`${environment.api_url}/artifacts`, artifact, options)
-            .map(res => res.headers.get('Location'))
-            .catch(this.handleError);
+            .pipe(
+                map(res => res.headers.get('Location')),
+                catchError(this.handleError)
+              );
   }
 
   downloadArtifact(url: string): Observable<Blob> {
@@ -32,8 +34,10 @@ export class ArtifactService {
     const options = new RequestOptions({ headers: headers, responseType: ResponseContentType.ArrayBuffer });
 
     return this.http.get(url, options)
-              .map(res => new Blob([res['_body']], { type: 'application/zip' }))
-              .catch(this.handleError);
+          .pipe(
+              map(res => new Blob([res['_body']], { type: 'application/zip' })),
+              catchError(this.handleError)
+          );
   }
 
   private extractData(res: Response) {

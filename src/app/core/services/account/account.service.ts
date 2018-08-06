@@ -1,6 +1,7 @@
+
+import { throwError as observableThrowError,  Observable, of, pipe } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams, HttpErrorResponse } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
 import { catchError } from 'rxjs/operators';
 import { environment } from '../../../../environments/environment';
 import { Account, PaymentTransaction } from './account.model';
@@ -11,11 +12,11 @@ export class AccountService {
   constructor(private httpClient: HttpClient) {}
 
   getAccount(url: string): Observable<Account> {
-    return Observable.of(new Account());
+    return of(new Account());
   }
 
   getAccountPayments(email: string): Observable<Array<PaymentTransaction>> {
-    return Observable.of([
+    return of([
       {
         "reference_number": "R9S1B4AA",
         "amount": "99",
@@ -45,7 +46,7 @@ export class AccountService {
 
   private handleError(err: HttpErrorResponse | any) {
     console.error('An error occurred', err);
-    return Observable.throw(err.message || err);
+    return observableThrowError(err.message || err);
   }
 
 }

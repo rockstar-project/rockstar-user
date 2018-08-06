@@ -39,5 +39,22 @@ export class UtilsService {
         });
     }
     return arr;
-}
+  }
+
+  sortOrder(arr: any[]): any[]{
+    if (arr) {
+        arr.sort((a: any, b: any) => {
+            if (a && b) {
+                if (a.order < b.order) {
+                    return -1;
+                } else if (a.order > b.order) {
+                    return 1;
+                } else {
+                    return 0;
+                }
+            }
+        });
+    }
+    return arr;
+  }
 }

@@ -1,14 +1,17 @@
-<ngb-accordion class="content-left-body" [activeIds]="activeIds">
-    <ngb-panel [id]="'panel-' + item?.name" *ngFor="let item of items">
-        <ng-template ngbPanelTitle>
-            <h5 class="mb-0 panel-title">
-                <a class="collapsed">{{item?.title}}
-                   <!-- <i class="nc-icon nc-minimal-down"></i> -->
-                </a>
+<div id="accordion-options">
+    <div class="card card-plain" *ngFor="let item of items">
+        <div class="card-header media_item_header" [id]="'header-' + item?.name">
+            <h5 class="mb-0">
+                <button class="btn btn-link" data-toggle="collapse" [attr.data-target]="'#' + 'collapse-' + item?.name" aria-expanded="true" [attr.aria-controls]="'collapse-' + item?.slug">
+                    {{item?.title}}
+                </button>
             </h5>
-        </ng-template>
-        <ng-template ngbPanelContent>
-            <app-option-grid [items]="item?.options"></app-option-grid>
-        </ng-template>
-    </ngb-panel>
-</ngb-accordion>
+        </div>
+        
+        <div [id]="'collapse-' + item?.name" class="collapse" [attr.aria-labelledby]="'header-'+item?.name" data-parent="#accordion-options">
+            <div class="card-body media_item_content">
+                <app-option-grid [items]="item?.options"></app-option-grid>
+            </div>
+        </div>
+    </div>
+</div>

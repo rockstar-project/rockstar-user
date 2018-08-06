@@ -1,8 +1,17 @@
-<ngb-carousel>
-    <ng-template ngbSlide *ngFor="let item of product?.media_items;">
-        <img [src]="item?.src" [alt]="item?.title">
-        <div class="carousel-caption">
-            <h3>{{item?.title}}</h3>
+<div id="accordion">
+    <div class="card card-plain" *ngFor="let item of product?.media_items;">
+        <div class="card-header" [id]="'header-' + item?.slug">
+            <h5 class="mb-0 media_item_header">
+                <button class="btn btn-link" data-toggle="collapse" [attr.data-target]="'#' + 'collapse-' + item?.slug" aria-expanded="true" [attr.aria-controls]="'collapse-' + item?.slug">
+                    {{item?.title}}
+                </button>
+            </h5>
         </div>
-    </ng-template>
-</ngb-carousel>
+      
+        <div [id]="'collapse-' + item?.slug" class="collapse" [attr.aria-labelledby]="'header-'+item?.slug" data-parent="#accordion">
+            <div class="card-body media_item_content">
+                <img [src]="item?.src" [alt]="item?.title">
+            </div>
+        </div>
+    </div>
+</div>

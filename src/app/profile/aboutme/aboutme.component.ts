@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService, Runtime, MicroserviceService } from '../../core';
-import { Observable } from 'rxjs/observable';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-profile-aboutme',
@@ -21,7 +21,7 @@ export class AboutMeComponent  implements OnInit {
   }
 
   getInterests() {
-    return Observable.of(['java', 'springboot', 'angular'])
+    return of(['java', 'springboot', 'angular'])
   }
 
   getRuntimes() {

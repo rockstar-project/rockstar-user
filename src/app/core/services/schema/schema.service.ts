@@ -1,6 +1,7 @@
+
+import {throwError as observableThrowError,  Observable, pipe } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
 import { catchError } from 'rxjs/operators';
 
 @Injectable()
@@ -24,7 +25,7 @@ export class SchemaService {
 
   private handleError(err: HttpErrorResponse | any) {
     console.error('An error occurred', err);
-    return Observable.throw(err.message || err);
+    return observableThrowError(err.message || err);
   }
 
 }

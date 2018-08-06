@@ -27,11 +27,12 @@ export class Attribute {
 }
 
 export class Media {
+  slug: string;
   title: string;
   src: string;
   thumbnail: string;
   type: string;
-  tags: string[] = [];
+  order: number;
 }
 
 export class Product {

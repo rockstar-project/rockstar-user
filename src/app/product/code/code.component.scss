@@ -33,12 +33,47 @@
         margin: 0;
         
         .list-group-item {
-            background-color: #302f2f;
+            background-color: #1f1e1e;
             color: white;
-            padding: 0.35rem !important;
             border-radius: 0 !important;
             font-size: 12px;
         }
+    }
+
+    .media_item_header {
+        background-color: #181818;
+        border-bottom: 0.5px solid #141414;
+    }
+    
+    .media_item_content {
+        display: block;
+        background-color: #141414;
+    }
+    
+    .card {
+        margin-bottom: 0;
+    }
+    
+    .card-header {
+        padding: 0;
+        margin: 0;
+    }
+    
+    #accordion .card-header {
+        background-color: transparent;
+    }
+    
+    .card-header h5 {
+        padding:10px;
+    }
+    
+    .btn-link {
+        color: white;
+    }
+    
+    .btn {
+        font-size: 16px;
+        font-weight: inherit;
     }
 
     .content {
@@ -59,15 +94,6 @@
             background-color:#1f1e1e;
             color: rgb(170, 167, 167);
         }
-    }
-}
-
-::ng-deep ngb-accordion .card {
-    .card-header {
-        background-color: #181818;
-    }
-    a:not(.btn){
-        color: white;
     }
 }
 
