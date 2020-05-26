@@ -1,5 +1,5 @@
 
-import {throwError as observableThrowError,  Observable, pipe } from 'rxjs';
+import { throwError as observableThrowError,  Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams, HttpErrorResponse } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
@@ -11,11 +11,6 @@ export class ProductService {
 
   constructor(private httpClient: HttpClient) {}
 
-  
-  private get _authHeader(): string {
-    return `Bearer ${localStorage.getItem('access_token')}`;
-  }
- 
   searchProducts(criteria: ProductSearchCriteria): Observable<ProductSearchResult> {
       let params = new HttpParams();
      
@@ -45,7 +40,6 @@ export class ProductService {
       let headers = new HttpHeaders()
               .append('Accept', 'application/json')
               .append('Content-Type', 'application/json')
-              .append('Authorization', this._authHeader)
 
       return this.httpClient
         .get<ProductSearchResult>(`${environment.api_url}/products/search`, { params: params, headers:  headers } )
@@ -60,7 +54,6 @@ export class ProductService {
         headers: new HttpHeaders()
             .set('Accept', 'application/json')
             .set('Content-Type', 'application/json')
-            .set('Authorization', this._authHeader)
       })
       .pipe(
         catchError(this.handleError)
@@ -73,7 +66,6 @@ export class ProductService {
         headers: new HttpHeaders()
             .set('Accept', 'application/json')
             .set('Content-Type', 'application/json')
-            .set('Authorization', this._authHeader)
       })
       .pipe(
         catchError(this.handleError)

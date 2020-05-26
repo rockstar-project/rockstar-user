@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rockstar-app
+  namespace: rockstar
+  labels:
+    app: rockstar-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rockstar-app
+  template:
+    metadata:
+      labels:
+        app: rockstar-app
+    spec:
+      containers:
+      - name: rockstar-app
+        image: docker-registry.default.svc:5000/rockstar/rockstar-app:0.0.1
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080

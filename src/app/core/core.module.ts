@@ -1,11 +1,10 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { ScrollbarModule } from 'ngx-scrollbar';
+import { NgScrollbarModule } from 'ngx-scrollbar';
 import { Title } from '@angular/platform-browser';
 
 import {
@@ -45,20 +44,18 @@ import { PreviewCardComponent } from './components/preview/card/card.component';
 @NgModule({
   imports: [
     CommonModule,
-    HttpModule,
     HttpClientModule,
     RouterModule,
     FormsModule,
     NgbModule,
-    ScrollbarModule,
+    NgScrollbarModule,
     ReactiveFormsModule
   ],
   exports: [
-    HttpModule,
     HttpClientModule,
     RouterModule,
     FormsModule,
-    ScrollbarModule,
+    NgScrollbarModule,
     ReactiveFormsModule,
     JsonEditorComponent,
     SwaggerComponent,

@@ -4,9 +4,9 @@ import { CoreModule } from "./../core";
 import { RouterModule } from "@angular/router";
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { JWBootstrapSwitchModule } from 'jw-bootstrap-switch-ng2';
+import { JwBootstrapSwitchNg2Module } from 'jw-bootstrap-switch-ng2';
 import { TagInputModule } from 'ngx-chips';
-import { ProfileRoutes as routes } from './profile.routes';
+import { ProfileRoutingModule } from './profile.routes';
 import { ProfileComponent } from './profile.component';
 import { AboutMeComponent } from './aboutme/aboutme.component';
 import { ConnectionsComponent } from './connections/connections.component';
@@ -24,9 +24,9 @@ import { ConnectionsComponent } from './connections/connections.component';
         RouterModule,
         NgbModule,
         TagInputModule,
-        JWBootstrapSwitchModule,
+        JwBootstrapSwitchNg2Module,
         CoreModule,
-        RouterModule.forChild(routes)
+        ProfileRoutingModule,
     ]
 })
 export class ProfileModule { }

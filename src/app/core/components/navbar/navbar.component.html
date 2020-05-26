@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md">
     <a class="navbar-brand" routerLink="/">
-        <img src="http://res.cloudinary.com/dzmrr9uj9/image/upload/brand/logo_black_circle.png" alt="" width="40">
+        <img src="https://res.cloudinary.com/dzmrr9uj9/image/upload/brand/logo_black_circle.png" alt="" width="40">
     </a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-bar"></span>
@@ -12,15 +12,15 @@
         <ul class="navbar-nav ml-auto" *ngIf="!authService.loggedIn">
           
             <li class="nav-item" routerLinkActive="active">
-                <a class="nav-link" routerLink="/home/landing">Home</a>
+                <a class="nav-link" routerLink="/landing">Home</a>
             </li>
             
             <li class="nav-item" routerLinkActive="active">
-                <a class="nav-link" routerLink="/home/landing/howitworks">How It Works</a>
+                <a class="nav-link" routerLink="/landing/howitworks">How It Works</a>
             </li>
 
             <li class="nav-item" routerLinkActive="active">
-                <a class="nav-link" routerLink="/home/features">Features</a>
+                <a class="nav-link" routerLink="/landing/features">Features</a>
             </li>
 
             <li class="nav-item" routerLinkActive="active"> 
@@ -38,13 +38,13 @@
                 <a class="nav-link" routerLink="/home/blog">Blog</a>
             </li>
     -->
-            <li class="nav-item">
+            <li class="nav-item" *ngIf="authService.loggedIn === false">
                 <a class="nav-link">
                     <a class="nav-link" (click)="authService.login()">Sign in</a>
                 </a>
             </li>
         </ul>
-        <ul class="navbar-nav ml-auto" *ngIf="authService.loggedIn">
+        <ul class="navbar-nav ml-auto" *ngIf="authService.userProfile$ | async as profile">
             
             <li class="nav-item" routerLinkActive="active"> 
                 <a class="nav-link" routerLink="/explore">
@@ -62,11 +62,11 @@
                 <div ngbDropdown class="dropdown image-dropdown">
                     <div class="nav-link" ngbDropdownToggle>
                         <div class="profile-photo-small">
-                            <img [src]="authService.userProfile?.picture" [alt]="authService.userProfile?.name"  class="img-circle img-responsive img-no-padding">
+                            <img [src]="profile.picture" [alt]="profile.name"  class="img-circle img-responsive img-no-padding">
                         </div>
                     </div>
                     <div ngbDropdownMenu class="dropdown-menu dropdown-menu-right dropdown-default">
-                        <div class="dropdown-header">{{authService.userProfile?.nickname}}</div>
+                        <div class="dropdown-header">{{profile?.nickname}}</div>
                          <!--
                         <a class="dropdown-item" routerLink="/profile">
                             <i class="nc-icon nc-badge"></i>&nbsp; Profile
@@ -76,10 +76,6 @@
                         <a class="dropdown-item" routerLink="/collections">
                             
                             <i class="nc-icon nc-tile-56"></i>&nbsp; Collections
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" routerLink="/account">
-                            <i class="nc-icon nc-settings"></i>&nbsp; Account
                         </a>
                     
                         <div class="dropdown-divider"></div>

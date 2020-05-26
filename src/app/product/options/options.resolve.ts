@@ -4,17 +4,17 @@ import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot, ActivatedRoute, R
 import { MicroserviceService, UtilsService, Capability } from '../../core';
 
 @Injectable()
-export class OptionsResolve implements Resolve<Capability[][]> {
+export class OptionsResolve implements Resolve<any> {
 
   constructor(private router: Router, private microserviceService: MicroserviceService) {}
 
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Capability[][]> {
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> {
     let capabilities = this.microserviceService.getCapabilities(null)
     let core = this.microserviceService.getCapability('core');
     let supporting = this.microserviceService.getCapability('supporting');
     let infrastructure = this.microserviceService.getCapability('infrastructure');
     let processgovern = this.microserviceService.getCapability('process_governance');
-    return forkJoin<Capability[]>([capabilities, core, supporting, infrastructure, processgovern]);
+    return forkJoin([capabilities, core, supporting, infrastructure, processgovern]);
   }
 
 }

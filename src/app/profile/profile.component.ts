@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from './../auth';
+import { AuthService } from './../auth/auth.service';
 import { fadeInAnimation } from './../core';
 
 @Component({
@@ -10,14 +10,13 @@ import { fadeInAnimation } from './../core';
   host: { '[@fadeInAnimation]': '' }
 })
 export class ProfileComponent implements OnInit {
-
-    profile: any;
+    profileJson: string = null;
    
     constructor(public authService: AuthService) { }
 
     ngOnInit() {
-        if (this.authService.userProfile) {
-          this.profile = this.authService.userProfile;
-        }
+      this.authService.userProfile$.subscribe(
+        profile => this.profileJson = JSON.stringify(profile, null, 2)
+      );
     }
 }

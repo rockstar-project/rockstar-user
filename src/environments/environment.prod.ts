@@ -4,9 +4,9 @@ export const environment = {
 };
 
 export const AUTH_CONFIG = {
-  clientID: 'Xq2aEg1v6fwrgAORSnM0TygdBSZ4QHDU',
+  clientID: '8fGEyRsBmUNp7BfEjaV3nfpw5pAl4dU2',
   domain: 'rockstar.auth0.com',
-  redirect: 'https://rock-star.io/callback',
-  scope: 'openid profile email download:artifacts create:artifacts',
+  redirect: 'https://www.rock-star.io/explore',
+  scope: 'openid profile email download:artifacts create:artifacts read:products search:products',
   audience: 'http://api.rock-star.io/v1'
 };

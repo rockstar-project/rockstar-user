@@ -6,7 +6,7 @@ import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown/angular2
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SidebarModule } from 'ng-sidebar';
 import { CoreModule } from './../core';
-import { SearchRoutes as routes } from './search.routes';
+import { SearchRoutingModule } from './search.routes';
 import { SearchComponent } from './search.component';
 import { SearchItemComponent } from './card/card.component';
 import { OptionFilterComponent } from './filters/option/option.component';
@@ -26,7 +26,7 @@ import { SearchProductsResolve } from './search.resolve';
         CoreModule,
         SidebarModule,
         AngularMultiSelectModule,
-        RouterModule.forChild(routes)
+        SearchRoutingModule,
     ],
     providers: [
         SearchProductsResolve

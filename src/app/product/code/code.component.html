@@ -24,7 +24,7 @@
         </div>
     </div>
 
-    <div class="content">
+    <div class="content" [@fadeAnimation]="">
         <ng-scrollbar>
             <ng-container *ngIf="selectedfile?.ext === 'md'; then markdownCode; else javaCode">
             </ng-container>

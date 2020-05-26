@@ -3,7 +3,7 @@ import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router";
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { CollectionsRoutes as routes } from './collections.routes';
+import { CollectionRoutingModule } from './collections.routes';
 import { CollectionsComponent } from './collections.component';
 
 @NgModule({
@@ -15,7 +15,7 @@ import { CollectionsComponent } from './collections.component';
         FormsModule,
         RouterModule,
         NgbModule,
-        RouterModule.forChild(routes)
+        CollectionRoutingModule,
     ]
 })
 export class CollectionsModule { }

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Route
+metadata:
+  name: rockstar-app
+spec:
+  host: www.rock-star.io
+  path: "/"
+  to:
+    kind: Service
+    name: rockstar-app
+  tls:
+    termination: edge

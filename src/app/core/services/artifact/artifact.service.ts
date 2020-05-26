@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers, Response, RequestOptions, ResponseContentType } from '@angular/http';
-import { Observable, pipe } from 'rxjs';
+import { HttpClient, HttpHeaders, HttpErrorResponse, HttpResponse } from '@angular/common/http';
+import { throwError as observableThrowError, Observable } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 
 import { environment } from '../../../../environments/environment';
@@ -9,46 +9,39 @@ import { Artifact } from './';
 @Injectable()
 export class ArtifactService {
 
-  constructor(private http: Http) {}
+  constructor(private http: HttpClient) {}
 
-  createArtifact(artifact: Artifact) {
-    const headers = new Headers();
-    headers.append('Accept', 'application/json');
-    headers.append('Content-Type', 'application/json');
-    headers.append('Authorization', `Bearer ${localStorage.getItem('access_token')}`);
+  createArtifact(artifact: Artifact) : Observable<any> {
+    let httpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${localStorage.getItem('access_token')}`
+    });
 
-    const options = new RequestOptions({ headers: headers });
-
-    return this.http.post(`${environment.api_url}/artifacts`, artifact, options)
+    return this.http.post<any>(`${environment.api_url}/artifacts`, artifact, { headers: httpHeaders, observe: 'response' })
             .pipe(
-                map(res => res.headers.get('Location')),
-                catchError(this.handleError)
-              );
+              map(res => res.headers.get('Location')),
+              catchError(this.handleError)
+            );
   }
 
   downloadArtifact(url: string): Observable<Blob> {
-    const headers = new Headers();
-    headers.append('accept', 'application/zip');
-    headers.append('Authorization', `Bearer ${localStorage.getItem('access_token')}`);
+    if (url) {
+      let httpHeaders = new HttpHeaders({
+          'Accept': 'application/zip',
+          'Content-Type': 'application/zip; charset=utf-8',
+          'Authorization': `Bearer ${localStorage.getItem('access_token')}`
+        });
 
-    const options = new RequestOptions({ headers: headers, responseType: ResponseContentType.ArrayBuffer });
-
-    return this.http.get(url, options)
-          .pipe(
-              map(res => new Blob([res['_body']], { type: 'application/zip' })),
-              catchError(this.handleError)
-          );
+      return this.http.get(url, { headers: httpHeaders, responseType: 'arraybuffer' })
+            .pipe(
+                map(res  =>  new Blob([res], { type: 'application/zip' })),
+                catchError(this.handleError)
+            );
+    }
   }
 
-  private extractData(res: Response) {
-    const body = res.json();
-        return body.link || {};
+   private handleError(err: HttpErrorResponse | any) {
+    console.error('An error occurred', err);
+    return observableThrowError(err.message || err);
   }
-
-  private handleError(error: any) {
-       const errMsg = (error.message) ? error.message :
-            error.status ? `${error.status} - ${error.statusText}` : 'Server error';
-       console.error(errMsg);
-       return Observable.throw(errMsg);
-   }
 }

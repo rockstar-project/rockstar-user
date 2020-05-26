@@ -1,12 +1,10 @@
-FROM alpine:3.4
+FROM nginx:stable
 
-RUN apk add --update nginx
-RUN mkdir -p /run/nginx
-RUN mkdir -p /usr/share/nginx/html
+RUN chmod g+rwx /var/cache/nginx /var/run /var/log/nginx
 
 COPY nginx.conf /etc/nginx/
-ADD dist /usr/share/nginx/html
+ADD dist/ /usr/share/nginx/html
 
 EXPOSE 8080
 
-CMD nginx -g 'daemon off;'
+CMD ["nginx", "-g", "daemon off;"]

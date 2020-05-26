@@ -1,5 +1,6 @@
-import { ViewChild, HostBinding, Component, OnInit } from '@angular/core';
+import { ViewChild, HostBinding, Component, OnInit, AfterViewChecked } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { fadeAnimation } from '../../core';
 import { Observable } from 'rxjs';
 import { ProductService, Product, AttributePipe, OptionPipe } from '../../core';
 import { ArtifactService, Artifact, Specification, SelectedValue } from '../../core/';
@@ -7,6 +8,7 @@ import { SchemaService } from '../../core';
 import { saveAs as importedSaveAs } from 'file-saver';
 import * as JSZip from 'jszip';
 import { Folder, File } from '../../core';
+import { HighlightService } from './highlight.service';
 
 const DEFAULT_ORG = 'cookery';
 const DEFAULT_NAME = 'collection';
@@ -14,13 +16,15 @@ const DEFAULT_NAME = 'collection';
 @Component({
   selector: 'app-develop-code',
   templateUrl: './code.component.html',
-  styleUrls: ['./code.component.scss']
+  styleUrls: ['./code.component.scss'],
+  animations: [ fadeAnimation ]
 })
-export class CodeComponent implements OnInit {
+export class CodeComponent implements OnInit, AfterViewChecked {
   private _opened: boolean = true;
   productDetails: Product;
   codeurl: string;
   readme: any;
+  highlighted: boolean = false;
 
   selectedfile: File;
   files: File[] = new Array<File>();
@@ -29,11 +33,19 @@ export class CodeComponent implements OnInit {
 
   constructor(
         private route: ActivatedRoute, 
+        private highlightService: HighlightService,
         private productService: ProductService, 
         private artifactService: ArtifactService,
         private schemaService: SchemaService,
         private attributePipe: AttributePipe,
         private optionPipe: OptionPipe) {
+  }
+
+  ngAfterViewChecked() {
+    if (!this.highlighted) {
+      this.highlightService.highlightAll();
+      this.highlighted = true;
+    }
   }
 
   ngOnInit() {
@@ -150,7 +162,8 @@ export class CodeComponent implements OnInit {
     
     this.artifactService.createArtifact(artifact)
         .subscribe(resultset => {
-            this.artifactService.downloadArtifact(resultset)
+            console.log('artifact created: ' + resultset);
+            this.artifactService.downloadArtifact('' + resultset)
                 .subscribe((data: Blob) => {
                     const zipfile = new JSZip();
                     const sourcecode = new Map<string, string>();

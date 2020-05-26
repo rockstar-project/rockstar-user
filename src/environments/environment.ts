@@ -1,15 +1,15 @@
 export const environment = {
   production: false,
-  api_url: 'http://localhost/v1'
+  api_url: 'https://api.rock-star.io'
 };
 
 export const AUTH_CONFIG = {
   clientID: '8fGEyRsBmUNp7BfEjaV3nfpw5pAl4dU2',
   domain: 'rockstar.auth0.com',
-  redirect: 'http://localhost:4200/callback',
-  scope: 'openid profile email search:products read:products download:artifacts create:artifacts search:collections read:collections create:collections update:collections delete:collections',
+  redirect: `${window.location.origin}`,
+  scope: 'openid profile email search:products read:products download:artifacts create:artifacts',
   audience: 'https://api.rock-star.io/',
-  namespace: 'http://localhost/roles'
+  namespace: 'http://www.rock-star.io/roles'
 };
 
 export const ICONFINDER_CONFIG = {

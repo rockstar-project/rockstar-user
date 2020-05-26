@@ -1,3 +1,4 @@
+export * from './fade.animation';
 export * from './fadein.animation';
 export * from './list.animation';
 export * from './router.animation';

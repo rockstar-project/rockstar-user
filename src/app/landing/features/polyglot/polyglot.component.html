@@ -1,0 +1,43 @@
+<div class="section-runtime h-100" style="background-image: url('http://res.cloudinary.com/dzmrr9uj9/image/upload/microservice4_background.jpg');">
+    <div class="container text-center py-4">
+        <button class="btn btn-lg btn-just-icon btn-magnify btn-link" (click)="goback()"> 
+            <i class="nc-icon nc-minimal-up"></i> 
+        </button>
+    </div>
+    <div class="container mt-0 mb-4 text-center text-white">
+        <h2 class="m-0 p-0">Polyglot Programming</h2>
+        <h4>Pick the right programming language &amp; framework</h4>
+       <!-- <h4>Take advantage of emerging technologies or team skills</h4> -->
+    </div>
+
+    <div class="container">
+
+        <div class="d-flex flex-row flex-wrap">
+            <div class="m-1 card card-plain" *ngFor="let current of runtimes"  style="width:200px;">
+        
+                <div class="card-body text-center">
+                    <img [src]="current?.thumbnail" width="50" height="50">
+                    <h6 class="m-3 card-category">{{current?.title}}</h6>
+                    <hr style="border:1px solid #292929;width:25%;">
+                    <!--
+                    <p class="text-muted">The kit comes with a huge number of components designed</p>
+                    -->
+                
+                
+                </div>
+                <div class="card-footer d-flex flex-row flex-wrap justify-content-center">
+                    <div class="m-1" *ngFor="let option of current?.frameworks | slice:0:3">
+                        <img class="p-1" [src]="option?.thumbnail" width="35" height="35">
+                    </div>
+                </div>
+            </div>
+        </div>
+            
+    </div>
+
+    <div class="container mt-3 mb-0 text-center">
+        <button class="btn btn-lg btn-just-icon btn-magnify btn-link" routerLink="../cloudnative"> 
+            <i class="nc-icon nc-minimal-down"></i> 
+        </button>
+    </div>
+</div>

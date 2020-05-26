@@ -1,22 +1,24 @@
 
-<div class="jumbotron w-100 text-center" >
-    <img [src]="profile?.picture" [alt]="profile?.name" class="img-circle img-responsive" width="150" height="150">
-    <h4 class="title">{{profile?.name}}</h4>
-</div>
-
-<div class="nav-tabs-navigation" style="height:70%;">
-    <div class="nav-tabs-wrapper">
-        <ngb-tabset [justify]="'center'">
-            <ngb-tab title="About Me">
-                <ng-template ngbTabContent>
-                    <app-profile-aboutme></app-profile-aboutme>
-                </ng-template>
-            </ngb-tab>
-            <ngb-tab title="Connections">
-                <ng-template ngbTabContent >
-                    <app-profile-connections></app-profile-connections>
-                </ng-template>
-            </ngb-tab>
-        </ngb-tabset>
+<ng-container *ngIf="authService.userProfile$ | async as profile">
+    <div class="jumbotron w-100 text-center" >
+        <img [src]="profile.picture" [alt]="profile.name" class="img-circle img-responsive" width="150" height="150">
+        <h4 class="title">{{profile.name}}</h4>
     </div>
-</div>
+
+    <div class="nav-tabs-navigation" style="height:70%;">
+        <div class="nav-tabs-wrapper">
+            <ngb-tabset [justify]="'center'">
+                <ngb-tab title="About Me">
+                    <ng-template ngbTabContent>
+                        <app-profile-aboutme></app-profile-aboutme>
+                    </ng-template>
+                </ngb-tab>
+                <ngb-tab title="Connections">
+                    <ng-template ngbTabContent >
+                        <app-profile-connections></app-profile-connections>
+                    </ng-template>
+                </ngb-tab>
+            </ngb-tabset>
+        </div>
+    </div>
+</ng-container>

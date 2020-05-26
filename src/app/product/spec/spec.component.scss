@@ -7,12 +7,17 @@
 
 .header {
     .form-control {
+        margin: 0;
         border-radius: 0;
+        border: none;
+        box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+        background-color: #302f2f;
+        color: #d2d2d2;
     }
     .pe-border {
         padding: .23em;
         border-radius: 0;
-        border: .04em solid #dddddd;
+        border: .02em solid #181818;
     }
     .pe-2x {
         font-size: 1.9em;

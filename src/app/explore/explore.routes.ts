@@ -1,8 +1,9 @@
-import { Routes } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 import { ExploreComponent } from './explore.component';
 import { ExploreProductsResolve } from './explore.resolve';
+import { NgModule } from '@angular/core';
 
-export const ExploreRoutes: Routes = [
+export const routes: Routes = [
     { 
         path: '',
         component: ExploreComponent,
@@ -11,3 +12,11 @@ export const ExploreRoutes: Routes = [
         }
     }
 ];
+
+@NgModule({
+    imports: [ RouterModule.forChild(routes)],
+    exports: [ RouterModule ],
+    providers: [
+    ]
+})
+export class ExploreRoutingModule { }

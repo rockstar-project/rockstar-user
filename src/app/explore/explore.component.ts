@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy} from '@angular/core';
 import { Subscription } from 'rxjs';
 import { fadeInAnimation, UtilsService } from 'app/core';
 import { Product, ProductSearchResult } from './../core';
-import { AuthService } from './../auth';
+import { AuthService } from './../auth/auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
