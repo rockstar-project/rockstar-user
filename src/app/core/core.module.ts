@@ -6,7 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgScrollbarModule } from 'ngx-scrollbar';
 import { Title } from '@angular/platform-browser';
-
+import { FlexLayoutModule } from '@angular/flex-layout';
 import {
     CapitalizePipe,
     DefaultPipe,
@@ -49,7 +49,8 @@ import { PreviewCardComponent } from './components/preview/card/card.component';
     FormsModule,
     NgbModule,
     NgScrollbarModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FlexLayoutModule,
   ],
   exports: [
     HttpClientModule,

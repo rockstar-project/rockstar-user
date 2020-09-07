@@ -14,12 +14,12 @@
     background-color: black;
 
     &:before{
-        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.90) 0%,rgba(8, 8, 8, 1) 100%);
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.80) 0%,rgba(8, 8, 8, 1) 100%);
         content: "";
         display: block;
         left: 0;
         top: 20;
-        height: 90%;
+        height: 100%;
         position: absolute;
         width: 100%;
         z-index: 1;
